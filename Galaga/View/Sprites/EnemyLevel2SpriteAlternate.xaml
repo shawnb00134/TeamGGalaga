@@ -1,0 +1,27 @@
+﻿<local:BaseSprite
+    x:Class="Galaga.View.Sprites.EnemyLevel2SpriteAlternate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Galaga.View.Sprites"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="60"
+    d:DesignWidth="50"
+    Height="60"
+    Width="50">
+
+    <UserControl.Resources>
+        <SolidColorBrush x:Key="EngineAccentColor" Color="Lavender" />
+        <SolidColorBrush x:Key="EngineSecondaryAccentColor" Color="LightCoral" />
+    </UserControl.Resources>
+
+    <Canvas>
+        <local:EnemyLevel1SpriteAlternate Canvas.Top="0" Canvas.Left="0" />
+        <Polygon Points="0,40 4,25 8,40" Fill="{StaticResource EngineSecondaryAccentColor}" />
+        <Polygon Points="42,40 46,25 50,40" Fill="{StaticResource EngineSecondaryAccentColor}" />
+        <Polygon Points="20,20 25,5 30,20 25,35" Fill="{StaticResource EngineSecondaryAccentColor}" />
+        <Polygon Points="2,30 4,25 6,30" Fill="{StaticResource EngineAccentColor}" />
+        <Polygon Points="44,30 46,25 48,30" Fill="{StaticResource EngineAccentColor}" />
+    </Canvas>
+</local:BaseSprite>
