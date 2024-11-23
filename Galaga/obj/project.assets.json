@@ -10255,18 +10255,18 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\sb00134\\.nuget\\packages\\": {},
+    "C:\\Users\\DeadMan\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-04\\ShawnBretthauerGalaga\\Galaga\\Galaga.csproj",
+      "projectUniqueName": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
       "projectName": "Galaga",
-      "projectPath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-04\\ShawnBretthauerGalaga\\Galaga\\Galaga.csproj",
-      "packagesPath": "C:\\Users\\sb00134\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-04\\ShawnBretthauerGalaga\\Galaga\\obj\\",
+      "projectPath": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
+      "packagesPath": "C:\\Users\\DeadMan\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -10274,7 +10274,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\sb00134\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DeadMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

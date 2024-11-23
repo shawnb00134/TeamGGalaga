@@ -119,13 +119,9 @@ namespace Galaga.Model
         }
 
         /// <summary>
-        ///     Fires the player missile.
+        ///     Returns the player object
         /// </summary>
-        /// <returns>GameObject player missile</returns>
-        //public GameObject FirePlayerMissile()
-        //{
-        //    return this.missileManager.FireMissile(this.player, this.canvas);
-        //}
+        /// <returns></returns>
         public GameObject GetPlayer()
         {
             return this.player;

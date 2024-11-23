@@ -11,10 +11,7 @@ namespace Galaga.Model
     {
         #region Data members
 
-        //TODO: Change names of these constants to something more descriptive
-        private const int EnemyMovementStepOne = 10;
-        private const int EnemyMovementStepTwo = 30;
-        private const int EnemyMovementStepThree = 40;
+        private bool movingRight = true;
 
         private readonly Canvas canvas;
 
@@ -99,21 +96,25 @@ namespace Galaga.Model
         /// <param name="tickCounter">The tick counter.</param>
         public void MoveEnemyShips(List<EnemyShip> enemyShips, int tickCounter)
         {
+            //From Nate
             foreach (var ship in enemyShips)
             {
-                if (ship != null)
+                if (this.movingRight)
                 {
-                    if (tickCounter < EnemyMovementStepOne)
+                    ship.MoveRight();
+
+                    if (ship.X + ship.Width >= this.canvas.Width)
                     {
-                        ship.MoveLeft();
+                        this.movingRight = false;
                     }
-                    else if (tickCounter < EnemyMovementStepTwo)
+                }
+                else
+                {
+                    ship.MoveLeft();
+
+                    if (ship.X <= 0)
                     {
-                        ship.MoveRight();
-                    }
-                    else if (tickCounter < EnemyMovementStepThree)
-                    {
-                        ship.MoveLeft();
+                        this.movingRight = true;
                     }
                 }
             }

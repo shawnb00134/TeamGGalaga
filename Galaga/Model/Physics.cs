@@ -40,11 +40,10 @@ namespace Galaga.Model
 
         private bool isColliding(GameObject ship, GameObject missile)
         {
-            var shipRectangle = new Rectangle((int)ship.X, (int)ship.Y, (int)ship.Width, (int)ship.Height);
-            var missileRectangle =
-                new Rectangle((int)missile.X, (int)missile.Y, (int)missile.Width, (int)missile.Height);
-
-            return shipRectangle.IntersectsWith(missileRectangle);
+            return missile.X < ship.X + ship.Width &&
+                   missile.X + missile.Width > ship.X &&
+                   missile.Y < ship.Y + ship.Height &&
+                   missile.Y + missile.Height > ship.Y;
         }
 
         /// <summary>
