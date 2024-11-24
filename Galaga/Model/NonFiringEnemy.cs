@@ -73,24 +73,24 @@ namespace Galaga.Model
             this.sprites[1].Visibility = Visibility.Collapsed;
         }
 
-        /// <summary>
-        ///     Swaps the sprites.
-        /// </summary>
-        public override void SwapSprites()
-        {
-            if (this.sprites[0].Visibility == Visibility.Visible)
-            {
-                this.sprites[0].Visibility = Visibility.Collapsed;
-                this.sprites[1].Visibility = Visibility.Visible;
-                Sprite = this.sprites[1];
-            }
-            else
-            {
-                this.sprites[0].Visibility = Visibility.Visible;
-                this.sprites[1].Visibility = Visibility.Collapsed;
-                Sprite = this.sprites[0];
-            }
-        }
+        ///// <summary>
+        /////     Swaps the sprites.
+        ///// </summary>
+        //public override void SwapSprites()
+        //{
+        //    if (this.sprites[0].Visibility == Visibility.Visible)
+        //    {
+        //        this.sprites[0].Visibility = Visibility.Collapsed;
+        //        this.sprites[1].Visibility = Visibility.Visible;
+        //        Sprite = this.sprites[1];
+        //    }
+        //    else
+        //    {
+        //        this.sprites[0].Visibility = Visibility.Visible;
+        //        this.sprites[1].Visibility = Visibility.Collapsed;
+        //        Sprite = this.sprites[0];
+        //    }
+        //}
 
         #endregion
     }

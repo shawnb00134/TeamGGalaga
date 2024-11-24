@@ -51,7 +51,7 @@ namespace Galaga.Model
         /// </summary>
         protected EnemyShip(BaseSprite mainSprite, BaseSprite alternateSprite, Canvas canvas)
         {
-            Sprite = mainSprite;
+            //Sprite = mainSprite;
             this.canvas = canvas;
             SetSpeed(SpeedXDirection, SpeedYDirection);
             this.sprites = new[] { mainSprite, alternateSprite };
@@ -62,18 +62,6 @@ namespace Galaga.Model
         #endregion
 
         #region Methods
-
-        /// <summary>
-        ///     Fires the missile.
-        /// </summary>
-        /// <returns></returns>
-        public virtual EnemyMissile FireMissile()
-        {
-            var missile = new EnemyMissile();
-            missile.X = X + Width / 2.0 - missile.Width / 2.0;
-            missile.Y = Y + Height;
-            return missile;
-        }
 
         /// <summary>
         ///     Adds the enemy sprites to the canvas and sets it initial visibility.
@@ -92,6 +80,18 @@ namespace Galaga.Model
         /// </summary>
         public virtual void SwapSprites()
         {
+            if (this.sprites[0].Visibility == Visibility.Visible)
+            {
+                this.sprites[0].Visibility = Visibility.Collapsed;
+                this.sprites[1].Visibility = Visibility.Visible;
+                Sprite = this.sprites[1];
+            }
+            else
+            {
+                this.sprites[0].Visibility = Visibility.Visible;
+                this.sprites[1].Visibility = Visibility.Collapsed;
+                Sprite = this.sprites[0];
+            }
         }
 
         #endregion

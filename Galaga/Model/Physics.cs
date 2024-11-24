@@ -16,7 +16,7 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="listOfShips">The enemy ships.</param>
         /// <param name="missiles">The missiles.</param>
-        public List<GameObject> CheckCollisions(List<GameObject> listOfShips, List<GameObject> missiles)
+        public List<GameObject> CheckCollisions(IList<GameObject> listOfShips, IList<GameObject> missiles)
         {
             var objectsToRemove = new List<GameObject>();
 

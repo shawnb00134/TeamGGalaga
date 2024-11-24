@@ -150,14 +150,14 @@ namespace Galaga.Model
         protected void SetSpeed(int speedX, int speedY)
         {
             if (speedX < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(speedX));
-            }
+            //{
+            //    throw new ArgumentOutOfRangeException(nameof(speedX));
+            //}
 
-            if (speedY < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(speedY));
-            }
+            //if (speedY < 0)
+            //{
+            //    throw new ArgumentOutOfRangeException(nameof(speedY));
+            //}
 
             this.SpeedX = speedX;
             this.SpeedY = speedY;

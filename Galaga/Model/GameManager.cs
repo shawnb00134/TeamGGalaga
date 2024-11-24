@@ -27,9 +27,9 @@ namespace Galaga.Model
 
         private int score;
 
-        private List<EnemyShip> enemyShips;
-        private readonly List<GameObject> listOfShips;
-        private readonly List<GameObject> missiles;
+        private IList<EnemyShip> enemyShips;
+        private readonly IList<GameObject> listOfShips;
+        private readonly IList<GameObject> missiles;
         private readonly Physics physics;
         private readonly EnemyManager enemyManager;
 
@@ -173,7 +173,7 @@ namespace Galaga.Model
             this.removeObjectsFromCanvas(objectsToRemove);
         }
 
-        private void removeObjectsFromCanvas(List<GameObject> objectsToRemove)
+        private void removeObjectsFromCanvas(IList<GameObject> objectsToRemove)
         {
             foreach (var obj in objectsToRemove)
             {

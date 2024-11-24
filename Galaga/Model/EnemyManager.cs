@@ -94,7 +94,7 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="enemyShips">The enemy ships.</param>
         /// <param name="tickCounter">The tick counter.</param>
-        public void MoveEnemyShips(List<EnemyShip> enemyShips, int tickCounter)
+        public void MoveEnemyShips(IList<EnemyShip> enemyShips, int tickCounter)
         {
             //From Nate
             foreach (var ship in enemyShips)
@@ -123,7 +123,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Swaps the sprites every tick.
         /// </summary>
-        public void swapSpritesAnimation(List<EnemyShip> enemyShips)
+        public void swapSpritesAnimation(IList<EnemyShip> enemyShips)
         {
             foreach (var enemyShip in enemyShips)
             {

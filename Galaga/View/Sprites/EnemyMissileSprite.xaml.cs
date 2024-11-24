@@ -3,19 +3,19 @@
 namespace Galaga.View.Sprites
 {
     /// <summary>
-    ///     PlayerMissileSprite sprite.
+    ///     EnemyMissile sprite.
     /// </summary>
     /// <seealso cref="Galaga.View.Sprites.BaseSprite" />
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector" />
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector2" />
-    public partial class PlayerMissileSprite : BaseSprite
+    public sealed partial class EnemyMissile : BaseSprite
     {
         #region Constructors
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="PlayerMissileSprite" /> class.
+        ///     Initializes a new instance of the <see cref="EnemyMissile" /> class.
         /// </summary>
-        public PlayerMissileSprite()
+        public EnemyMissile()
         {
             this.InitializeComponent();
         }

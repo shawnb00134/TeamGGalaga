@@ -64,12 +64,15 @@ namespace Galaga.Model
         /// <summary>
         ///     Fires the missile.
         /// </summary>
-        public override EnemyMissile FireMissile()
+        //TODO: DELETE ME
+        public GameObject FireMissile()
         {
-            var missile = new EnemyMissile();
-            missile.X = X + Width / 2.0 - missile.Width / 2.0;
-            missile.Y = Y + Height;
-            return missile;
+            //var missile = new EnemyMissile();
+            //var missile = new Missile(12, new EnemyMissileSprite());
+            //missile.X = X + Width / 2.0 - missile.Width / 2.0;
+            //missile.Y = Y + Height;
+            //return missile;
+            return null;
         }
 
         /// <summary>

@@ -14,6 +14,7 @@
       <RootProperty Name="Children" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Margin" />
       <RootMethod Name="GetLeft" />
       <RootMethod Name="SetLeft" />
       <RootMethod Name="GetTop" />
@@ -51,12 +52,12 @@
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.StaticResourceExtension" />
     <RootType FullName="Galaga.View.Sprites.EnemyLevel1Sprite" />
     <RootType FullName="Galaga.View.Sprites.EnemyLevel1SpriteAlternate" />
+    <RootType FullName="Galaga.View.Sprites.EnemyLevel2Sprite" />
+    <RootType FullName="Galaga.View.Sprites.EnemyLevel2SpriteAlternate" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Polygon">
       <RootProperty Name="Points" />
       <RootProperty Name="Fill" />
     </RootType>
-    <RootType FullName="Galaga.View.Sprites.EnemyLevel2Sprite" />
-    <RootType FullName="Galaga.View.Sprites.EnemyLevel2SpriteAlternate" />
     <RootType FullName="Galaga.View.Sprites.EnemyLevel3Sprite" />
     <RootType FullName="Galaga.View.Sprites.EnemyLevel3SpriteAlternate" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Ellipse">
@@ -64,12 +65,7 @@
       <RootProperty Name="Width" />
       <RootProperty Name="Fill" />
     </RootType>
-    <RootType FullName="Galaga.View.Sprites.EnemyMissile" />
-    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
-      <RootProperty Name="Height" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Fill" />
-    </RootType>
+    <RootType FullName="Galaga.View.Sprites.EnemyMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerSprite" />
   </Roots.RootTypes>
