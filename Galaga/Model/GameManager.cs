@@ -82,9 +82,8 @@ namespace Galaga.Model
                 this.playerManager.MovePlayerRight();
             }
 
-            this.enemyFireMissiles();
-
             this.enemyManager.MoveEnemyShips(this.enemyShips, this.tickCounter);
+            this.enemyFireMissiles();
             this.moveMissiles();
             this.tickCounter++;
 
