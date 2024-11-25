@@ -43,7 +43,7 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="shipList">The ship list.</param>
         /// <returns></returns>
-        public List<GameObject> CreateAndPlacePlayer(IList<GameObject> shipList)
+        public IList<GameObject> CreateAndPlacePlayer(IList<GameObject> shipList)
         {
             this.canvas.Children.Add(this.player.Sprite);
             //this.listOfShips.Add(this.player);
@@ -93,7 +93,7 @@ namespace Galaga.Model
         /// <param name="playerObject">The player object.</param>
         /// <param name="listOfShips">The list of ships.</param>
         /// <returns>List of GameObjects ships</returns>
-        public List<GameObject> CheckPlayerLives(GameObject playerObject, IList<GameObject> listOfShips)
+        public IList<GameObject> CheckPlayerLives(GameObject playerObject, IList<GameObject> listOfShips)
         {
             this.player.removePlayerLife();
 
