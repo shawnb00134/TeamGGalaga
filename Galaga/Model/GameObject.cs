@@ -149,7 +149,7 @@ namespace Galaga.Model
         /// <param name="speedY">The speed y.</param>
         protected void SetSpeed(int speedX, int speedY)
         {
-            if (speedX < 0)
+            //if (speedX < 0)
             //{
             //    throw new ArgumentOutOfRangeException(nameof(speedX));
             //}
