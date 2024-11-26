@@ -16,7 +16,7 @@ namespace Galaga.Model
         private const int MissileDelayLimit = 10;
         private const int EnemyFireCounter = 30;
         private const int PlayerMissileLimit = 3;
-        private const int PlayerMissileSpeed = 10;
+        private const int PlayerMissileSpeed = -10;
         private const int EnemyMissileSpeed = 12;
         private readonly Random random;
         private int delayTicker;
