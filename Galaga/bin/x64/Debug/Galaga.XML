@@ -97,6 +97,12 @@
             <param name="enemyShip"></param>
             <returns></returns>
         </member>
+        <member name="M:Galaga.Model.MissileManager.checkForPlayerMissile(Galaga.Model.GameObject)">
+            <summary>
+                Check to see if missile gameobject is a player missile for decrementing player missile count.
+            </summary>
+            <param name="missile"></param>
+        </member>
         <member name="M:Galaga.Model.MissileManager.DecrementPlayerMissileCount">
             <summary>
                 Decrements the player missile count.

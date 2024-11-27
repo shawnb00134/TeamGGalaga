@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Galaga.View.Sprites;
+using System.Collections.Generic;
 using System.Drawing;
 using Windows.UI.Xaml.Controls;
 
@@ -54,16 +55,18 @@ namespace Galaga.Model
         /// <returns></returns>
         public bool CheckMissileBoundary(GameObject missile, Canvas canvas)
         {
-            if (missile is EnemyMissile && missile.Y > canvas.Height)
+            if (missile != null)
             {
-                return true;
-            }
+                if (missile.Sprite.GetType() == typeof(EnemyMissileSprite) && missile.Y > canvas.Height)
+                {
+                    return true;
+                }
 
-            if (missile is PlayerMissile && missile.Y < 0)
-            {
-                return true;
+                if (missile.Sprite.GetType() == typeof(PlayerMissileSprite) && missile.Y < 0)
+                {
+                    return true;
+                }
             }
-
             return false;
         }
 

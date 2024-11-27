@@ -136,8 +136,6 @@ namespace Galaga.Model
         /// </summary>
         public void FireMissile()
         {
-            //this.missiles.Add(this.missileManager.FireMissile(GameObject player, this.canvas));
-            //this.missiles.Add(this.playerManager.FirePlayerMissile());
             this.missiles.Add(this.missileManager.FireMissile(this.playerManager.GetPlayer(), this.canvas));
         }
 
@@ -188,13 +186,9 @@ namespace Galaga.Model
                         this.listOfShips.Remove(enemyShip);
                         this.canvas.Children.Remove(obj.Sprite);
                         break;
-                    case EnemyMissile _:
+                    case Missile _:
+                        this.missileManager.checkForPlayerMissile(obj);
                         this.missiles.Remove(obj);
-                        this.canvas.Children.Remove(obj.Sprite);
-                        break;
-                    case PlayerMissile _:
-                        this.missiles.Remove(obj);
-                        this.missileManager.DecrementPlayerMissileCount();
                         this.canvas.Children.Remove(obj.Sprite);
                         break;
                 }

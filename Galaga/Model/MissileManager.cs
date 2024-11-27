@@ -93,8 +93,6 @@ namespace Galaga.Model
         /// <returns></returns>
         public GameObject FireEnemyMissiles(IList<EnemyShip> enemyShips, Canvas canvas)
         {
-            GameObject missileObject = null;
-
             if (this.random.Next(EnemyFireCounter) == 0)
             {
                 FiringEnemy selectedShip = null;
@@ -115,14 +113,13 @@ namespace Galaga.Model
 
                 if (selectedShip != null)
                 {
-                    //var missile = selectedShip.FireMissile();
                     var missile = this.CreateEnemyMissile(selectedShip);
                     canvas.Children.Add(missile.Sprite);
-                    missileObject = missile;
+                    return missile;
                 }
             }
 
-            return missileObject;
+            return null;
         }
 
         /// <summary>
@@ -138,6 +135,17 @@ namespace Galaga.Model
             return missile;
         }
 
+        /// <summary>
+        ///     Check to see if missile gameobject is a player missile for decrementing player missile count.
+        /// </summary>
+        /// <param name="missile"></param>
+        public void checkForPlayerMissile(GameObject missile)
+        {
+            if (missile.Sprite.GetType() == typeof(PlayerMissileSprite))
+            {
+                this.DecrementPlayerMissileCount();
+            }
+        }
 
         /// <summary>
         ///     Decrements the player missile count.
