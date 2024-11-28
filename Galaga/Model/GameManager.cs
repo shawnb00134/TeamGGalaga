@@ -4,6 +4,7 @@ using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View;
+using Windows.Web.Http;
 
 namespace Galaga.Model
 {
@@ -21,6 +22,7 @@ namespace Galaga.Model
         private readonly GameCanvas gameCanvas;
         private readonly PlayerManager playerManager;
         private readonly MissileManager missileManager;
+        private SoundManager soundManager;
 
         private readonly DispatcherTimer timer;
         private int tickCounter;
@@ -44,6 +46,7 @@ namespace Galaga.Model
         {
             this.canvas = canvas ?? throw new ArgumentNullException(nameof(canvas));
             this.gameCanvas = gameCanvas ?? throw new ArgumentNullException(nameof(gameCanvas));
+            this.soundManager = new SoundManager();
 
             this.playerManager = new PlayerManager(this.canvas);
             this.missileManager = new MissileManager();
@@ -93,7 +96,7 @@ namespace Galaga.Model
             }
 
             this.missileManager.UpdateDelayTick();
-            this.enemyManager.swapSpritesAnimation(this.enemyShips);
+            this.enemyManager.SwapSpritesAnimation(this.enemyShips);
             this.checkForMissileOutOfBounds();
             this.checkForCollisions();
         }
@@ -179,12 +182,14 @@ namespace Galaga.Model
                     case Player _:
                         this.playerManager.CheckPlayerLives(obj, this.listOfShips);
                         this.updatePlayerLives();
+                        this.soundManager.playPlayerDestroyed();
                         break;
                     case EnemyShip enemyShip:
                         this.updateScore(enemyShip.ScoreValue);
                         this.enemyShips.Remove(enemyShip);
                         this.listOfShips.Remove(enemyShip);
                         this.canvas.Children.Remove(obj.Sprite);
+                        this.soundManager.playEnemyDestroyed();
                         break;
                     case Missile _:
                         this.missileManager.checkForPlayerMissile(obj);

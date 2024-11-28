@@ -64,6 +64,30 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipDestroyed01.wav">
+      <PackagePath>Sounds\EnemyShipDestroyed01.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipDestroyed02.wav">
+      <PackagePath>Sounds\EnemyShipDestroyed02.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipFiring01.wav">
+      <PackagePath>Sounds\EnemyShipFiring01.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipFiring02.wav">
+      <PackagePath>Sounds\EnemyShipFiring02.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipDestroyed01.wav">
+      <PackagePath>Sounds\PlayerShipDestroyed01.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipDestroyed02.wav">
+      <PackagePath>Sounds\PlayerShipDestroyed02.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipFiring01.wav">
+      <PackagePath>Sounds\PlayerShipFiring01.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipFiring02.wav">
+      <PackagePath>Sounds\PlayerShipFiring02.wav</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Galaga.xr.xml">
       <PackagePath>Galaga.xr.xml</PackagePath>
     </AppxPackagedFile>

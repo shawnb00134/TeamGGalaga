@@ -20,3 +20,11 @@ View\Sprites\EnemyMissileSprite.xbf
 View\Sprites\PlayerMissileSprite.xbf
 View\Sprites\PlayerSprite.xbf
 Properties\Default.rd.xml
+Sounds\EnemyShipDestroyed01.wav
+Sounds\EnemyShipDestroyed02.wav
+Sounds\EnemyShipFiring01.wav
+Sounds\EnemyShipFiring02.wav
+Sounds\PlayerShipDestroyed01.wav
+Sounds\PlayerShipDestroyed02.wav
+Sounds\PlayerShipFiring01.wav
+Sounds\PlayerShipFiring02.wav

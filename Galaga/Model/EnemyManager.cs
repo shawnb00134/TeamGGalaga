@@ -57,32 +57,8 @@ namespace Galaga.Model
                 EnemyShip enemyShip;
                 for (var i = 0; i < enemyCount; i++)
                 {
-                    //switch (rowIndex)
-                    //{
-                    //    case 0:
-                    //        enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(),
-                    //            this.canvas);
-                    //        enemyShip.ScoreValue = 1;
-                    //        break;
-                    //    case 1:
-                    //        enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(),
-                    //            this.canvas);
-                    //        enemyShip.ScoreValue = 2;
-                    //        break;
-                    //    case 2:
-                    //        enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
-                    //            this.canvas);
-                    //        enemyShip.ScoreValue = 3;
-                    //        break;
-                    //    default:
-                    //        enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
-                    //            this.canvas);
-                    //        enemyShip.ScoreValue = 4;
-                    //        break;
-                    //}
-
-                    //enemyShip.addEnemyToCanvas();
-                    enemyShip = shipFactory.CreateEnemyShip(rowIndex);
+                    enemyShip = shipFactory.CreateEnemyShip(rowIndex, canvas);
+                    enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 
                     var xPosition = (i + 1) * spacing - enemyShip.Width / 2.0;
@@ -128,7 +104,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Swaps the sprites every tick.
         /// </summary>
-        public void swapSpritesAnimation(IList<EnemyShip> enemyShips)
+        public void SwapSpritesAnimation(IList<EnemyShip> enemyShips)
         {
             foreach (var enemyShip in enemyShips)
             {

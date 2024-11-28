@@ -135,6 +135,7 @@
     <Compile Include="Model\PlayerManager.cs" />
     <Compile Include="Model\PlayerMissile.cs" />
     <Compile Include="Model\ShipFactory.cs" />
+    <Compile Include="Model\SoundManager.cs" />
     <Compile Include="View\GameCanvas.xaml.cs">
       <DependentUpon>GameCanvas.xaml</DependentUpon>
     </Compile>
@@ -185,6 +186,10 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Sounds\EnemyShipDestroyed02.wav" />
+    <Content Include="Sounds\EnemyShipFiring02.wav" />
+    <Content Include="Sounds\PlayerShipDestroyed02.wav" />
+    <Content Include="Sounds\PlayerShipFiring02.wav" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

@@ -48,8 +48,8 @@ namespace Galaga.Model
         /// <summary>
         ///     Initializes a new instance of the <see cref="NonFiringEnemy" /> class.
         /// </summary>
-        public NonFiringEnemy(BaseSprite mainSprite, BaseSprite alternateSprite) : base(mainSprite,
-            alternateSprite)
+        public NonFiringEnemy(BaseSprite mainSprite, BaseSprite alternateSprite, Canvas canvas) : base(mainSprite,
+            alternateSprite, canvas)
         {
             Sprite = mainSprite;
             SetSpeed(SpeedXDirection, SpeedYDirection);

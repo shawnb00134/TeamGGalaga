@@ -10,7 +10,6 @@ namespace Galaga.Model
     /// </summary>
     public class MissileManager
     {
-        //TODO: Reduce the creation of a missile to a means to place it on the canvas and assign the appropriate sprite
         #region Data members
 
         private const int MissileDelayLimit = 10;
@@ -18,6 +17,9 @@ namespace Galaga.Model
         private const int PlayerMissileLimit = 3;
         private const int PlayerMissileSpeed = -10;
         private const int EnemyMissileSpeed = 12;
+
+        private SoundManager soundManager;
+
         private readonly Random random;
         private int delayTicker;
 
@@ -36,6 +38,8 @@ namespace Galaga.Model
         /// </summary>
         public MissileManager()
         {
+            this.soundManager = new SoundManager();
+
             this.random = new Random();
             this.PlayerMissileCount = 0;
             this.delayTicker = 10;
@@ -63,6 +67,8 @@ namespace Galaga.Model
                 missile.X = player.X + player.Width / 2.0 - missile.Width / 2.0;
                 missile.Y = player.Y - missile.Height;
                 canvas.Children.Add(missile.Sprite);
+
+                this.soundManager.playPlayerFiring();
 
                 return missile;
             }
@@ -115,6 +121,9 @@ namespace Galaga.Model
                 {
                     var missile = this.CreateEnemyMissile(selectedShip);
                     canvas.Children.Add(missile.Sprite);
+
+                    this.soundManager.playEnemyFiring();
+
                     return missile;
                 }
             }

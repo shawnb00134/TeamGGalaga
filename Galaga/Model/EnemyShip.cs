@@ -23,7 +23,6 @@ namespace Galaga.Model
         /// <summary>
         ///     The secondary sprite
         /// </summary>
-        //public EnemyLevel1SpriteAlternate SecondarySprite;
         public BaseSprite SecondarySprite;
 
         private readonly Canvas canvas;
@@ -49,9 +48,9 @@ namespace Galaga.Model
         /// <summary>
         ///     Initializes a new instance of the <see cref="EnemyShip" /> class.
         /// </summary>
-        protected EnemyShip(BaseSprite mainSprite, BaseSprite alternateSprite)
+        protected EnemyShip(BaseSprite mainSprite, BaseSprite alternateSprite, Canvas canvas)
         {
-            //Sprite = mainSprite;
+            this.canvas = canvas;
             SetSpeed(SpeedXDirection, SpeedYDirection);
             this.sprites = new[] { mainSprite, alternateSprite };
             this.PrimarySprite = mainSprite;
@@ -65,7 +64,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Adds the enemy sprites to the canvas and sets it initial visibility.
         /// </summary>
-        public virtual void addEnemyToCanvas()
+        public virtual void AddEnemyToCanvas()
         {
             this.canvas.Children.Add(this.sprites[0]);
             this.sprites[0].Visibility = Visibility.Visible;
