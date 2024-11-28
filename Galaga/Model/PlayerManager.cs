@@ -46,9 +46,7 @@ namespace Galaga.Model
         public IList<GameObject> CreateAndPlacePlayer(IList<GameObject> shipList)
         {
             this.canvas.Children.Add(this.player.Sprite);
-            //this.listOfShips.Add(this.player);
             shipList.Add(this.player);
-            //this.updatePlayerLives();
 
             this.placePlayerNearBottomOfBackgroundCentered();
 

@@ -49,10 +49,9 @@ namespace Galaga.Model
         /// <summary>
         ///     Initializes a new instance of the <see cref="EnemyShip" /> class.
         /// </summary>
-        protected EnemyShip(BaseSprite mainSprite, BaseSprite alternateSprite, Canvas canvas)
+        protected EnemyShip(BaseSprite mainSprite, BaseSprite alternateSprite)
         {
             //Sprite = mainSprite;
-            this.canvas = canvas;
             SetSpeed(SpeedXDirection, SpeedYDirection);
             this.sprites = new[] { mainSprite, alternateSprite };
             this.PrimarySprite = mainSprite;

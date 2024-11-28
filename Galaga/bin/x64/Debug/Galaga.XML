@@ -137,14 +137,9 @@
                 The score value.
             </value>
         </member>
-        <member name="M:Galaga.Model.NonFiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.NonFiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.NonFiringEnemy" /> class.
-            </summary>
-        </member>
-        <member name="M:Galaga.Model.NonFiringEnemy.addEnemyToCanvas">
-            <summary>
-                Adds the enemy sprites to the canvas and sets it initial visibility.
             </summary>
         </member>
         <member name="T:Galaga.Model.FiringEnemy">
@@ -171,7 +166,7 @@
                 The score value.
             </value>
         </member>
-        <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.FiringEnemy" /> class.
             </summary>
@@ -179,16 +174,6 @@
         <member name="M:Galaga.Model.FiringEnemy.FireMissile">
             <summary>
                 Fires the missile.
-            </summary>
-        </member>
-        <member name="M:Galaga.Model.FiringEnemy.addEnemyToCanvas">
-            <summary>
-                Adds the enemy sprites to the canvas and sets it initial visibility.
-            </summary>
-        </member>
-        <member name="M:Galaga.Model.FiringEnemy.SwapSprites">
-            <summary>
-                Swaps the sprites.
             </summary>
         </member>
         <member name="T:Galaga.Model.EnemyManager">
@@ -254,7 +239,7 @@
                 The score value.
             </value>
         </member>
-        <member name="M:Galaga.Model.EnemyShip.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.EnemyShip.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.EnemyShip" /> class.
             </summary>

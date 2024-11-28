@@ -4,6 +4,7 @@ using Galaga.View.Sprites;
 
 namespace Galaga.Model
 {
+
     /// <summary>
     ///     EnemyManager class.
     /// </summary>
@@ -14,6 +15,8 @@ namespace Galaga.Model
         private bool movingRight = true;
 
         private readonly Canvas canvas;
+
+        private ShipFactory shipFactory;
 
         #endregion
 
@@ -26,6 +29,7 @@ namespace Galaga.Model
         public EnemyManager(Canvas canvas)
         {
             this.canvas = canvas;
+            this.shipFactory = new ShipFactory();
         }
 
         #endregion
@@ -53,31 +57,32 @@ namespace Galaga.Model
                 EnemyShip enemyShip;
                 for (var i = 0; i < enemyCount; i++)
                 {
-                    switch (rowIndex)
-                    {
-                        case 0:
-                            enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(),
-                                this.canvas);
-                            enemyShip.ScoreValue = 1;
-                            break;
-                        case 1:
-                            enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(),
-                                this.canvas);
-                            enemyShip.ScoreValue = 2;
-                            break;
-                        case 2:
-                            enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
-                                this.canvas);
-                            enemyShip.ScoreValue = 3;
-                            break;
-                        default:
-                            enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
-                                this.canvas);
-                            enemyShip.ScoreValue = 4;
-                            break;
-                    }
+                    //switch (rowIndex)
+                    //{
+                    //    case 0:
+                    //        enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(),
+                    //            this.canvas);
+                    //        enemyShip.ScoreValue = 1;
+                    //        break;
+                    //    case 1:
+                    //        enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(),
+                    //            this.canvas);
+                    //        enemyShip.ScoreValue = 2;
+                    //        break;
+                    //    case 2:
+                    //        enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
+                    //            this.canvas);
+                    //        enemyShip.ScoreValue = 3;
+                    //        break;
+                    //    default:
+                    //        enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
+                    //            this.canvas);
+                    //        enemyShip.ScoreValue = 4;
+                    //        break;
+                    //}
 
-                    enemyShip.addEnemyToCanvas();
+                    //enemyShip.addEnemyToCanvas();
+                    enemyShip = shipFactory.CreateEnemyShip(rowIndex);
                     enemyShips.Add(enemyShip);
 
                     var xPosition = (i + 1) * spacing - enemyShip.Width / 2.0;

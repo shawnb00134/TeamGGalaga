@@ -48,49 +48,13 @@ namespace Galaga.Model
         /// <summary>
         ///     Initializes a new instance of the <see cref="NonFiringEnemy" /> class.
         /// </summary>
-        public NonFiringEnemy(BaseSprite mainSprite, BaseSprite alternateSprite, Canvas canvas) : base(mainSprite,
-            alternateSprite, canvas)
+        public NonFiringEnemy(BaseSprite mainSprite, BaseSprite alternateSprite) : base(mainSprite,
+            alternateSprite)
         {
             Sprite = mainSprite;
-            this.canvas = canvas;
             SetSpeed(SpeedXDirection, SpeedYDirection);
             this.sprites = new[] { mainSprite, alternateSprite };
         }
-
-        #endregion
-
-        #region Methods
-
-        /// <summary>
-        ///     Adds the enemy sprites to the canvas and sets it initial visibility.
-        /// </summary>
-        public override void addEnemyToCanvas()
-        {
-            this.canvas.Children.Add(this.sprites[0]);
-            this.sprites[0].Visibility = Visibility.Visible;
-
-            this.canvas.Children.Add(this.sprites[1]);
-            this.sprites[1].Visibility = Visibility.Collapsed;
-        }
-
-        ///// <summary>
-        /////     Swaps the sprites.
-        ///// </summary>
-        //public override void SwapSprites()
-        //{
-        //    if (this.sprites[0].Visibility == Visibility.Visible)
-        //    {
-        //        this.sprites[0].Visibility = Visibility.Collapsed;
-        //        this.sprites[1].Visibility = Visibility.Visible;
-        //        Sprite = this.sprites[1];
-        //    }
-        //    else
-        //    {
-        //        this.sprites[0].Visibility = Visibility.Visible;
-        //        this.sprites[1].Visibility = Visibility.Collapsed;
-        //        Sprite = this.sprites[0];
-        //    }
-        //}
 
         #endregion
     }

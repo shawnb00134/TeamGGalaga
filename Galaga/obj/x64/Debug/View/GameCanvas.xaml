@@ -7,7 +7,7 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Canvas x:ConnectionId='2' x:Name="canvas" Width="720" Height="600" Background="Black">
+    <Canvas x:ConnectionId='2' x:Name="canvas" Width="1280" Height="720" Background="Black">
         <TextBlock x:ConnectionId='3' x:Name="scoreBoard" Canvas.Left="10" Canvas.Top="10" TextWrapping="Wrap" Text="Score: "
                    Foreground="LawnGreen" />
         <TextBlock x:ConnectionId='4' x:Name="playerLivesBoard" Canvas.Left="10" Canvas.Top="25" TextWrapping="Wrap" Text="Lives: "
