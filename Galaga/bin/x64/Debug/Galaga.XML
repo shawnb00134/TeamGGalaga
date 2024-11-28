@@ -762,7 +762,7 @@
             GetBindingConnector(int connectionId, object target)
             </summary>
         </member>
-        <member name="T:Galaga.View.Sprites.EnemyMissile">
+        <member name="T:Galaga.View.Sprites.EnemyMissileSprite">
             <summary>
                 EnemyMissile sprite.
             </summary>
@@ -770,9 +770,24 @@
             <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector" />
             <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector2" />
         </member>
-        <member name="M:Galaga.View.Sprites.EnemyMissile.#ctor">
+        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.EnemyMissile" /> class.
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.EnemyMissileSprite" /> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
             </summary>
         </member>
         <member name="T:Galaga.View.Sprites.ISpriteRenderer">
@@ -842,21 +857,6 @@
             </summary>
         </member>
         <member name="M:Galaga.View.Sprites.PlayerSprite.GetBindingConnector(System.Int32,System.Object)">
-            <summary>
-            GetBindingConnector(int connectionId, object target)
-            </summary>
-        </member>
-        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.InitializeComponent">
-            <summary>
-            InitializeComponent()
-            </summary>
-        </member>
-        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.Connect(System.Int32,System.Object)">
-            <summary>
-            Connect()
-            </summary>
-        </member>
-        <member name="M:Galaga.View.Sprites.EnemyMissileSprite.GetBindingConnector(System.Int32,System.Object)">
             <summary>
             GetBindingConnector(int connectionId, object target)
             </summary>

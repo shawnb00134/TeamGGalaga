@@ -25,7 +25,7 @@ namespace Galaga.Model
             {
                 foreach (var missile in missiles)
                 {
-                    if (!(ship is EnemyShip && missile is EnemyMissile) && missile != null)
+                    if (missile != null && !(ship is EnemyShip && missile.Sprite.GetType() == typeof(EnemyMissileSprite)) )
                     {
                         if (this.isColliding(ship, missile))
                         {

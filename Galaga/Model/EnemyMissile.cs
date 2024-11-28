@@ -19,7 +19,7 @@
         /// </summary>
         public EnemyMissile()
         {
-            Sprite = new View.Sprites.EnemyMissile();
+            Sprite = new View.Sprites.EnemyMissileSprite();
             SetSpeed(SpeedXDirection, SpeedYDirection);
         }
 
