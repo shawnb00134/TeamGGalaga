@@ -12,10 +12,10 @@
                    Foreground="LawnGreen" />
         <TextBlock x:ConnectionId='4' x:Name="playerLivesBoard" Canvas.Left="10" Canvas.Top="25" TextWrapping="Wrap" Text="Lives: "
                    Foreground="LawnGreen" />
-        <TextBlock x:ConnectionId='5' x:Name="gameOverYouLWin" Canvas.Left="326" TextWrapping="Wrap" Text="Game Over&#x0a;You Win!"
-                   Canvas.Top="282" TextAlignment="Center" Visibility="Collapsed" Foreground="White" />
-        <TextBlock x:ConnectionId='6' x:Name="gameOverYouLose" Canvas.Left="326" TextWrapping="Wrap" Text="Game Over&#x0a;You Lose"
-                   Canvas.Top="282" TextAlignment="Center" Visibility="Collapsed" Foreground="White" />
+        <TextBlock x:ConnectionId='5' x:Name="gameOverYouLWin" Canvas.Left="606" TextWrapping="Wrap" Text="Game Over&#x0a;You Win!"
+                   Canvas.Top="342" TextAlignment="Center" Visibility="Collapsed" Foreground="White" />
+        <TextBlock x:ConnectionId='6' x:Name="gameOverYouLose" Canvas.Left="606" TextWrapping="Wrap" Text="Game Over&#x0a;You Lose"
+                   Canvas.Top="342" TextAlignment="Center" Visibility="Collapsed" Foreground="White" />
     </Canvas>
 </Page>
 

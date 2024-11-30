@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
@@ -17,6 +17,7 @@ namespace Galaga.Model
 
         private const int TickTimer = 50;
         private const int TickCounterReset = 40;
+        private const int LevelCap = 3;
 
         private readonly Canvas canvas;
         private readonly GameCanvas gameCanvas;
@@ -28,6 +29,7 @@ namespace Galaga.Model
         private int tickCounter;
 
         private int score;
+        private int currentLevel;
 
         private IList<EnemyShip> enemyShips;
         private readonly IList<GameObject> listOfShips;
@@ -59,6 +61,7 @@ namespace Galaga.Model
 
             this.tickCounter = 0;
             this.score = 0;
+            this.currentLevel = 1;
 
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, TickTimer);
@@ -104,13 +107,18 @@ namespace Galaga.Model
         private void initializeGame()
         {
             this.playerManager.CreateAndPlacePlayer(this.listOfShips);
+            this.initializeLevel();
+        }
+
+        private void initializeLevel()
+        {
             this.updatePlayerLives();
             this.createEnemyShips();
         }
 
         private void createEnemyShips()
         {
-            this.enemyShips = this.enemyManager.CreateAndPlaceEnemyShip();
+            this.enemyShips = this.enemyManager.CreateAndPlaceEnemyShip(this.currentLevel);
 
             foreach (var enemyShip in this.enemyShips)
             {
@@ -210,7 +218,6 @@ namespace Galaga.Model
 
         private void checkForEndGame()
         {
-            //if (!this.listOfShips.Contains(Player))
             if (!this.listOfShips.Any(ship => ship is Player))
             {
                 this.timer.Stop();
@@ -219,9 +226,23 @@ namespace Galaga.Model
 
             if (!this.enemyShips.Any())
             {
-                this.timer.Stop();
-                this.gameCanvas.DisplayYouWinText();
+                if (this.checkForLevel())
+                {
+                    this.currentLevel++;
+                    this.initializeLevel();
+                }
+                else
+                {
+                    this.timer.Stop();
+                    this.gameCanvas.DisplayYouWinText();
+                }
+                
             }
+        }
+
+        private Boolean checkForLevel()
+        {
+            return this.currentLevel < LevelCap;
         }
 
         private void updatePlayerLives()

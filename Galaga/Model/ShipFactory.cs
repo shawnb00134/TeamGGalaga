@@ -13,26 +13,26 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="level"></param>
         /// <returns></returns>
-        public EnemyShip CreateEnemyShip(int level, Canvas canvas)
+        public EnemyShip CreateEnemyShip(int level, int levelMultiplier, Canvas canvas)
         {
             EnemyShip enemyShip;
             switch (level)
             {
                 case 0:
-                    enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(), canvas);
-                    enemyShip.ScoreValue = 1;
+                    enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(), levelMultiplier, canvas);
+                    enemyShip.ScoreValue = 1 * levelMultiplier;
                     break;
                 case 1:
-                    enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(), canvas);
-                    enemyShip.ScoreValue = 2;
+                    enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(), levelMultiplier, canvas);
+                    enemyShip.ScoreValue = 2 * levelMultiplier;
                     break;
                 case 2:
-                    enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(), canvas);
-                    enemyShip.ScoreValue = 3;
+                    enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(), levelMultiplier, canvas);
+                    enemyShip.ScoreValue = 3 * levelMultiplier;
                     break;
                 default:
-                    enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(), canvas);
-                    enemyShip.ScoreValue = 4;
+                    enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(), levelMultiplier, canvas);
+                    enemyShip.ScoreValue = 4 * levelMultiplier;
                     break;
             }
 

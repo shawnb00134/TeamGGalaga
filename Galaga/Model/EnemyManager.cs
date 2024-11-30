@@ -40,7 +40,7 @@ namespace Galaga.Model
         ///     Creates and places the enemy ships.
         /// </summary>
         /// <returns></returns>
-        public List<EnemyShip> CreateAndPlaceEnemyShip()
+        public List<EnemyShip> CreateAndPlaceEnemyShip(int levelMultiplier)
         {
             var enemyShips = new List<EnemyShip>();
 
@@ -57,7 +57,7 @@ namespace Galaga.Model
                 EnemyShip enemyShip;
                 for (var i = 0; i < enemyCount; i++)
                 {
-                    enemyShip = shipFactory.CreateEnemyShip(rowIndex, canvas);
+                    enemyShip = shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, canvas);
                     enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 

@@ -149,7 +149,7 @@
                 The score value.
             </value>
         </member>
-        <member name="M:Galaga.Model.NonFiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.NonFiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.NonFiringEnemy" /> class.
             </summary>
@@ -178,7 +178,7 @@
                 The score value.
             </value>
         </member>
-        <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.FiringEnemy" /> class.
             </summary>
@@ -199,7 +199,7 @@
             </summary>
             <param name="canvas">The canvas.</param>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.CreateAndPlaceEnemyShip">
+        <member name="M:Galaga.Model.EnemyManager.CreateAndPlaceEnemyShip(System.Int32)">
             <summary>
                 Creates and places the enemy ships.
             </summary>
@@ -251,7 +251,7 @@
                 The score value.
             </value>
         </member>
-        <member name="M:Galaga.Model.EnemyShip.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.EnemyShip.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.EnemyShip" /> class.
             </summary>
@@ -496,7 +496,7 @@
                Factory class for creating ships.
             </summary>
         </member>
-        <member name="M:Galaga.Model.ShipFactory.CreateEnemyShip(System.Int32,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.ShipFactory.CreateEnemyShip(System.Int32,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                Creates the enemy ship.
             </summary>
