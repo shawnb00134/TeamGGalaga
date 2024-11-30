@@ -56,22 +56,5 @@ namespace Galaga.Model
 
         #endregion
 
-        #region Methods
-
-        /// <summary>
-        ///     Fires the missile.
-        /// </summary>
-        //TODO: DELETE ME
-        public GameObject FireMissile()
-        {
-            //var missile = new EnemyMissile();
-            //var missile = new Missile(12, new EnemyMissileSprite());
-            //missile.X = X + Width / 2.0 - missile.Width / 2.0;
-            //missile.Y = Y + Height;
-            //return missile;
-            return null;
-        }
-
-        #endregion
     }
 }

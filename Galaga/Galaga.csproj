@@ -165,6 +165,9 @@
       <DependentUpon>EnemyMissileSprite.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Sprites\ISpriteRenderer.cs" />
+    <Compile Include="View\Sprites\EnemySpecial.xaml.cs">
+      <DependentUpon>EnemySpecial.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Sprites\PlayerMissileSprite.xaml.cs">
       <DependentUpon>PlayerMissileSprite.xaml</DependentUpon>
     </Compile>
@@ -229,6 +232,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Sprites\EnemyMissileSprite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprites\EnemySpecial.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
