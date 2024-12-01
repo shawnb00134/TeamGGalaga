@@ -66,6 +66,7 @@
       <RootProperty Name="Fill" />
     </RootType>
     <RootType FullName="Galaga.View.Sprites.EnemyMissileSprite" />
+    <RootType FullName="Galaga.View.Sprites.EnemySpecial" />
     <RootType FullName="Galaga.View.Sprites.PlayerMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerSprite" />
   </Roots.RootTypes>

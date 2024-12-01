@@ -8,6 +8,8 @@ namespace Galaga.Model
     /// </summary>
     public class ShipFactory
     {
+        private const int SpecialEnemySpeed = 0;
+
         /// <summary>
         ///    Creates the enemy ship.
         /// </summary>
@@ -45,9 +47,9 @@ namespace Galaga.Model
         /// <returns></returns>
         public EnemyShip CreateSpecialShip(Canvas canvas)
         {
-            //EnemyShip specialEnemyShip = new NonFiringEnemy(new XXXXX, new XXXXX, canvas);
-            
-            return null;
+            EnemyShip specialEnemyShip = new NonFiringEnemy(new EnemySpecial(), SpecialEnemySpeed, canvas);
+
+            return specialEnemyShip;
         }
 
         /// <summary>

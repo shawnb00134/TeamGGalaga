@@ -15,16 +15,6 @@ namespace Galaga.Model
         private const int SpeedXDirection = 3;
         private const int SpeedYDirection = 0;
 
-        /// <summary>
-        ///     The primary sprite/
-        /// </summary>
-        public BaseSprite PrimarySprite;
-
-        /// <summary>
-        ///     The secondary sprite
-        /// </summary>
-        public BaseSprite SecondarySprite;
-
         private readonly Canvas canvas;
 
         private readonly BaseSprite[] sprites;
@@ -46,6 +36,19 @@ namespace Galaga.Model
         #region Constructors
 
         /// <summary>
+        ///    Initializes a new instance of the <see cref="EnemyShip" /> class.
+        /// </summary>
+        /// <param name="mainSprite"></param>
+        /// <param name="speed"></param>
+        /// <param name="canvas"></param>
+        protected EnemyShip(BaseSprite mainSprite, int speed, Canvas canvas)
+        {
+            this.canvas = canvas;
+            SetSpeed(speed, SpeedYDirection);
+            this.sprites = new[] { mainSprite, mainSprite };
+        }
+
+        /// <summary>
         ///     Initializes a new instance of the <see cref="EnemyShip" /> class.
         /// </summary>
         protected EnemyShip(BaseSprite mainSprite, BaseSprite alternateSprite, int levelMultiplier, Canvas canvas)
@@ -53,8 +56,6 @@ namespace Galaga.Model
             this.canvas = canvas;
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
             this.sprites = new[] { mainSprite, alternateSprite };
-            this.PrimarySprite = mainSprite;
-            this.SecondarySprite = alternateSprite;
         }
 
         #endregion

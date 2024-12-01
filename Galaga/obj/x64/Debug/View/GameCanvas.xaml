@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="Galaga.View.GameCanvas"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Canvas x:ConnectionId='2' x:Name="canvas" Width="1280" Height="720" Background="Black">
+        <TextBlock x:ConnectionId='3' x:Name="scoreBoard" Canvas.Left="10" Canvas.Top="670" TextWrapping="Wrap" Text="Score: "
+                   Foreground="LawnGreen" />
+        <TextBlock x:ConnectionId='4' x:Name="playerLivesBoard" Canvas.Left="10" Canvas.Top="690" TextWrapping="Wrap" Text="Lives: "
+                   Foreground="LawnGreen" />
+        <TextBlock x:ConnectionId='5' x:Name="gameOverYouLWin" Canvas.Left="606" TextWrapping="Wrap" Text="Game Over&#x0a;You Win!"
+                   Canvas.Top="342" TextAlignment="Center" Visibility="Collapsed" Foreground="White" />
+        <TextBlock x:ConnectionId='6' x:Name="gameOverYouLose" Canvas.Left="606" TextWrapping="Wrap" Text="Game Over&#x0a;You Lose"
+                   Canvas.Top="342" TextAlignment="Center" Visibility="Collapsed" Foreground="White" />
+    </Canvas>
+</Page>
+

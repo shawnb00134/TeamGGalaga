@@ -49,6 +49,13 @@ namespace Galaga.Model
             this.PlayerLives = this.PlayerLives - 1;
         }
 
+        /// <summary>
+        ///    Adds a player life.
+        /// </summary>
+        public void addPlayerLife()
+        {
+            this.PlayerLives = this.PlayerLives + 1;
+        }
         #endregion
     }
 }

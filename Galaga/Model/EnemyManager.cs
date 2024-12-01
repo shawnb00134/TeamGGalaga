@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
+using System;
 
 namespace Galaga.Model
 {
@@ -13,8 +14,10 @@ namespace Galaga.Model
         #region Data members
 
         private bool movingRight = true;
+        private int bonusShipBounce;
 
         private readonly Canvas canvas;
+        private readonly Random random;
 
         private ShipFactory shipFactory;
 
@@ -29,7 +32,10 @@ namespace Galaga.Model
         public EnemyManager(Canvas canvas)
         {
             this.canvas = canvas;
+            this.random = new Random();
             this.shipFactory = new ShipFactory();
+
+            this.bonusShipBounce = 3;
         }
 
         #endregion
@@ -70,6 +76,30 @@ namespace Galaga.Model
             return enemyShips;
         }
 
+        public EnemyShip CreateSpecialShip()
+        {
+            var bonusEnemyShip = shipFactory.CreateSpecialShip(canvas);
+
+            if (this.random.Next(0, 1) == 0)
+            {
+                bonusEnemyShip.X = 0 - bonusEnemyShip.Width;
+                bonusEnemyShip.Y = 0;
+            }
+            else
+            {
+                bonusEnemyShip.X = canvas.Width;
+                bonusEnemyShip.Y = 0;
+            }
+
+            if (bonusEnemyShip == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Bonus ship is null");
+            }
+            //this.canvas.Children.Add(bonusEnemyShip.Sprite);
+
+            return bonusEnemyShip;
+        }
+
         /// <summary>
         ///     Moves the enemy ships.
         /// </summary>
@@ -77,7 +107,6 @@ namespace Galaga.Model
         /// <param name="tickCounter">The tick counter.</param>
         public void MoveEnemyShips(IList<EnemyShip> enemyShips, int tickCounter)
         {
-            //From Nate
             foreach (var ship in enemyShips)
             {
                 if (this.movingRight)
@@ -99,6 +128,11 @@ namespace Galaga.Model
                     }
                 }
             }
+        }
+
+        private void moveBonusShip()
+        {
+            
         }
 
         /// <summary>
