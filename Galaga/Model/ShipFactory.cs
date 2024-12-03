@@ -47,19 +47,9 @@ namespace Galaga.Model
         /// <returns></returns>
         public EnemyShip CreateSpecialShip(Canvas canvas)
         {
-            EnemyShip specialEnemyShip = new NonFiringEnemy(new EnemySpecial(), SpecialEnemySpeed, canvas);
+            EnemyShip specialEnemyShip = new FiringEnemy(new EnemySpecial(), SpecialEnemySpeed, canvas);
 
             return specialEnemyShip;
-        }
-
-        /// <summary>
-        ///   Creates the player ship.
-        /// </summary>
-        /// <returns></returns>
-        public Player CreatePlayerShip()
-        {
-            //return new PlayerShip(new PlayerSprite());
-            return null;
         }
     }
 }

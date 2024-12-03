@@ -15,15 +15,7 @@ namespace Galaga.Model
         private const int SpeedXDirection = 3;
         private const int SpeedYDirection = 0;
 
-        /// <summary>
-        ///     The primary sprite/
-        /// </summary>
-        public new BaseSprite PrimarySprite;
-
-        /// <summary>
-        ///     The secondary sprite
-        /// </summary>
-        public new BaseSprite SecondarySprite;
+        private readonly Canvas canvas;
 
         private readonly BaseSprite[] sprites;
 
@@ -42,6 +34,19 @@ namespace Galaga.Model
         #endregion
 
         #region Constructors
+
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="FiringEnemy" /> class.
+        /// </summary>
+        /// <param name="mainSprite"></param>
+        /// <param name="speed"></param>
+        /// <param name="canvas"></param>
+        public FiringEnemy(BaseSprite mainSprite, int speed, Canvas canvas) : base(mainSprite, speed, canvas)
+        {
+            this.canvas = canvas;
+            SetSpeed(speed, SpeedYDirection);
+            this.sprites = new[] { mainSprite, mainSprite };
+        }
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="FiringEnemy" /> class.

@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-12-01T02:34:40.109</Modified>
+      <Modified>2024-12-03T22:52:28.588</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Galaga.exe">
       <PackagePath>entrypoint\Galaga.exe</PackagePath>
-      <Modified>2024-12-01T02:34:39.821</Modified>
+      <Modified>2024-12-03T22:52:28.299</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x64.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x64\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -48,113 +48,113 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2024-11-26T13:29:42.984</Modified>
+      <Modified>2024-12-03T22:01:44.832</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
-      <Modified>2024-11-26T13:29:42.976</Modified>
+      <Modified>2024-12-03T22:01:44.821</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-11-26T13:29:42.976</Modified>
+      <Modified>2024-12-03T22:01:44.822</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-11-26T13:29:42.977</Modified>
+      <Modified>2024-12-03T22:01:44.822</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-11-26T13:29:42.977</Modified>
+      <Modified>2024-12-03T22:01:44.822</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-11-26T13:29:42.977</Modified>
+      <Modified>2024-12-03T22:01:44.823</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-11-26T13:29:42.978</Modified>
+      <Modified>2024-12-03T22:01:44.823</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-11-26T13:29:42.978</Modified>
+      <Modified>2024-12-03T22:01:44.824</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipDestroyed02.wav">
       <PackagePath>Sounds\EnemyShipDestroyed02.wav</PackagePath>
-      <Modified>2024-11-19T04:39:34.000</Modified>
+      <Modified>2024-12-03T22:01:44.833</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipFiring02.wav">
       <PackagePath>Sounds\EnemyShipFiring02.wav</PackagePath>
-      <Modified>2024-11-19T04:40:16.000</Modified>
+      <Modified>2024-12-03T22:01:44.834</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipDestroyed02.wav">
       <PackagePath>Sounds\PlayerShipDestroyed02.wav</PackagePath>
-      <Modified>2024-11-19T04:39:54.000</Modified>
+      <Modified>2024-12-03T22:01:44.835</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipFiring02.wav">
       <PackagePath>Sounds\PlayerShipFiring02.wav</PackagePath>
-      <Modified>2024-11-19T04:41:12.000</Modified>
+      <Modified>2024-12-03T22:01:44.835</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Galaga.xr.xml">
       <PackagePath>Galaga.xr.xml</PackagePath>
-      <Modified>2024-12-01T00:54:32.313</Modified>
+      <Modified>2024-12-03T22:01:44.908</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\GameCanvas.xbf">
       <PackagePath>View\GameCanvas.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\BaseSprite.xbf">
       <PackagePath>View\Sprites\BaseSprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel1Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel1Sprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel1SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel1SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel2Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel2Sprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel2SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel2SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel3Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel3Sprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.230</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel3SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel3SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyMissileSprite.xbf">
       <PackagePath>View\Sprites\EnemyMissileSprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.752</Modified>
+      <Modified>2024-12-03T22:52:28.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemySpecial.xbf">
       <PackagePath>View\Sprites\EnemySpecial.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.753</Modified>
+      <Modified>2024-12-03T22:52:28.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\PlayerMissileSprite.xbf">
       <PackagePath>View\Sprites\PlayerMissileSprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.753</Modified>
+      <Modified>2024-12-03T22:52:28.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\PlayerSprite.xbf">
       <PackagePath>View\Sprites\PlayerSprite.xbf</PackagePath>
-      <Modified>2024-12-01T02:34:39.753</Modified>
+      <Modified>2024-12-03T22:52:28.231</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -162,11 +162,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2024-12-01T00:54:32.773</Modified>
+      <Modified>2024-12-03T22:03:20.885</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Core\Galaga.exe">
       <PackagePath>Galaga.exe</PackagePath>
-      <Modified>2024-12-01T02:34:40.106</Modified>
+      <Modified>2024-12-03T22:52:28.585</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

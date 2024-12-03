@@ -150,16 +150,6 @@
             </summary>
             <seealso cref="T:Galaga.Model.EnemyShip" />
         </member>
-        <member name="F:Galaga.Model.FiringEnemy.PrimarySprite">
-            <summary>
-                The primary sprite/
-            </summary>
-        </member>
-        <member name="F:Galaga.Model.FiringEnemy.SecondarySprite">
-            <summary>
-                The secondary sprite
-            </summary>
-        </member>
         <member name="P:Galaga.Model.FiringEnemy.ScoreValue">
             <summary>
                 Gets the score value.
@@ -167,6 +157,14 @@
             <value>
                 The score value.
             </value>
+        </member>
+        <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Galaga.Model.FiringEnemy" /> class.
+            </summary>
+            <param name="mainSprite"></param>
+            <param name="speed"></param>
+            <param name="canvas"></param>
         </member>
         <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
@@ -242,6 +240,11 @@
         <member name="M:Galaga.Model.EnemyShip.AddEnemyToCanvas">
             <summary>
                 Adds the enemy sprites to the canvas and sets it initial visibility.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.EnemyShip.AddBonusShipToCanvas">
+            <summary>
+               Special method to add the bonus ship to canvas.
             </summary>
         </member>
         <member name="M:Galaga.Model.EnemyShip.SwapSprites">
@@ -494,12 +497,6 @@
         <member name="M:Galaga.Model.ShipFactory.CreateSpecialShip(Windows.UI.Xaml.Controls.Canvas)">
             <summary>
               Creates the special ship.
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Galaga.Model.ShipFactory.CreatePlayerShip">
-            <summary>
-              Creates the player ship.
             </summary>
             <returns></returns>
         </member>

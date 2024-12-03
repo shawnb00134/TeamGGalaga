@@ -15,8 +15,6 @@ namespace Galaga.Model
         private const int SpeedXDirection = 3;
         private const int SpeedYDirection = 0;
 
-        private readonly Canvas canvas;
-
         private readonly BaseSprite[] sprites;
 
         #endregion
@@ -34,13 +32,6 @@ namespace Galaga.Model
         #endregion
 
         #region Constructors
-
-        public NonFiringEnemy(BaseSprite mainSprite, int speed, Canvas canvas) : base(mainSprite, speed, canvas)
-        {
-            this.canvas = canvas;
-            SetSpeed(speed, SpeedYDirection);
-            this.sprites = new[] { mainSprite, mainSprite };
-        }
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="NonFiringEnemy" /> class.

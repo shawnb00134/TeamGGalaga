@@ -80,22 +80,18 @@ namespace Galaga.Model
         {
             var bonusEnemyShip = shipFactory.CreateSpecialShip(canvas);
 
+            bonusEnemyShip.AddBonusShipToCanvas();
+
             if (this.random.Next(0, 1) == 0)
             {
-                bonusEnemyShip.X = 0 - bonusEnemyShip.Width;
+                bonusEnemyShip.X = canvas.Width - bonusEnemyShip.Width;
                 bonusEnemyShip.Y = 0;
             }
             else
             {
-                bonusEnemyShip.X = canvas.Width;
+                bonusEnemyShip.X = 0;
                 bonusEnemyShip.Y = 0;
             }
-
-            if (bonusEnemyShip == null)
-            {
-                System.Diagnostics.Debug.WriteLine("Bonus ship is null");
-            }
-            //this.canvas.Children.Add(bonusEnemyShip.Sprite);
 
             return bonusEnemyShip;
         }

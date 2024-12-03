@@ -75,6 +75,14 @@ namespace Galaga.Model
         }
 
         /// <summary>
+        ///    Special method to add the bonus ship to canvas.
+        /// </summary>
+        public virtual void AddBonusShipToCanvas()
+        {
+            this.canvas.Children.Add(this.sprites[0]);
+        }
+
+        /// <summary>
         ///     Swaps the sprites.
         /// </summary>
         public virtual void SwapSprites()
