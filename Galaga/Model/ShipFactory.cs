@@ -45,9 +45,23 @@ namespace Galaga.Model
         ///   Creates the special ship.
         /// </summary>
         /// <returns></returns>
-        public EnemyShip CreateSpecialShip(Canvas canvas)
+        public EnemyShip CreateSpecialShip(Canvas canvas, int randomNumber)
         {
             EnemyShip specialEnemyShip = new FiringEnemy(new EnemySpecial(), SpecialEnemySpeed, canvas);
+            specialEnemyShip.ScoreValue = 0;
+
+            //TODO: Why won't the special enemy spawn position work?
+            //System.Diagnostics.Debug.WriteLine(randomNumber);
+            //if (randomNumber == 1)
+            //{
+            //    specialEnemyShip.X = canvas.Width - specialEnemyShip.Width;
+            //    specialEnemyShip.Y = 0;
+            //}
+            //else
+            //{
+            //    specialEnemyShip.X = 0;
+            //    specialEnemyShip.Y = 0;
+            //}
 
             return specialEnemyShip;
         }

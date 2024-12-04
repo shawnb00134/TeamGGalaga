@@ -78,20 +78,9 @@ namespace Galaga.Model
 
         public EnemyShip CreateSpecialShip()
         {
-            var bonusEnemyShip = shipFactory.CreateSpecialShip(canvas);
+            var bonusEnemyShip = this.shipFactory.CreateSpecialShip(this.canvas, this.random.Next(0, 2));
 
             bonusEnemyShip.AddBonusShipToCanvas();
-
-            if (this.random.Next(0, 1) == 0)
-            {
-                bonusEnemyShip.X = canvas.Width - bonusEnemyShip.Width;
-                bonusEnemyShip.Y = 0;
-            }
-            else
-            {
-                bonusEnemyShip.X = 0;
-                bonusEnemyShip.Y = 0;
-            }
 
             return bonusEnemyShip;
         }
@@ -128,7 +117,17 @@ namespace Galaga.Model
 
         private void moveBonusShip()
         {
+            if (this.bonusShipBounce == 0)
+            {
+                this.resetBonusShipBoundCounter();
+            }
             
+            
+        }
+
+        private void resetBonusShipBoundCounter()
+        {
+            this.bonusShipBounce = 3;
         }
 
         /// <summary>

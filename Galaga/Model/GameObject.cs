@@ -71,6 +71,7 @@ namespace Galaga.Model
         /// <value>
         ///     The width.
         /// </value>
+        //public double Width => this.Sprite?.Width ?? 0;
         public double Width => this.Sprite.Width;
 
         /// <summary>

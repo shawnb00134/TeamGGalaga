@@ -124,7 +124,7 @@ namespace Galaga.Model
             {
                 this.listOfShips.Add(enemyShip);
             }
-            this.enemyManager.CreateSpecialShip();
+            this.enemyShips.Add(this.enemyManager.CreateSpecialShip());
         }
 
         /// <summary>

@@ -45,7 +45,7 @@ namespace Galaga.Model
         {
             this.canvas = canvas;
             SetSpeed(speed, SpeedYDirection);
-            this.sprites = new[] { mainSprite, mainSprite };
+            this.sprites = new[] { mainSprite };
         }
 
         /// <summary>

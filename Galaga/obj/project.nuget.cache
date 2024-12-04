@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UNOp8veuwsE=",
+  "dgSpecHash": "b0Hh3JfJxeM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
+  "projectFilePath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.12-rel-31116-00\\microsoft.net.native.compiler.2.2.12-rel-31116-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.14\\microsoft.net.uwpcoreruntimesdk.2.2.14.nupkg.sha512",

@@ -494,7 +494,7 @@
             <param name="level"></param>
             <returns></returns>
         </member>
-        <member name="M:Galaga.Model.ShipFactory.CreateSpecialShip(Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.ShipFactory.CreateSpecialShip(Windows.UI.Xaml.Controls.Canvas,System.Int32)">
             <summary>
               Creates the special ship.
             </summary>
