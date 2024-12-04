@@ -115,19 +115,48 @@ namespace Galaga.Model
             }
         }
 
-        private void moveBonusShip()
+        /// <summary>
+        ///     Moves the bonus ship.
+        /// </summary>
+        /// <param name="bonusShip">The bonus ship.</param>
+        public void MoveBonusShip(EnemyShip bonusShip)
+        {
+            this.checkBoundCounter();
+            this.checkBonusShipPosition(bonusShip);
+
+            if (this.bonusShipBounce == 3 || this.bonusShipBounce == 1)
+            {
+                bonusShip.MoveRight();
+            }
+            else
+            {
+                bonusShip.MoveLeft();
+            }
+        }
+
+        private void checkBoundCounter()
         {
             if (this.bonusShipBounce == 0)
             {
                 this.resetBonusShipBoundCounter();
             }
-            
-            
         }
 
         private void resetBonusShipBoundCounter()
         {
             this.bonusShipBounce = 3;
+        }
+
+        private void checkBonusShipPosition(EnemyShip bonusShip)
+        {
+            if (bonusShip.X == this.canvas.Width - bonusShip.Width)
+            {
+                this.bonusShipBounce--;
+            }
+            else if (bonusShip.X == 0)
+            {
+                this.bonusShipBounce--;
+            }
         }
 
         /// <summary>

@@ -195,6 +195,12 @@
             <param name="enemyShips">The enemy ships.</param>
             <param name="tickCounter">The tick counter.</param>
         </member>
+        <member name="M:Galaga.Model.EnemyManager.MoveBonusShip(Galaga.Model.EnemyShip)">
+            <summary>
+                Moves the bonus ship.
+            </summary>
+            <param name="bonusShip">The bonus ship.</param>
+        </member>
         <member name="M:Galaga.Model.EnemyManager.SwapSpritesAnimation(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
             <summary>
                 Swaps the sprites every tick.
