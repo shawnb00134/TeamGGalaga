@@ -66,6 +66,8 @@ namespace Galaga.Model
                     enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 
+                    System.Diagnostics.Debug.WriteLine("Enemy ship created at: " + enemyShip.X + ", " + enemyShip.Y);
+
                     var xPosition = (i + 1) * spacing - enemyShip.Width / 2.0;
                     enemyShip.X = xPosition;
                     enemyShip.Y = startY - rowIndex * rowSpacing;

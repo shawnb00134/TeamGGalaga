@@ -547,6 +547,22 @@
             Manages high score logic and score-related functionality.
             </summary>
         </member>
+        <member name="P:Galaga.Model.Score.CurrentScore">
+            <summary>
+                Gets the current score.
+            </summary>
+            <value>
+                The current score.
+            </value>
+        </member>
+        <member name="P:Galaga.Model.Score.HighScores">
+            <summary>
+                Gets the high scores.
+            </summary>
+            <value>
+                The high scores.
+            </value>
+        </member>
         <member name="M:Galaga.Model.Score.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Galaga.Model.Score"/> class.
@@ -571,13 +587,13 @@
             <param name="playerName">The player's name.</param>
             <param name="levelCompleted">The level completed by the player.</param>
         </member>
-        <member name="M:Galaga.Model.Score.LoadHighScores">
+        <member name="M:Galaga.Model.Score.loadHighScores">
             <summary>
             Loads high scores from the storage file.
             </summary>
             <returns>A list of high scores.</returns>
         </member>
-        <member name="M:Galaga.Model.Score.SaveHighScores">
+        <member name="M:Galaga.Model.Score.saveHighScores">
             <summary>
             Saves high scores to the storage file.
             </summary>
@@ -586,6 +602,38 @@
             <summary>
             Represents a high score entry.
             </summary>
+        </member>
+        <member name="P:Galaga.Model.HighScore.PlayerName">
+            <summary>
+                Gets or sets the name of the player.
+            </summary>
+            <value>
+                The name of the player.
+            </value>
+        </member>
+        <member name="P:Galaga.Model.HighScore.Score">
+            <summary>
+                Gets or sets the score.
+            </summary>
+            <value>
+                The score.
+            </value>
+        </member>
+        <member name="P:Galaga.Model.HighScore.Level">
+            <summary>
+                Gets or sets the level.
+            </summary>
+            <value>
+                The level.
+            </value>
+        </member>
+        <member name="M:Galaga.Model.HighScore.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.Model.HighScore"/> class.
+            </summary>
+            <param name="playerName">Name of the player.</param>
+            <param name="score">The score.</param>
+            <param name="level">The level.</param>
         </member>
         <member name="T:Galaga.Model.ShipFactory">
             <summary>

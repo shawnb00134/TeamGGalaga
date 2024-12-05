@@ -73,7 +73,7 @@ namespace Galaga.Model
 
             this.initializeGame();
             this.timer.Start();
-            this.updateScoreUI();
+            this.updateScoreUi();
         }
 
         #endregion
@@ -233,7 +233,7 @@ namespace Galaga.Model
             this.soundManager.playEnemyDestroyed();
 
             this.scoreManager.AddPoints(enemyShip.ScoreValue);
-            this.updateScoreUI();
+            this.updateScoreUi();
         }
 
         // Keeping this here temporarily just in case.
@@ -244,7 +244,7 @@ namespace Galaga.Model
         //    this.gameCanvas.updateScoreBoard("Score: " + this.score);
         //}
 
-        private void updateScoreUI()
+        private void updateScoreUi()
         {
             this.gameCanvas.updateScoreBoard("Score: " + this.scoreManager.CurrentScore);
         }
@@ -255,7 +255,7 @@ namespace Galaga.Model
             {
                 this.timer.Stop();
                 this.gameCanvas.DisplayYouLoseText();
-                this.PromptForPlayerName();
+                this.promptForPlayerName();
             }
 
             if (!this.enemyShips.Any())
@@ -269,7 +269,7 @@ namespace Galaga.Model
                 {
                     this.timer.Stop();
                     this.gameCanvas.DisplayYouWinText();
-                    this.PromptForPlayerName();
+                    this.promptForPlayerName();
                 }
             }
         }
@@ -284,7 +284,7 @@ namespace Galaga.Model
             this.gameCanvas.updatePlayerLivesBoard("Lives: " + this.playerManager.GetPlayerLivesCount());
         }
 
-        private void PromptForPlayerName()
+        private void promptForPlayerName()
         {
             TextBox playerNameInput = new TextBox
             {
@@ -306,11 +306,11 @@ namespace Galaga.Model
 
             Canvas.SetLeft(playerNameInput, 500);
             Canvas.SetTop(playerNameInput, 300);
-            canvas.Children.Add(playerNameInput);
+            this.canvas.Children.Add(playerNameInput);
 
             Canvas.SetLeft(submitButton, 500);
             Canvas.SetTop(submitButton, 350);
-            canvas.Children.Add(submitButton);
+            this.canvas.Children.Add(submitButton);
         }
 
         #endregion

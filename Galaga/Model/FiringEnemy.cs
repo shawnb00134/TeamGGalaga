@@ -42,6 +42,12 @@ namespace Galaga.Model
         public FiringEnemy(BaseSprite mainSprite, int speed, Canvas canvas) : base(mainSprite, speed, canvas)
         {
             SetSpeed(speed, SpeedYDirection);
+
+            if (mainSprite == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Single Sprite is null");
+            }
+
             this.sprites = new[] { mainSprite };
         }
 
@@ -53,6 +59,12 @@ namespace Galaga.Model
                 alternateSprite, levelMultiplier, canvas)
         {
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
+
+            if (mainSprite == null || alternateSprite == null)
+            {
+                System.Diagnostics.Debug.WriteLine("Double Sprite is null");
+            }
+
             this.sprites = new[] { mainSprite, alternateSprite };
         }
 

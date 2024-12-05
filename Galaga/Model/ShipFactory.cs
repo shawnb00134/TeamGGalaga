@@ -32,21 +32,25 @@ namespace Galaga.Model
                 case 0:
                     enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(),
                         levelMultiplier, canvas);
+                    System.Diagnostics.Debug.WriteLine("Level 1");
                     enemyShip.ScoreValue = 1 * levelMultiplier;
                     break;
                 case 1:
                     enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(),
                         levelMultiplier, canvas);
+                    System.Diagnostics.Debug.WriteLine("Level 2");
                     enemyShip.ScoreValue = 2 * levelMultiplier;
                     break;
                 case 2:
                     enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
                         levelMultiplier, canvas);
+                    System.Diagnostics.Debug.WriteLine("Level 3");
                     enemyShip.ScoreValue = 3 * levelMultiplier;
                     break;
                 default:
                     enemyShip = new FiringEnemy(new EnemyLevel4Sprite(), new EnemyLevel4SpriteAlternate(),
                         levelMultiplier, canvas);
+                    System.Diagnostics.Debug.WriteLine("Level 4");
                     enemyShip.ScoreValue = 4 * levelMultiplier;
                     break;
             }

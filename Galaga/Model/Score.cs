@@ -13,7 +13,20 @@ namespace Galaga.Model
     {
         private const string HighScoreFileName = "HighScores.json";
 
+        /// <summary>
+        ///     Gets the current score.
+        /// </summary>
+        /// <value>
+        ///     The current score.
+        /// </value>
         public int CurrentScore { get; private set; }
+
+        /// <summary>
+        ///     Gets the high scores.
+        /// </summary>
+        /// <value>
+        ///     The high scores.
+        /// </value>
         public List<HighScore> HighScores { get; private set; }
 
         /// <summary>
@@ -22,8 +35,8 @@ namespace Galaga.Model
         /// </summary>
         public Score()
         {
-            CurrentScore = 0;
-            HighScores = LoadHighScores();
+            this.CurrentScore = 0;
+            this.HighScores = this.loadHighScores();
         }
 
         /// <summary>
@@ -32,7 +45,7 @@ namespace Galaga.Model
         /// <param name="points">The number of points to add.</param>
         public void AddPoints(int points)
         {
-            CurrentScore += points;
+            this.CurrentScore += points;
         }
 
         /// <summary>
@@ -40,7 +53,7 @@ namespace Galaga.Model
         /// </summary>
         public void ResetScore()
         {
-            CurrentScore = 0;
+            this.CurrentScore = 0;
         }
 
         /// <summary>
@@ -50,21 +63,21 @@ namespace Galaga.Model
         /// <param name="levelCompleted">The level completed by the player.</param>
         public void UpdateHighScores(string playerName, int levelCompleted)
         {
-            HighScores.Add(new HighScore(playerName, CurrentScore, levelCompleted));
-            HighScores = HighScores
+            this.HighScores.Add(new HighScore(playerName, this.CurrentScore, levelCompleted));
+            this.HighScores = this.HighScores
                 .OrderByDescending(h => h.Score)
                 .ThenBy(h => h.PlayerName)
                 .ThenByDescending(h => h.Level)
                 .Take(10)
                 .ToList();
-            SaveHighScores();
+            this.saveHighScores();
         }
 
         /// <summary>
         /// Loads high scores from the storage file.
         /// </summary>
         /// <returns>A list of high scores.</returns>
-        private List<HighScore> LoadHighScores()
+        private List<HighScore> loadHighScores()
         {
             try
             {
@@ -83,11 +96,11 @@ namespace Galaga.Model
         /// <summary>
         /// Saves high scores to the storage file.
         /// </summary>
-        private void SaveHighScores()
+        private void saveHighScores()
         {
             try
             {
-                var json = JsonConvert.SerializeObject(HighScores);
+                var json = JsonConvert.SerializeObject(this.HighScores);
                 File.WriteAllText(HighScoreFileName, json);
             }
             catch (Exception)
@@ -101,15 +114,41 @@ namespace Galaga.Model
     /// </summary>
     public class HighScore
     {
+        /// <summary>
+        ///     Gets or sets the name of the player.
+        /// </summary>
+        /// <value>
+        ///     The name of the player.
+        /// </value>
         public string PlayerName { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the score.
+        /// </summary>
+        /// <value>
+        ///     The score.
+        /// </value>
         public int Score { get; set; }
+
+        /// <summary>
+        ///     Gets or sets the level.
+        /// </summary>
+        /// <value>
+        ///     The level.
+        /// </value>
         public int Level { get; set; }
 
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="HighScore"/> class.
+        /// </summary>
+        /// <param name="playerName">Name of the player.</param>
+        /// <param name="score">The score.</param>
+        /// <param name="level">The level.</param>
         public HighScore(string playerName, int score, int level)
         {
-            PlayerName = playerName;
-            Score = score;
-            Level = level;
+            this.PlayerName = playerName;
+            this.Score = score;
+            this.Level = level;
         }
     }
 }
