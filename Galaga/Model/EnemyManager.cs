@@ -1,11 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
-using System;
 
 namespace Galaga.Model
 {
-
     /// <summary>
     ///     EnemyManager class.
     /// </summary>
@@ -19,7 +18,7 @@ namespace Galaga.Model
         private readonly Canvas canvas;
         private readonly Random random;
 
-        private ShipFactory shipFactory;
+        private readonly ShipFactory shipFactory;
 
         #endregion
 
@@ -63,7 +62,7 @@ namespace Galaga.Model
                 EnemyShip enemyShip;
                 for (var i = 0; i < enemyCount; i++)
                 {
-                    enemyShip = shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, canvas);
+                    enemyShip = this.shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, this.canvas);
                     enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 
@@ -76,6 +75,10 @@ namespace Galaga.Model
             return enemyShips;
         }
 
+        /// <summary>
+        ///     Creates the special/bonus enemy ship
+        /// </summary>
+        /// <returns></returns>
         public EnemyShip CreateSpecialShip()
         {
             var bonusEnemyShip = this.shipFactory.CreateSpecialShip(this.canvas, this.random.Next(0, 2));
@@ -94,22 +97,25 @@ namespace Galaga.Model
         {
             foreach (var ship in enemyShips)
             {
-                if (this.movingRight)
+                if (!ship.Sprite.Equals(typeof(EnemySpecialSprite)))
                 {
-                    ship.MoveRight();
-
-                    if (ship.X + ship.Width >= this.canvas.Width)
+                    if (this.movingRight)
                     {
-                        this.movingRight = false;
+                        ship.MoveRight();
+
+                        if (ship.X + ship.Width >= this.canvas.Width)
+                        {
+                            this.movingRight = false;
+                        }
                     }
-                }
-                else
-                {
-                    ship.MoveLeft();
-
-                    if (ship.X <= 0)
+                    else
                     {
-                        this.movingRight = true;
+                        ship.MoveLeft();
+
+                        if (ship.X <= 0)
+                        {
+                            this.movingRight = true;
+                        }
                     }
                 }
             }
@@ -118,19 +124,33 @@ namespace Galaga.Model
         /// <summary>
         ///     Moves the bonus ship.
         /// </summary>
-        /// <param name="bonusShip">The bonus ship.</param>
-        public void MoveBonusShip(EnemyShip bonusShip)
+        /// <param name="enemyShips">The enemy ships.</param>
+        public void MoveBonusShip(IList<EnemyShip> enemyShips)
         {
             this.checkBoundCounter();
+
+            EnemyShip bonusShip = null;
+
+            foreach (var ship in enemyShips)
+            {
+                if (ship.Sprite.Equals(typeof(EnemySpecialSprite)))
+                {
+                    bonusShip = ship;
+                }
+            }
+
             this.checkBonusShipPosition(bonusShip);
 
-            if (this.bonusShipBounce == 3 || this.bonusShipBounce == 1)
+            if (bonusShip != null)
             {
-                bonusShip.MoveRight();
-            }
-            else
-            {
-                bonusShip.MoveLeft();
+                if (this.bonusShipBounce == 3 || this.bonusShipBounce == 1)
+                {
+                    bonusShip.MoveRight();
+                }
+                else
+                {
+                    bonusShip.MoveLeft();
+                }
             }
         }
 
@@ -166,8 +186,21 @@ namespace Galaga.Model
         {
             foreach (var enemyShip in enemyShips)
             {
-                enemyShip.SwapSprites();
+                if (!enemyShip.Sprite.Equals(typeof(EnemySpecialSprite)))
+                {
+                    enemyShip.SwapSprites();
+                }
             }
+        }
+
+        /// <summary>
+        ///     Plays the explosion.
+        /// </summary>
+        /// <param name="ship">The ship.</param>
+        public void playExplosion(EnemyShip ship)
+        {
+            var explosion = new Explosion(ship, this.canvas);
+            explosion.playExplosion();
         }
 
         #endregion

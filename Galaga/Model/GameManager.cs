@@ -1,10 +1,10 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View;
-using Windows.Web.Http;
+using Galaga.View.Sprites;
 
 namespace Galaga.Model
 {
@@ -23,7 +23,7 @@ namespace Galaga.Model
         private readonly GameCanvas gameCanvas;
         private readonly PlayerManager playerManager;
         private readonly MissileManager missileManager;
-        private SoundManager soundManager;
+        private readonly SoundManager soundManager;
 
         private readonly DispatcherTimer timer;
         private int tickCounter;
@@ -89,7 +89,7 @@ namespace Galaga.Model
             }
 
             this.enemyManager.MoveEnemyShips(this.enemyShips, this.tickCounter);
-            this.enemyManager.MoveBonusShip(this.enemyShips.Last());
+            //this.enemyManager.MoveBonusShip(this.enemyShips);
             this.enemyFireMissiles();
             this.moveMissiles();
             this.tickCounter++;
@@ -125,7 +125,10 @@ namespace Galaga.Model
             {
                 this.listOfShips.Add(enemyShip);
             }
-            this.enemyShips.Add(this.enemyManager.CreateSpecialShip());
+
+            //TODO: Fix Special Ship
+            //this.enemyShips.Add(this.enemyManager.CreateSpecialShip());
+            //this.enemyManager.CreateSpecialShip();
         }
 
         /// <summary>
@@ -196,10 +199,9 @@ namespace Galaga.Model
                         break;
                     case EnemyShip enemyShip:
                         this.updateScore(enemyShip.ScoreValue);
-                        this.enemyShips.Remove(enemyShip);
-                        this.listOfShips.Remove(enemyShip);
-                        this.canvas.Children.Remove(obj.Sprite);
-                        this.soundManager.playEnemyDestroyed();
+                        //this.enemyShips.Remove(enemyShip);
+                        this.removeEnemyShip(enemyShip);
+                        //this.listOfShips.Remove(enemyShip);
                         break;
                     case Missile _:
                         this.missileManager.checkForPlayerMissile(obj);
@@ -210,6 +212,20 @@ namespace Galaga.Model
 
                 this.checkForEndGame();
             }
+        }
+
+        private void removeEnemyShip(EnemyShip enemyShip)
+        {
+            if (enemyShip.Equals(typeof(EnemySpecialSprite)))
+            {
+                this.playerManager.AddPlayerLife();
+            }
+
+            this.enemyShips.Remove(enemyShip);
+            this.listOfShips.Remove(enemyShip);
+            this.canvas.Children.Remove(enemyShip.Sprite);
+            this.enemyManager.playExplosion(enemyShip);
+            this.soundManager.playEnemyDestroyed();
         }
 
         private void updateScore(int scoreValue)
@@ -238,11 +254,10 @@ namespace Galaga.Model
                     this.timer.Stop();
                     this.gameCanvas.DisplayYouWinText();
                 }
-                
             }
         }
 
-        private Boolean checkForLevel()
+        private bool checkForLevel()
         {
             return this.currentLevel < LevelCap;
         }

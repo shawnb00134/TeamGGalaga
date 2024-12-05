@@ -1,5 +1,4 @@
-﻿using Windows.UI.Xaml;
-using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
 
 namespace Galaga.Model
@@ -36,8 +35,9 @@ namespace Galaga.Model
         /// <summary>
         ///     Initializes a new instance of the <see cref="NonFiringEnemy" /> class.
         /// </summary>
-        public NonFiringEnemy(BaseSprite mainSprite, BaseSprite alternateSprite, int levelMultiplier, Canvas canvas) : base(mainSprite,
-            alternateSprite, levelMultiplier, canvas)
+        public NonFiringEnemy(BaseSprite mainSprite, BaseSprite alternateSprite, int levelMultiplier, Canvas canvas) :
+            base(mainSprite,
+                alternateSprite, levelMultiplier, canvas)
         {
             Sprite = mainSprite;
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);

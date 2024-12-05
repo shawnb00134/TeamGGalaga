@@ -5,11 +5,17 @@ using Windows.Media.Playback;
 namespace Galaga.Model
 {
     /// <summary>
-    ///    Represents a sound manager in the Galaga game.
+    ///     Represents a sound manager in the Galaga game.
     /// </summary>
     public class SoundManager
     {
-        private MediaPlayer mediaPlayer;
+        #region Data members
+
+        private readonly MediaPlayer mediaPlayer;
+
+        #endregion
+
+        #region Constructors
 
         /// <summary>
         ///     SoundManager constructor.
@@ -18,6 +24,10 @@ namespace Galaga.Model
         {
             this.mediaPlayer = new MediaPlayer();
         }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         ///     Plays the sound of the player firing.
@@ -34,7 +44,7 @@ namespace Galaga.Model
         public void playPlayerDestroyed()
         {
             this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipDestroyed02.wav"));
-            this.mediaPlayer.Play(); ;
+            this.mediaPlayer.Play();
         }
 
         /// <summary>
@@ -43,7 +53,7 @@ namespace Galaga.Model
         public void playEnemyFiring()
         {
             this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipFiring02.wav"));
-            this.mediaPlayer.Play(); ;
+            this.mediaPlayer.Play();
         }
 
         /// <summary>
@@ -52,7 +62,36 @@ namespace Galaga.Model
         public void playEnemyDestroyed()
         {
             this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipDestroyed02.wav"));
-            this.mediaPlayer.Play(); ;
+            this.mediaPlayer.Play();
         }
+
+        /// <summary>
+        ///     Plays the bonus ship creation.
+        /// </summary>
+        public void playBonusShipCreation()
+        {
+            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/bonusShip.wav"));
+            this.mediaPlayer.Play();
+        }
+
+        /// <summary>
+        ///     Plays the power up.
+        /// </summary>
+        public void playPowerUp()
+        {
+            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/powerUp.wav"));
+            this.mediaPlayer.Play();
+        }
+
+        /// <summary>
+        ///     Plays the nuke explosion.
+        /// </summary>
+        public void playNukeExplosion()
+        {
+            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/nukeExplosion.wav"));
+            this.mediaPlayer.Play();
+        }
+
+        #endregion
     }
 }

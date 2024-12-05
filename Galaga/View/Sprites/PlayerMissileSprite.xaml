@@ -11,12 +11,8 @@
     Height="17"
     Width="8">
 
-    <UserControl.Resources>
-        <SolidColorBrush x:Key="MainColor" Color="LightGray" />
-        <SolidColorBrush x:Key="AccentColor" Color="Red" />
-    </UserControl.Resources>
-
     <Canvas RenderTransformOrigin="0.5,0.5" Margin="0,0,5,6">
-        <Line X1="25" Y1="25" X2="25" Y2="40" Stroke="{ThemeResource TextControlHighlighterBackground}" StrokeThickness="5" Canvas.Left="-21" Canvas.Top="-24"/>
+        <Line X1="25" Y1="25" X2="25" Y2="40" Stroke="{ThemeResource TextControlHighlighterBackground}"
+              StrokeThickness="5" Canvas.Left="-21" Canvas.Top="-24" />
     </Canvas>
 </local:BaseSprite>

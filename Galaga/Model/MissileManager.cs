@@ -1,7 +1,7 @@
-﻿using Galaga.View.Sprites;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using Galaga.View.Sprites;
 
 namespace Galaga.Model
 {
@@ -18,7 +18,7 @@ namespace Galaga.Model
         private const int PlayerMissileSpeed = -10;
         private const int EnemyMissileSpeed = 12;
 
-        private SoundManager soundManager;
+        private readonly SoundManager soundManager;
 
         private readonly Random random;
         private int delayTicker;

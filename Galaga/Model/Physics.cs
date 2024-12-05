@@ -1,7 +1,6 @@
-﻿using Galaga.View.Sprites;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
+using Galaga.View.Sprites;
 
 namespace Galaga.Model
 {
@@ -25,7 +24,7 @@ namespace Galaga.Model
             {
                 foreach (var missile in missiles)
                 {
-                    if (missile != null && !(ship is EnemyShip && missile.Sprite.GetType() == typeof(EnemyMissileSprite)) )
+                    if (missile != null && !(ship is EnemyShip && missile.Sprite.GetType() is EnemyMissileSprite))
                     {
                         if (this.isColliding(ship, missile))
                         {
@@ -57,7 +56,7 @@ namespace Galaga.Model
         {
             if (missile != null)
             {
-                if (missile.Sprite.GetType() == typeof(EnemyMissileSprite) && missile.Y > canvas.Height)
+                if (missile.Sprite.GetType() is EnemyMissileSprite && missile.Y > canvas.Height)
                 {
                     return true;
                 }
@@ -67,6 +66,7 @@ namespace Galaga.Model
                     return true;
                 }
             }
+
             return false;
         }
 

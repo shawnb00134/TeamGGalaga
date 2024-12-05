@@ -36,7 +36,7 @@ namespace Galaga.Model
         #region Constructors
 
         /// <summary>
-        ///    Initializes a new instance of the <see cref="EnemyShip" /> class.
+        ///     Initializes a new instance of the <see cref="EnemyShip" /> class.
         /// </summary>
         /// <param name="mainSprite"></param>
         /// <param name="speed"></param>
@@ -75,7 +75,7 @@ namespace Galaga.Model
         }
 
         /// <summary>
-        ///    Special method to add the bonus ship to canvas.
+        ///     Special method to add the bonus ship to canvas.
         /// </summary>
         public virtual void AddBonusShipToCanvas()
         {

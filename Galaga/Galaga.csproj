@@ -121,6 +121,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Explosion.cs" />
     <Compile Include="Model\Missile.cs" />
     <Compile Include="Model\MissileManager.cs" />
     <Compile Include="Model\NonFiringEnemy.cs" />
@@ -164,9 +165,18 @@
     <Compile Include="View\Sprites\EnemyMissileSprite.xaml.cs">
       <DependentUpon>EnemyMissileSprite.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Sprites\ExplosionSprite1.xaml.cs">
+      <DependentUpon>ExplosionSprite1.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sprites\ExplosionSprite2.xaml.cs">
+      <DependentUpon>ExplosionSprite2.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sprites\ExplosionSprite3.xaml.cs">
+      <DependentUpon>ExplosionSprite3.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Sprites\ISpriteRenderer.cs" />
-    <Compile Include="View\Sprites\EnemySpecial.xaml.cs">
-      <DependentUpon>EnemySpecial.xaml</DependentUpon>
+    <Compile Include="View\Sprites\EnemySpecialSprite.xaml.cs">
+      <DependentUpon>EnemySpecialSprite.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Sprites\PlayerMissileSprite.xaml.cs">
       <DependentUpon>PlayerMissileSprite.xaml</DependentUpon>
@@ -189,10 +199,13 @@
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Sounds\bonusShip.wav" />
     <Content Include="Sounds\EnemyShipDestroyed02.wav" />
     <Content Include="Sounds\EnemyShipFiring02.wav" />
+    <Content Include="Sounds\nukeExplosion.wav" />
     <Content Include="Sounds\PlayerShipDestroyed02.wav" />
     <Content Include="Sounds\PlayerShipFiring02.wav" />
+    <Content Include="Sounds\powerUp.wav" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -235,7 +248,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Sprites\EnemySpecial.xaml">
+    <Page Include="View\Sprites\EnemySpecialSprite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprites\ExplosionSprite1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprites\ExplosionSprite2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprites\ExplosionSprite3.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

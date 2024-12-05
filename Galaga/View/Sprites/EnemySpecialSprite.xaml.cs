@@ -6,14 +6,14 @@
     /// <seealso cref="Galaga.View.Sprites.BaseSprite" />
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector" />
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector2" />
-    public partial class EnemySpecial
+    public partial class EnemySpecialSprite
     {
         #region Constructors
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="EnemyLevel1Sprite" /> class.
+        ///     Initializes a new instance of the <see cref="EnemySpecialSprite" /> class.
         /// </summary>
-        public EnemySpecial()
+        public EnemySpecialSprite()
         {
             this.InitializeComponent();
         }

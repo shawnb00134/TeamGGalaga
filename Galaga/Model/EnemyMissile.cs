@@ -1,4 +1,6 @@
-﻿namespace Galaga.Model
+﻿using Galaga.View.Sprites;
+
+namespace Galaga.Model
 {
     /// <summary>
     ///     EnemyMissile class.
@@ -19,7 +21,7 @@
         /// </summary>
         public EnemyMissile()
         {
-            Sprite = new View.Sprites.EnemyMissileSprite();
+            Sprite = new EnemyMissileSprite();
             SetSpeed(SpeedXDirection, SpeedYDirection);
         }
 

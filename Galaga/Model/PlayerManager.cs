@@ -125,6 +125,14 @@ namespace Galaga.Model
             return this.player;
         }
 
+        /// <summary>
+        ///     Adds the player life.
+        /// </summary>
+        public void AddPlayerLife()
+        {
+            this.player.addPlayerLife();
+        }
+
         #endregion
     }
 }

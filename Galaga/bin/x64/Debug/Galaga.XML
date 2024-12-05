@@ -58,6 +58,23 @@
             GetXmlnsDefinitions()
             </summary>
         </member>
+        <member name="T:Galaga.Model.Explosion">
+            <summary>
+                Explosion class for the destruction of ships
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.Explosion.#ctor(Galaga.Model.EnemyShip,Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.Model.Explosion" /> class.
+            </summary>
+            <param name="ship">The ship.</param>
+            <param name="canvas">The canvas.</param>
+        </member>
+        <member name="M:Galaga.Model.Explosion.playExplosion">
+            <summary>
+                Plays the explosion.
+            </summary>
+        </member>
         <member name="T:Galaga.Model.Missile">
             <summary>
                 Missile class.
@@ -65,7 +82,7 @@
         </member>
         <member name="M:Galaga.Model.Missile.#ctor(System.Int32,Galaga.View.Sprites.BaseSprite)">
             <summary>
-               Initializes a new instance of the <see cref="T:Galaga.Model.Missile" /> class.
+                Initializes a new instance of the <see cref="T:Galaga.Model.Missile" /> class.
             </summary>
             <param name="speedY"></param>
             <param name="sprite"></param>
@@ -160,7 +177,7 @@
         </member>
         <member name="M:Galaga.Model.FiringEnemy.#ctor(Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
-               Initializes a new instance of the <see cref="T:Galaga.Model.FiringEnemy" /> class.
+                Initializes a new instance of the <see cref="T:Galaga.Model.FiringEnemy" /> class.
             </summary>
             <param name="mainSprite"></param>
             <param name="speed"></param>
@@ -188,6 +205,12 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Galaga.Model.EnemyManager.CreateSpecialShip">
+            <summary>
+                Creates the special/bonus enemy ship
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Galaga.Model.EnemyManager.MoveEnemyShips(System.Collections.Generic.IList{Galaga.Model.EnemyShip},System.Int32)">
             <summary>
                 Moves the enemy ships.
@@ -195,16 +218,22 @@
             <param name="enemyShips">The enemy ships.</param>
             <param name="tickCounter">The tick counter.</param>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.MoveBonusShip(Galaga.Model.EnemyShip)">
+        <member name="M:Galaga.Model.EnemyManager.MoveBonusShip(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
             <summary>
                 Moves the bonus ship.
             </summary>
-            <param name="bonusShip">The bonus ship.</param>
+            <param name="enemyShips">The enemy ships.</param>
         </member>
         <member name="M:Galaga.Model.EnemyManager.SwapSpritesAnimation(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
             <summary>
                 Swaps the sprites every tick.
             </summary>
+        </member>
+        <member name="M:Galaga.Model.EnemyManager.playExplosion(Galaga.Model.EnemyShip)">
+            <summary>
+                Plays the explosion.
+            </summary>
+            <param name="ship">The ship.</param>
         </member>
         <member name="T:Galaga.Model.EnemyMissile">
             <summary>
@@ -232,7 +261,7 @@
         </member>
         <member name="M:Galaga.Model.EnemyShip.#ctor(Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
-               Initializes a new instance of the <see cref="T:Galaga.Model.EnemyShip" /> class.
+                Initializes a new instance of the <see cref="T:Galaga.Model.EnemyShip" /> class.
             </summary>
             <param name="mainSprite"></param>
             <param name="speed"></param>
@@ -250,7 +279,7 @@
         </member>
         <member name="M:Galaga.Model.EnemyShip.AddBonusShipToCanvas">
             <summary>
-               Special method to add the bonus ship to canvas.
+                Special method to add the bonus ship to canvas.
             </summary>
         </member>
         <member name="M:Galaga.Model.EnemyShip.SwapSprites">
@@ -426,7 +455,7 @@
         </member>
         <member name="M:Galaga.Model.Player.addPlayerLife">
             <summary>
-               Adds a player life.
+                Adds a player life.
             </summary>
         </member>
         <member name="T:Galaga.Model.PlayerManager">
@@ -477,6 +506,11 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Galaga.Model.PlayerManager.AddPlayerLife">
+            <summary>
+                Adds the player life.
+            </summary>
+        </member>
         <member name="T:Galaga.Model.PlayerMissile">
             <summary>
                 Player missile class
@@ -490,19 +524,21 @@
         </member>
         <member name="T:Galaga.Model.ShipFactory">
             <summary>
-               Factory class for creating ships.
+                Factory class for creating ships.
             </summary>
         </member>
         <member name="M:Galaga.Model.ShipFactory.CreateEnemyShip(System.Int32,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
-               Creates the enemy ship.
+                Creates the enemy ship.
             </summary>
             <param name="level"></param>
+            <param name="levelMultiplier"></param>
+            <param name="canvas"></param>
             <returns></returns>
         </member>
         <member name="M:Galaga.Model.ShipFactory.CreateSpecialShip(Windows.UI.Xaml.Controls.Canvas,System.Int32)">
             <summary>
-              Creates the special ship.
+                Creates the special ship.
             </summary>
             <returns></returns>
         </member>
@@ -534,6 +570,21 @@
         <member name="M:Galaga.Model.SoundManager.playEnemyDestroyed">
             <summary>
                 Plays the sound of the enemy being destroyed.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.SoundManager.playBonusShipCreation">
+            <summary>
+                Plays the bonus ship creation.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.SoundManager.playPowerUp">
+            <summary>
+                Plays the power up.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.SoundManager.playNukeExplosion">
+            <summary>
+                Plays the nuke explosion.
             </summary>
         </member>
         <member name="T:Galaga.View.GameCanvas">
@@ -832,6 +883,84 @@
             GetBindingConnector(int connectionId, object target)
             </summary>
         </member>
+        <member name="T:Galaga.View.Sprites.ExplosionSprite1">
+            <summary>
+                Sprite 1 of the explosion.
+            </summary>
+            <seealso cref="T:Galaga.View.Sprites.BaseSprite" />
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite1.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite1"/> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite1.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite1.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite1.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.Sprites.ExplosionSprite2">
+            <summary>
+                Sprite 2 of the explosion.
+            </summary>
+            <seealso cref="T:Galaga.View.Sprites.BaseSprite" />
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite2.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite2"/> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite2.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite2.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite2.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.Sprites.ExplosionSprite3">
+            <summary>
+                Sprite 3 of the explosion.
+            </summary>
+            <seealso cref="T:Galaga.View.Sprites.BaseSprite" />
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite3.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite3"/> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite3.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite3.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.ExplosionSprite3.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
         <member name="T:Galaga.View.Sprites.ISpriteRenderer">
             <summary>
                 Interface to render a sprite. This interface is needed within every sprite
@@ -847,7 +976,7 @@
             <param name="x">x location</param>
             <param name="y">y location</param>
         </member>
-        <member name="T:Galaga.View.Sprites.EnemySpecial">
+        <member name="T:Galaga.View.Sprites.EnemySpecialSprite">
             <summary>
                The special enemy sprite.
             </summary>
@@ -855,22 +984,22 @@
             <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector" />
             <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector2" />
         </member>
-        <member name="M:Galaga.View.Sprites.EnemySpecial.#ctor">
+        <member name="M:Galaga.View.Sprites.EnemySpecialSprite.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.EnemyLevel1Sprite" /> class.
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.EnemySpecialSprite" /> class.
             </summary>
         </member>
-        <member name="M:Galaga.View.Sprites.EnemySpecial.InitializeComponent">
+        <member name="M:Galaga.View.Sprites.EnemySpecialSprite.InitializeComponent">
             <summary>
             InitializeComponent()
             </summary>
         </member>
-        <member name="M:Galaga.View.Sprites.EnemySpecial.Connect(System.Int32,System.Object)">
+        <member name="M:Galaga.View.Sprites.EnemySpecialSprite.Connect(System.Int32,System.Object)">
             <summary>
             Connect()
             </summary>
         </member>
-        <member name="M:Galaga.View.Sprites.EnemySpecial.GetBindingConnector(System.Int32,System.Object)">
+        <member name="M:Galaga.View.Sprites.EnemySpecialSprite.GetBindingConnector(System.Int32,System.Object)">
             <summary>
             GetBindingConnector(int connectionId, object target)
             </summary>

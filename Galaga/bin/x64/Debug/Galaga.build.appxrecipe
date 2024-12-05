@@ -64,17 +64,26 @@
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\bonusShip.wav">
+      <PackagePath>Sounds\bonusShip.wav</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipDestroyed02.wav">
       <PackagePath>Sounds\EnemyShipDestroyed02.wav</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\EnemyShipFiring02.wav">
       <PackagePath>Sounds\EnemyShipFiring02.wav</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\nukeExplosion.wav">
+      <PackagePath>Sounds\nukeExplosion.wav</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipDestroyed02.wav">
       <PackagePath>Sounds\PlayerShipDestroyed02.wav</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\PlayerShipFiring02.wav">
       <PackagePath>Sounds\PlayerShipFiring02.wav</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Sounds\powerUp.wav">
+      <PackagePath>Sounds\powerUp.wav</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Galaga.xr.xml">
       <PackagePath>Galaga.xr.xml</PackagePath>
@@ -109,8 +118,17 @@
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyMissileSprite.xbf">
       <PackagePath>View\Sprites\EnemyMissileSprite.xbf</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemySpecial.xbf">
-      <PackagePath>View\Sprites\EnemySpecial.xbf</PackagePath>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemySpecialSprite.xbf">
+      <PackagePath>View\Sprites\EnemySpecialSprite.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite1.xbf">
+      <PackagePath>View\Sprites\ExplosionSprite1.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite2.xbf">
+      <PackagePath>View\Sprites\ExplosionSprite2.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite3.xbf">
+      <PackagePath>View\Sprites\ExplosionSprite3.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\PlayerMissileSprite.xbf">
       <PackagePath>View\Sprites\PlayerMissileSprite.xbf</PackagePath>
