@@ -32,25 +32,21 @@ namespace Galaga.Model
                 case 0:
                     enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(),
                         levelMultiplier, canvas);
-                    System.Diagnostics.Debug.WriteLine("Level 1");
                     enemyShip.ScoreValue = 1 * levelMultiplier;
                     break;
                 case 1:
                     enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(),
                         levelMultiplier, canvas);
-                    System.Diagnostics.Debug.WriteLine("Level 2");
                     enemyShip.ScoreValue = 2 * levelMultiplier;
                     break;
                 case 2:
                     enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
                         levelMultiplier, canvas);
-                    System.Diagnostics.Debug.WriteLine("Level 3");
                     enemyShip.ScoreValue = 3 * levelMultiplier;
                     break;
                 default:
                     enemyShip = new FiringEnemy(new EnemyLevel4Sprite(), new EnemyLevel4SpriteAlternate(),
                         levelMultiplier, canvas);
-                    System.Diagnostics.Debug.WriteLine("Level 4");
                     enemyShip.ScoreValue = 4 * levelMultiplier;
                     break;
             }
@@ -62,22 +58,13 @@ namespace Galaga.Model
         ///     Creates the special ship.
         /// </summary>
         /// <returns></returns>
-        public EnemyShip CreateSpecialShip(Canvas canvas, int randomNumber)
+        public EnemyShip CreateSpecialShip(Canvas canvas)
         {
             EnemyShip specialEnemyShip = new FiringEnemy(new EnemySpecialSprite(), SpecialEnemySpeed, canvas);
             specialEnemyShip.ScoreValue = 0;
 
-            Debug.WriteLine(randomNumber);
-            if (randomNumber == 1)
-            {
-                specialEnemyShip.X = canvas.Width - specialEnemyShip.Width;
-                specialEnemyShip.Y = 0;
-            }
-            else
-            {
-                specialEnemyShip.X = 0;
-                specialEnemyShip.Y = 0;
-            }
+            specialEnemyShip.X = 0;
+            specialEnemyShip.Y = 0;
 
             return specialEnemyShip;
         }

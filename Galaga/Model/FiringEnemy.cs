@@ -15,8 +15,6 @@ namespace Galaga.Model
         private const int SpeedXDirection = 3;
         private const int SpeedYDirection = 0;
         
-        private readonly BaseSprite[] sprites;
-
         #endregion
 
         #region Properties
@@ -48,7 +46,7 @@ namespace Galaga.Model
                 System.Diagnostics.Debug.WriteLine("Single Sprite is null");
             }
 
-            this.sprites = new[] { mainSprite };
+            Sprite = mainSprite;
         }
 
         /// <summary>
@@ -59,12 +57,7 @@ namespace Galaga.Model
                 alternateSprite, levelMultiplier, canvas)
         {
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
-
-            if (mainSprite == null || alternateSprite == null)
-            {
-                System.Diagnostics.Debug.WriteLine("Double Sprite is null");
-            }
-
+            Sprite = mainSprite;
             this.sprites = new[] { mainSprite, alternateSprite };
         }
 

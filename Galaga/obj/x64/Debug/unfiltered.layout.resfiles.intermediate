@@ -23,6 +23,8 @@ View\Sprites\EnemySpecialSprite.xbf
 View\Sprites\ExplosionSprite1.xbf
 View\Sprites\ExplosionSprite2.xbf
 View\Sprites\ExplosionSprite3.xbf
+View\Sprites\NukeBombSprite.xbf
+View\Sprites\NukeExplosionSprite.xbf
 View\Sprites\PlayerMissileSprite.xbf
 View\Sprites\PlayerSprite.xbf
 Properties\Default.rd.xml

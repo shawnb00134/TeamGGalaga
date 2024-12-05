@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj": {}
+    "D:\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj": {
+    "D:\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
+        "projectUniqueName": "D:\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
         "projectName": "Galaga",
-        "projectPath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
-        "packagesPath": "C:\\Users\\sb00134\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\obj\\",
+        "projectPath": "D:\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
+        "packagesPath": "C:\\Users\\wd35b\\.nuget\\packages\\",
+        "outputPath": "D:\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\sb00134\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\wd35b\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -27,8 +27,7 @@
           "uap10.0.17763"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {}
         },
         "frameworks": {
           "uap10.0.17763": {

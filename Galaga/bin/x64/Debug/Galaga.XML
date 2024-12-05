@@ -75,6 +75,11 @@
                 Plays the explosion.
             </summary>
         </member>
+        <member name="M:Galaga.Model.Explosion.playNuclearExplosion(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
+            <summary>
+                Plays the Sprite for the nuclear explosion.
+            </summary>
+        </member>
         <member name="T:Galaga.Model.Missile">
             <summary>
                 Missile class.
@@ -100,6 +105,11 @@
                 Missile controller
             </summary>
         </member>
+        <member name="P:Galaga.Model.MissileManager.NukeEnabled">
+            <summary>
+                Public access to the NukeEnabled property
+            </summary>
+        </member>
         <member name="M:Galaga.Model.MissileManager.#ctor">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.MissileManager" /> class.
@@ -110,10 +120,9 @@
                 Fires the missile.
             </summary>
             <param name="player">The player.</param>
-            <param name="canvas">The canvas.</param>
             <returns></returns>
         </member>
-        <member name="M:Galaga.Model.MissileManager.MoveMissiles(System.Collections.Generic.IList{Galaga.Model.GameObject})">
+        <member name="M:Galaga.Model.MissileManager.MoveMissiles(System.Collections.Generic.IList{Galaga.Model.GameObject},Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Moves the missiles.
             </summary>
@@ -125,7 +134,6 @@
             </summary>
             <param name="enemyShips">The enemy ships.</param>
             <param name="playerShip"></param>
-            <param name="canvas">The canvas.</param>
             <returns></returns>
         </member>
         <member name="M:Galaga.Model.MissileManager.CreateEnemyMissile(Galaga.Model.GameObject,Galaga.Model.GameObject)">
@@ -150,6 +158,16 @@
         <member name="M:Galaga.Model.MissileManager.UpdateDelayTick">
             <summary>
                 Updates the delay tick.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.EnableNuke">
+            <summary>
+                Enables the nuke to be fired
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.FireNuke">
+            <summary>
+                Launches the nuke.
             </summary>
         </member>
         <member name="T:Galaga.Model.NonFiringEnemy">
@@ -238,11 +256,10 @@
             <param name="enemyShips">The enemy ships.</param>
             <param name="tickCounter">The tick counter.</param>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.MoveBonusShip(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
+        <member name="M:Galaga.Model.EnemyManager.MoveBonusShip">
             <summary>
                 Moves the bonus ship.
             </summary>
-            <param name="enemyShips">The enemy ships.</param>
         </member>
         <member name="M:Galaga.Model.EnemyManager.SwapSpritesAnimation(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
             <summary>
@@ -330,6 +347,11 @@
         <member name="M:Galaga.Model.GameManager.FireMissile">
             <summary>
                 Fires the missile.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.GameManager.FireNuke">
+            <summary>
+               Fires the Nuke for the Wow Factor
             </summary>
         </member>
         <member name="T:Galaga.Model.GameObject">
@@ -649,7 +671,7 @@
             <param name="canvas"></param>
             <returns></returns>
         </member>
-        <member name="M:Galaga.Model.ShipFactory.CreateSpecialShip(Windows.UI.Xaml.Controls.Canvas,System.Int32)">
+        <member name="M:Galaga.Model.ShipFactory.CreateSpecialShip(Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Creates the special ship.
             </summary>
@@ -1169,6 +1191,56 @@
             </summary>
         </member>
         <member name="M:Galaga.View.Sprites.EnemySpecialSprite.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.Sprites.NukeBombSprite">
+            <summary>
+                Sprite for the nuke bomb.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeBombSprite.#ctor">
+            <summary>
+                Nuclear bomb sprite constructor
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeBombSprite.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeBombSprite.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeBombSprite.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.Sprites.NukeExplosionSprite">
+            <summary>
+                Sprite Animated for the nuke explosion.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeExplosionSprite.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Galaga.View.Sprites.NukeExplosionSprite" /> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeExplosionSprite.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeExplosionSprite.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.NukeExplosionSprite.GetBindingConnector(System.Int32,System.Object)">
             <summary>
             GetBindingConnector(int connectionId, object target)
             </summary>

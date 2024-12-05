@@ -13,10 +13,12 @@ namespace Galaga.Model
         #region Data members
 
         private bool movingRight = true;
+        private bool movingRightBonusShip = true;
         private int bonusShipBounce;
 
+        private EnemyShip bonusShip;
+
         private readonly Canvas canvas;
-        private readonly Random random;
 
         private readonly ShipFactory shipFactory;
 
@@ -31,7 +33,6 @@ namespace Galaga.Model
         public EnemyManager(Canvas canvas)
         {
             this.canvas = canvas;
-            this.random = new Random();
             this.shipFactory = new ShipFactory();
 
             this.bonusShipBounce = 3;
@@ -66,8 +67,6 @@ namespace Galaga.Model
                     enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 
-                    System.Diagnostics.Debug.WriteLine("Enemy ship created at: " + enemyShip.X + ", " + enemyShip.Y);
-
                     var xPosition = (i + 1) * spacing - enemyShip.Width / 2.0;
                     enemyShip.X = xPosition;
                     enemyShip.Y = startY - rowIndex * rowSpacing;
@@ -81,13 +80,10 @@ namespace Galaga.Model
         ///     Creates the special/bonus enemy ship
         /// </summary>
         /// <returns></returns>
-        public EnemyShip CreateSpecialShip()
+        public void CreateSpecialShip()
         {
-            var bonusEnemyShip = this.shipFactory.CreateSpecialShip(this.canvas, this.random.Next(0, 2));
-
-            bonusEnemyShip.AddBonusShipToCanvas();
-
-            return bonusEnemyShip;
+            this.bonusShip = this.shipFactory.CreateSpecialShip(this.canvas);
+            this.bonusShip.AddBonusShipToCanvas();
         }
 
         /// <summary>
@@ -126,37 +122,32 @@ namespace Galaga.Model
         /// <summary>
         ///     Moves the bonus ship.
         /// </summary>
-        /// <param name="enemyShips">The enemy ships.</param>
-        public void MoveBonusShip(IList<EnemyShip> enemyShips)
+        public void MoveBonusShip()
         {
-            this.checkBoundCounter();
-
-            EnemyShip bonusShip = null;
-
-            foreach (var ship in enemyShips)
-            {
-                if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite))
-                {
-                    bonusShip = ship;
-                }
-            }
+            this.checkBounceCounter();
 
             this.checkBonusShipPosition(bonusShip);
-
-            if (bonusShip != null)
+            if (this.movingRightBonusShip)
             {
-                if (this.bonusShipBounce == 3 || this.bonusShipBounce == 1)
+                this.bonusShip.MoveRight();
+
+                if (this.bonusShip.X + this.bonusShip.Width >= this.canvas.Width)
                 {
-                    bonusShip.MoveRight();
+                    this.movingRightBonusShip = false;
                 }
-                else
+            }
+            else
+            {
+                this.bonusShip.MoveLeft();
+
+                if (this.bonusShip.X <= 0)
                 {
-                    bonusShip.MoveLeft();
+                    this.movingRightBonusShip = true;
                 }
             }
         }
 
-        private void checkBoundCounter()
+        private void checkBounceCounter()
         {
             if (this.bonusShipBounce == 0)
             {

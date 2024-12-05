@@ -93,7 +93,7 @@ namespace Galaga.Model
             }
 
             this.enemyManager.MoveEnemyShips(this.enemyShips, this.tickCounter);
-            //this.enemyManager.MoveBonusShip(this.enemyShips);
+            this.enemyManager.MoveBonusShip();
             this.enemyFireMissiles();
             this.moveMissiles();
             this.tickCounter++;
@@ -129,10 +129,10 @@ namespace Galaga.Model
             {
                 this.listOfShips.Add(enemyShip);
             }
-
-            //TODO: Fix Special Ship
-            //this.enemyShips.Add(this.enemyManager.CreateSpecialShip());
-            //this.enemyManager.CreateSpecialShip();
+            //var specialShip = this.enemyManager.CreateSpecialShip();
+            //this.enemyShips.Add(specialShip);
+            //this.listOfShips.Add(specialShip);
+            this.enemyManager.CreateSpecialShip();
         }
 
         /// <summary>
@@ -161,7 +161,7 @@ namespace Galaga.Model
 
         private void moveMissiles()
         {
-            this.missileManager.MoveMissiles(this.missiles);
+            this.missileManager.MoveMissiles(this.missiles, this.canvas);
         }
 
         private void enemyFireMissiles()
@@ -223,7 +223,8 @@ namespace Galaga.Model
         {
             if (enemyShip.Sprite is EnemySpecialSprite)
             {
-                this.playerManager.AddPlayerLife();
+                //this.playerManager.AddPlayerLife();
+                this.destroySpecialEnemy();
             }
 
             this.enemyShips.Remove(enemyShip);
@@ -234,6 +235,24 @@ namespace Galaga.Model
 
             this.scoreManager.AddPoints(enemyShip.ScoreValue);
             this.updateScoreUi();
+        }
+
+        private void destroySpecialEnemy()
+        {
+            if (this.currentLevel == 1)
+            {
+                this.playerManager.AddPlayerLife();
+            }
+
+            if (this.currentLevel == 2)
+            {
+                this.playerManager.AddPlayerLife();
+                // Power Up
+            }
+            if (this.currentLevel == 3)
+            {
+                this.missileManager.EnableNuke();
+            }
         }
 
         // Keeping this here temporarily just in case.
@@ -311,6 +330,18 @@ namespace Galaga.Model
             Canvas.SetLeft(submitButton, 500);
             Canvas.SetTop(submitButton, 350);
             this.canvas.Children.Add(submitButton);
+        }
+
+        /// <summary>
+        ///    Fires the Nuke for the Wow Factor
+        /// </summary>
+        public void FireNuke()
+        {
+            if (this.currentLevel == LevelCap && this.missileManager.NukeEnabled)
+            {
+                this.missiles.Add(this.missileManager.FireNuke());
+
+            }
         }
 
         #endregion

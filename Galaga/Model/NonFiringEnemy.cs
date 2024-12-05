@@ -15,8 +15,6 @@ namespace Galaga.Model
         private const int SpeedXDirection = 3;
         private const int SpeedYDirection = 0;
 
-        private readonly BaseSprite[] sprites;
-
         #endregion
 
         #region Properties

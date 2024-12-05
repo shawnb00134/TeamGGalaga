@@ -16,12 +16,18 @@ namespace Galaga.Model
         private const int EnemyFireCounter = 30;
         private const int PlayerMissileLimit = 3;
         private const int PlayerMissileSpeed = -10;
+        private const int NukeMissileSpeed = -5;
         private const int EnemyMissileSpeed = 12;
 
         private readonly SoundManager soundManager;
 
         private readonly Random random;
         private int delayTicker;
+
+        /// <summary>
+        ///     Public access to the NukeEnabled property
+        /// </summary>
+        public bool NukeEnabled { get; private set; }
 
         #endregion
 
@@ -43,6 +49,7 @@ namespace Galaga.Model
             this.random = new Random();
             this.PlayerMissileCount = 0;
             this.delayTicker = 10;
+            this.NukeEnabled = false;
         }
 
         #endregion
@@ -53,7 +60,6 @@ namespace Galaga.Model
         ///     Fires the missile.
         /// </summary>
         /// <param name="player">The player.</param>
-        /// <param name="canvas">The canvas.</param>
         /// <returns></returns>
         public GameObject FireMissile(GameObject player, Canvas canvas)
         {
@@ -80,12 +86,23 @@ namespace Galaga.Model
         ///     Moves the missiles.
         /// </summary>
         /// <param name="missiles">The missiles.</param>
-        public void MoveMissiles(IList<GameObject> missiles)
+        public void MoveMissiles(IList<GameObject> missiles, Canvas canvas)
         {
             foreach (var missile in missiles)
             {
                 if (missile != null)
                 {
+                    //TODO: Fix this, it casuses missiles to go invisible
+                    //const double tolerance = 1.0;
+
+                    //if (missile.Sprite is NukeBombSprite &&
+                    //    Math.Abs(missile.Y - (canvas.Height / 2 + missile.Height / 2)) < tolerance)
+                    //{
+                    //    canvas.Children.Remove(missile.Sprite);
+                    //}
+                    //{
+                    //    canvas.Children.Remove(missile.Sprite);
+                    //}
                     missile.MoveDown();
                     missile.MoveRight();
                 }
@@ -97,7 +114,6 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="enemyShips">The enemy ships.</param>
         /// <param name="playerShip"></param>
-        /// <param name="canvas">The canvas.</param>
         /// <returns></returns>
         public GameObject FireEnemyMissiles(IList<EnemyShip> enemyShips, GameObject playerShip, Canvas canvas)
         {
@@ -196,6 +212,23 @@ namespace Galaga.Model
             deltaY /= distance;
 
             return new[] {deltaX, deltaY};
+        }
+
+        /// <summary>
+        ///     Enables the nuke to be fired
+        /// </summary>
+        public void EnableNuke()
+        {
+            this.NukeEnabled = true;
+        }
+
+        /// <summary>
+        ///     Launches the nuke.
+        /// </summary>
+        public GameObject FireNuke()
+        {
+            Missile missile = new Missile(NukeMissileSpeed, new NukeBombSprite());
+            return missile;
         }
 
         #endregion

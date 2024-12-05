@@ -1,7 +1,9 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
+using System.Collections.Generic;
 
 namespace Galaga.Model
 {
@@ -67,6 +69,18 @@ namespace Galaga.Model
             {
                 this.canvas.Children.Remove(sprite);
             }
+        }
+
+        /// <summary>
+        ///     Plays the Sprite for the nuclear explosion.
+        /// </summary>
+        public void playNuclearExplosion(IList<EnemyShip> enemyShips)
+        {
+            BaseSprite sprite = new NukeExplosionSprite();
+
+            this.canvas.Children.Add(sprite);
+            sprite.RenderAt(this.xCoordinate, (this.canvas.Height / 2) + (sprite.Height / 2));
+            sprite.Visibility = Visibility.Visible;
         }
 
         #endregion

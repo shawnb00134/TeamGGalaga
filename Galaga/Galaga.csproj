@@ -185,6 +185,12 @@
     <Compile Include="View\Sprites\EnemySpecialSprite.xaml.cs">
       <DependentUpon>EnemySpecialSprite.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Sprites\NukeBombSprite.xaml.cs">
+      <DependentUpon>NukeBombSprite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sprites\NukeExplosionSprite.xaml.cs">
+      <DependentUpon>NukeExplosionSprite.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Sprites\PlayerMissileSprite.xaml.cs">
       <DependentUpon>PlayerMissileSprite.xaml</DependentUpon>
     </Compile>
@@ -276,6 +282,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Sprites\ExplosionSprite3.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprites\NukeBombSprite.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sprites\NukeExplosionSprite.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

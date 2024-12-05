@@ -17,7 +17,7 @@ namespace Galaga.Model
 
         private readonly Canvas canvas;
 
-        private readonly BaseSprite[] sprites;
+        protected BaseSprite[] sprites;
 
         #endregion
 
@@ -45,7 +45,7 @@ namespace Galaga.Model
         {
             this.canvas = canvas;
             SetSpeed(speed, SpeedYDirection);
-            this.sprites = new[] { mainSprite };
+            Sprite = mainSprite;
         }
 
         /// <summary>
@@ -55,6 +55,7 @@ namespace Galaga.Model
         {
             this.canvas = canvas;
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
+            Sprite = mainSprite;
             this.sprites = new[] { mainSprite, alternateSprite };
         }
 
@@ -79,7 +80,9 @@ namespace Galaga.Model
         /// </summary>
         public virtual void AddBonusShipToCanvas()
         {
-            this.canvas.Children.Add(this.sprites[0]);
+            //this.canvas.Children.Add(this.sprites[0]);
+            //this.sprites[0].Visibility = Visibility.Visible;
+            this.canvas.Children.Add(Sprite);
         }
 
         /// <summary>

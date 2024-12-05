@@ -63,6 +63,9 @@ namespace Galaga.View
                 case VirtualKey.Space:
                     this.gameManager.FireMissile();
                     break;
+                case VirtualKey.N:
+                    this.gameManager.FireNuke();
+                    break;
             }
         }
 

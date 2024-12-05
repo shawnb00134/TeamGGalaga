@@ -14,6 +14,7 @@
       <RootProperty Name="Children" />
       <RootProperty Name="RenderTransformOrigin" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="Triggers" />
       <RootProperty Name="Margin" />
       <RootMethod Name="GetLeft" />
       <RootMethod Name="SetLeft" />
@@ -66,12 +67,47 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="Fill" />
+      <RootProperty Name="Stroke" />
+      <RootProperty Name="StrokeThickness" />
+      <RootProperty Name="RenderTransform" />
     </RootType>
     <RootType FullName="Galaga.View.Sprites.EnemyMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.EnemySpecialSprite" />
     <RootType FullName="Galaga.View.Sprites.ExplosionSprite1" />
     <RootType FullName="Galaga.View.Sprites.ExplosionSprite2" />
     <RootType FullName="Galaga.View.Sprites.ExplosionSprite3" />
+    <RootType FullName="Windows.UI.Xaml.Shapes.Rectangle">
+      <RootProperty Name="Height" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Fill" />
+    </RootType>
+    <RootType FullName="Galaga.View.Sprites.NukeBombSprite" />
+    <RootType FullName="Windows.UI.Xaml.Media.ScaleTransform">
+      <RootProperty Name="CenterX" />
+      <RootProperty Name="CenterY" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.EventTrigger">
+      <RootProperty Name="RoutedEvent" />
+      <RootProperty Name="Actions" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.BeginStoryboard">
+      <RootProperty Name="Storyboard" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.Storyboard">
+      <RootProperty Name="Children" />
+      <RootMethod Name="GetTargetName" />
+      <RootMethod Name="SetTargetName" />
+      <RootMethod Name="GetTargetProperty" />
+      <RootMethod Name="SetTargetProperty" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.DoubleAnimation">
+      <RootProperty Name="From" />
+      <RootProperty Name="To" />
+      <RootProperty Name="Duration" />
+      <RootProperty Name="AutoReverse" />
+      <RootProperty Name="RepeatBehavior" />
+    </RootType>
+    <RootType FullName="Galaga.View.Sprites.NukeExplosionSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerSprite" />
   </Roots.RootTypes>

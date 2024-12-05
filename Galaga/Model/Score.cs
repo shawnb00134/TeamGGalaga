@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
 
 namespace Galaga.Model
 {
@@ -79,18 +79,19 @@ namespace Galaga.Model
         /// <returns>A list of high scores.</returns>
         private List<HighScore> loadHighScores()
         {
-            try
-            {
-                if (File.Exists(HighScoreFileName))
-                {
-                    var json = File.ReadAllText(HighScoreFileName);
-                    return JsonConvert.DeserializeObject<List<HighScore>>(json) ?? new List<HighScore>();
-                }
-            }
-            catch (Exception)
-            {
-            }
-            return new List<HighScore>();
+            //try
+            //{
+            //    if (File.Exists(HighScoreFileName))
+            //    {
+            //        var json = File.ReadAllText(HighScoreFileName);
+            //        return JsonConvert.DeserializeObject<List<HighScore>>(json) ?? new List<HighScore>();
+            //    }
+            //}
+            //catch (Exception)
+            //{
+            //}
+            //return new List<HighScore>();
+            return null;
         }
 
         /// <summary>
@@ -98,14 +99,14 @@ namespace Galaga.Model
         /// </summary>
         private void saveHighScores()
         {
-            try
-            {
-                var json = JsonConvert.SerializeObject(this.HighScores);
-                File.WriteAllText(HighScoreFileName, json);
-            }
-            catch (Exception)
-            {
-            }
+            //try
+            //{
+            //    var json = JsonConvert.SerializeObject(this.HighScores);
+            //    File.WriteAllText(HighScoreFileName, json);
+            //}
+            //catch (Exception)
+            //{
+            //}
         }
     }
 
