@@ -45,7 +45,7 @@ namespace Galaga.Model
                     enemyShip.ScoreValue = 3 * levelMultiplier;
                     break;
                 default:
-                    enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
+                    enemyShip = new FiringEnemy(new EnemyLevel4Sprite(), new EnemyLevel4SpriteAlternate(),
                         levelMultiplier, canvas);
                     enemyShip.ScoreValue = 4 * levelMultiplier;
                     break;

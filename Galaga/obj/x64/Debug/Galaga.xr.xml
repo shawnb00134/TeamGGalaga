@@ -58,6 +58,8 @@
       <RootProperty Name="Points" />
       <RootProperty Name="Fill" />
     </RootType>
+    <RootType FullName="Galaga.View.Sprites.EnemyLevel4SpriteAlternate" />
+    <RootType FullName="Galaga.View.Sprites.EnemyLevel4Sprite" />
     <RootType FullName="Galaga.View.Sprites.EnemyLevel3Sprite" />
     <RootType FullName="Galaga.View.Sprites.EnemyLevel3SpriteAlternate" />
     <RootType FullName="Windows.UI.Xaml.Shapes.Ellipse">

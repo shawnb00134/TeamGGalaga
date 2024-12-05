@@ -87,6 +87,7 @@ namespace Galaga.Model
                 if (missile != null)
                 {
                     missile.MoveDown();
+                    missile.MoveRight();
                 }
             }
         }
@@ -95,9 +96,10 @@ namespace Galaga.Model
         ///     Fires the enemy missiles.
         /// </summary>
         /// <param name="enemyShips">The enemy ships.</param>
+        /// <param name="playerShip"></param>
         /// <param name="canvas">The canvas.</param>
         /// <returns></returns>
-        public GameObject FireEnemyMissiles(IList<EnemyShip> enemyShips, Canvas canvas)
+        public GameObject FireEnemyMissiles(IList<EnemyShip> enemyShips, GameObject playerShip, Canvas canvas)
         {
             if (this.random.Next(EnemyFireCounter) == 0)
             {
@@ -119,7 +121,7 @@ namespace Galaga.Model
 
                 if (selectedShip != null)
                 {
-                    var missile = this.CreateEnemyMissile(selectedShip);
+                    var missile = this.CreateEnemyMissile(selectedShip, playerShip);
                     canvas.Children.Add(missile.Sprite);
 
                     this.soundManager.playEnemyFiring();
@@ -135,10 +137,21 @@ namespace Galaga.Model
         ///     Sets the position for the enemy missile.
         /// </summary>
         /// <param name="enemyShip"></param>
+        /// <param name="playerShip"></param>
         /// <returns></returns>
-        public GameObject CreateEnemyMissile(GameObject enemyShip)
+        public GameObject CreateEnemyMissile(GameObject enemyShip, GameObject playerShip)
         {
-            var missile = new Missile(EnemyMissileSpeed, new EnemyMissileSprite());
+            Missile missile;
+            if (enemyShip.Sprite is EnemyLevel4Sprite || enemyShip.Sprite is EnemyLevel4SpriteAlternate)
+            {
+                double[] speed = this.calculateVerticalHorizontalSpeed((EnemyShip) enemyShip, playerShip);
+                missile = new Missile(speed[0] * EnemyMissileSpeed, speed[1] * EnemyMissileSpeed, new EnemyMissileSprite());
+            }
+            else
+            {
+                missile = new Missile(EnemyMissileSpeed, new EnemyMissileSprite());
+            }
+            
             missile.X = enemyShip.X + enemyShip.Width / 2.0 - missile.Width / 2.0;
             missile.Y = enemyShip.Y + enemyShip.Height;
             return missile;
@@ -170,6 +183,19 @@ namespace Galaga.Model
         public void UpdateDelayTick()
         {
             this.delayTicker++;
+        }
+
+        private double[] calculateVerticalHorizontalSpeed(EnemyShip enemy, GameObject player)
+        {
+            double deltaX = player.X - enemy.X;
+            double deltaY = player.Y - enemy.Y;
+
+            double distance = Math.Sqrt(deltaX * deltaX + deltaY * deltaY);
+
+            deltaX /= distance;
+            deltaY /= distance;
+
+            return new[] {deltaX, deltaY};
         }
 
         #endregion

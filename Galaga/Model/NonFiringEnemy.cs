@@ -1,5 +1,6 @@
 ﻿using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
+using Windows.UI.Xaml;
 
 namespace Galaga.Model
 {
@@ -42,6 +43,25 @@ namespace Galaga.Model
             Sprite = mainSprite;
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
             this.sprites = new[] { mainSprite, alternateSprite };
+        }
+
+        /// <summary>
+        ///     Swaps the sprites.
+        /// </summary>
+        public override void SwapSprites()
+        {
+            if (this.sprites[0].Visibility == Visibility.Visible)
+            {
+                this.sprites[0].Visibility = Visibility.Collapsed;
+                this.sprites[1].Visibility = Visibility.Visible;
+                Sprite = this.sprites[1];
+            }
+            else
+            {
+                this.sprites[0].Visibility = Visibility.Visible;
+                this.sprites[1].Visibility = Visibility.Collapsed;
+                Sprite = this.sprites[0];
+            }
         }
 
         #endregion

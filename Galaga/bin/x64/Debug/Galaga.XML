@@ -87,6 +87,14 @@
             <param name="speedY"></param>
             <param name="sprite"></param>
         </member>
+        <member name="M:Galaga.Model.Missile.#ctor(System.Double,System.Double,Galaga.View.Sprites.BaseSprite)">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.Model.Missile"/> class.
+            </summary>
+            <param name="speedX">The speed x.</param>
+            <param name="speedY">The speed y.</param>
+            <param name="sprite">The sprite.</param>
+        </member>
         <member name="T:Galaga.Model.MissileManager">
             <summary>
                 Missile controller
@@ -111,19 +119,21 @@
             </summary>
             <param name="missiles">The missiles.</param>
         </member>
-        <member name="M:Galaga.Model.MissileManager.FireEnemyMissiles(System.Collections.Generic.IList{Galaga.Model.EnemyShip},Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.MissileManager.FireEnemyMissiles(System.Collections.Generic.IList{Galaga.Model.EnemyShip},Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Fires the enemy missiles.
             </summary>
             <param name="enemyShips">The enemy ships.</param>
+            <param name="playerShip"></param>
             <param name="canvas">The canvas.</param>
             <returns></returns>
         </member>
-        <member name="M:Galaga.Model.MissileManager.CreateEnemyMissile(Galaga.Model.GameObject)">
+        <member name="M:Galaga.Model.MissileManager.CreateEnemyMissile(Galaga.Model.GameObject,Galaga.Model.GameObject)">
             <summary>
                 Sets the position for the enemy missile.
             </summary>
             <param name="enemyShip"></param>
+            <param name="playerShip"></param>
             <returns></returns>
         </member>
         <member name="M:Galaga.Model.MissileManager.checkForPlayerMissile(Galaga.Model.GameObject)">
@@ -795,6 +805,62 @@
             </summary>
         </member>
         <member name="M:Galaga.View.Sprites.EnemyLevel2SpriteAlternate.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.Sprites.EnemyLevel4SpriteAlternate">
+            <summary>
+                The Enemy Level 4 sprite alternate.
+            </summary>
+            <seealso cref="T:Galaga.View.Sprites.BaseSprite" />
+            <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector" />
+            <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector2" />
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4SpriteAlternate.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.EnemyLevel4SpriteAlternate" /> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4SpriteAlternate.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4SpriteAlternate.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4SpriteAlternate.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.Sprites.EnemyLevel4Sprite">
+            <summary>
+                The Level 4 Enemy sprite.
+            </summary>
+            <seealso cref="T:Galaga.View.Sprites.BaseSprite" />
+            <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector" />
+            <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector2" />
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4Sprite.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.EnemyLevel4Sprite" /> class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4Sprite.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4Sprite.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.Sprites.EnemyLevel4Sprite.GetBindingConnector(System.Int32,System.Object)">
             <summary>
             GetBindingConnector(int connectionId, object target)
             </summary>

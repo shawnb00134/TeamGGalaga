@@ -1,4 +1,5 @@
-﻿using Galaga.View.Sprites;
+﻿using System;
+using Galaga.View.Sprites;
 
 namespace Galaga.Model
 {
@@ -23,6 +24,18 @@ namespace Galaga.Model
         public Missile(int speedY, BaseSprite sprite)
         {
             SetSpeed(SpeedXDirection, speedY);
+            Sprite = sprite;
+        }
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="Missile"/> class.
+        /// </summary>
+        /// <param name="speedX">The speed x.</param>
+        /// <param name="speedY">The speed y.</param>
+        /// <param name="sprite">The sprite.</param>
+        public Missile(double speedX, double speedY, BaseSprite sprite)
+        {
+            SetSpeed(Convert.ToInt32(speedX), Convert.ToInt32(speedY));
             Sprite = sprite;
         }
 

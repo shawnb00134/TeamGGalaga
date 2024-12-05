@@ -34,21 +34,11 @@ namespace Galaga.Model
             this.xCoordinate = ship.X;
             this.yCoordinate = ship.Y;
             this.sprites = new BaseSprite[] { new ExplosionSprite1(), new ExplosionSprite2(), new ExplosionSprite3() };
-
-            this.hideSprites();
         }
 
         #endregion
 
         #region Methods
-
-        private void hideSprites()
-        {
-            foreach (var sprite in this.sprites)
-            {
-                sprite.Visibility = Visibility.Collapsed;
-            }
-        }
 
         /// <summary>
         ///     Plays the explosion.
@@ -81,6 +71,4 @@ namespace Galaga.Model
 
         #endregion
     }
-
-    #endregion
 }

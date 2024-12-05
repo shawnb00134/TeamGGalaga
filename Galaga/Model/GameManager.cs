@@ -162,7 +162,8 @@ namespace Galaga.Model
 
         private void enemyFireMissiles()
         {
-            this.missiles.Add(this.missileManager.FireEnemyMissiles(this.enemyShips, this.canvas));
+            //this.missiles.Add(this.missileManager.FireEnemyMissiles(this.enemyShips, this.canvas));
+            this.missiles.Add(this.missileManager.FireEnemyMissiles(this.enemyShips, this.playerManager.GetPlayer(), this.canvas));
         }
 
         private void checkForCollisions()
@@ -216,7 +217,7 @@ namespace Galaga.Model
 
         private void removeEnemyShip(EnemyShip enemyShip)
         {
-            if (enemyShip.Equals(typeof(EnemySpecialSprite)))
+            if (enemyShip.Sprite is EnemySpecialSprite)
             {
                 this.playerManager.AddPlayerLife();
             }

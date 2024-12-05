@@ -97,7 +97,7 @@ namespace Galaga.Model
         {
             foreach (var ship in enemyShips)
             {
-                if (!ship.Sprite.Equals(typeof(EnemySpecialSprite)))
+                if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite))
                 {
                     if (this.movingRight)
                     {
@@ -133,7 +133,7 @@ namespace Galaga.Model
 
             foreach (var ship in enemyShips)
             {
-                if (ship.Sprite.Equals(typeof(EnemySpecialSprite)))
+                if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite))
                 {
                     bonusShip = ship;
                 }
@@ -169,14 +169,25 @@ namespace Galaga.Model
 
         private void checkBonusShipPosition(EnemyShip bonusShip)
         {
-            if (bonusShip.X == this.canvas.Width - bonusShip.Width)
+            const double tolerance = 0.01;
+
+            if (Math.Abs(bonusShip.X - (this.canvas.Width - bonusShip.Width)) < tolerance)
             {
                 this.bonusShipBounce--;
             }
-            else if (bonusShip.X == 0)
+            else if (Math.Abs(bonusShip.X) < tolerance)
             {
                 this.bonusShipBounce--;
             }
+
+            //if (bonusShip.X == this.canvas.Width - bonusShip.Width)
+            //{
+            //    this.bonusShipBounce--;
+            //}
+            //else if (bonusShip.X == 0)
+            //{
+            //    this.bonusShipBounce--;
+            //}
         }
 
         /// <summary>
@@ -186,7 +197,7 @@ namespace Galaga.Model
         {
             foreach (var enemyShip in enemyShips)
             {
-                if (!enemyShip.Sprite.Equals(typeof(EnemySpecialSprite)))
+                if (enemyShip.Sprite.GetType() != typeof(EnemySpecialSprite))
                 {
                     enemyShip.SwapSprites();
                 }
@@ -200,7 +211,7 @@ namespace Galaga.Model
         public void playExplosion(EnemyShip ship)
         {
             var explosion = new Explosion(ship, this.canvas);
-            explosion.playExplosion();
+            _ = explosion.playExplosion();
         }
 
         #endregion
