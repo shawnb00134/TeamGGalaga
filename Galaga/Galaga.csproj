@@ -135,6 +135,7 @@
     <Compile Include="Model\Player.cs" />
     <Compile Include="Model\PlayerManager.cs" />
     <Compile Include="Model\PlayerMissile.cs" />
+    <Compile Include="Model\Score.cs" />
     <Compile Include="Model\ShipFactory.cs" />
     <Compile Include="Model\SoundManager.cs" />
     <Compile Include="View\GameCanvas.xaml.cs">
@@ -290,6 +291,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.14</Version>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>13.0.3</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup />
