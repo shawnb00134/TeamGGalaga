@@ -1,4 +1,5 @@
-﻿using Windows.UI.Xaml;
+﻿using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
 
@@ -10,6 +11,8 @@ namespace Galaga.Model
     public class Explosion
     {
         #region Data members
+
+        private const int ExplosionTimeLimit = 50000000;
 
         private readonly Canvas canvas;
         private readonly BaseSprite[] sprites;
@@ -50,16 +53,34 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the explosion.
         /// </summary>
-        public void playExplosion()
+        public async Task playExplosion()
         {
+            this.canvas.Children.Add(this.sprites[0]);
+            this.sprites[0].RenderAt(this.xCoordinate, this.yCoordinate);
+            this.sprites[0].Visibility = Visibility.Visible;
+
+            await Task.Delay(100);
+
+            this.canvas.Children.Add(this.sprites[1]);
+            this.sprites[1].RenderAt(this.xCoordinate, this.yCoordinate);
+            this.sprites[1].Visibility = Visibility.Visible;
+
+            await Task.Delay(100);
+
+            this.canvas.Children.Add(this.sprites[2]);
+            this.sprites[2].RenderAt(this.xCoordinate, this.yCoordinate);
+            this.sprites[2].Visibility = Visibility.Visible;
+
+            await Task.Delay(100);
+
             foreach (var sprite in this.sprites)
             {
-                this.canvas.Children.Add(sprite);
-                sprite.RenderAt(this.xCoordinate, this.yCoordinate);
-                sprite.Visibility = Visibility.Visible;
+                this.canvas.Children.Remove(sprite);
             }
         }
 
         #endregion
     }
+
+    #endregion
 }

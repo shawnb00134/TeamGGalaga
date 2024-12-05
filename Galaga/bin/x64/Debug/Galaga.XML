@@ -544,7 +544,7 @@
         </member>
         <member name="T:Galaga.Model.SoundManager">
             <summary>
-               Represents a sound manager in the Galaga game.
+                Represents a sound manager in the Galaga game.
             </summary>
         </member>
         <member name="M:Galaga.Model.SoundManager.#ctor">
@@ -891,7 +891,7 @@
         </member>
         <member name="M:Galaga.View.Sprites.ExplosionSprite1.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite1"/> class.
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite1" /> class.
             </summary>
         </member>
         <member name="M:Galaga.View.Sprites.ExplosionSprite1.InitializeComponent">
@@ -917,7 +917,7 @@
         </member>
         <member name="M:Galaga.View.Sprites.ExplosionSprite2.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite2"/> class.
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite2" /> class.
             </summary>
         </member>
         <member name="M:Galaga.View.Sprites.ExplosionSprite2.InitializeComponent">
@@ -943,7 +943,7 @@
         </member>
         <member name="M:Galaga.View.Sprites.ExplosionSprite3.#ctor">
             <summary>
-                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite3"/> class.
+                Initializes a new instance of the <see cref="T:Galaga.View.Sprites.ExplosionSprite3" /> class.
             </summary>
         </member>
         <member name="M:Galaga.View.Sprites.ExplosionSprite3.InitializeComponent">
