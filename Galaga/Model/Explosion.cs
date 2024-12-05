@@ -81,6 +81,4 @@ namespace Galaga.Model
 
         #endregion
     }
-
-    #endregion
 }

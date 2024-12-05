@@ -522,6 +522,51 @@
                 Initializes a new instance of the <see cref="T:Galaga.Model.PlayerMissile" /> class.
             </summary>
         </member>
+        <member name="T:Galaga.Model.Score">
+            <summary>
+            Manages high score logic and score-related functionality.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.Score.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Galaga.Model.Score"/> class.
+            Loads existing high scores from storage.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.Score.AddPoints(System.Int32)">
+            <summary>
+            Increases the current score by the specified value.
+            </summary>
+            <param name="points">The number of points to add.</param>
+        </member>
+        <member name="M:Galaga.Model.Score.ResetScore">
+            <summary>
+            Resets the current score to zero.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.Score.UpdateHighScores(System.String,System.Int32)">
+            <summary>
+            Updates the high score list with the current score if it qualifies.
+            </summary>
+            <param name="playerName">The player's name.</param>
+            <param name="levelCompleted">The level completed by the player.</param>
+        </member>
+        <member name="M:Galaga.Model.Score.LoadHighScores">
+            <summary>
+            Loads high scores from the storage file.
+            </summary>
+            <returns>A list of high scores.</returns>
+        </member>
+        <member name="M:Galaga.Model.Score.SaveHighScores">
+            <summary>
+            Saves high scores to the storage file.
+            </summary>
+        </member>
+        <member name="T:Galaga.Model.HighScore">
+            <summary>
+            Represents a high score entry.
+            </summary>
+        </member>
         <member name="T:Galaga.Model.ShipFactory">
             <summary>
                 Factory class for creating ships.

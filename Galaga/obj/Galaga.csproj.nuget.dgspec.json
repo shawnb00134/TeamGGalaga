@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj": {}
+    "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5_Score\\Galaga\\Galaga.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj": {
+    "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5_Score\\Galaga\\Galaga.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
+        "projectUniqueName": "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5_Score\\Galaga\\Galaga.csproj",
         "projectName": "Galaga",
-        "projectPath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
-        "packagesPath": "C:\\Users\\sb00134\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sb00134\\2024_Fall\\PC1\\Assignment-05\\TeamGGalaga\\Galaga\\obj\\",
+        "projectPath": "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5_Score\\Galaga\\Galaga.csproj",
+        "packagesPath": "C:\\Users\\nates\\.nuget\\packages\\",
+        "outputPath": "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5_Score\\Galaga\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
@@ -19,7 +19,7 @@
           "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\sb00134\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\nates\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -47,6 +47,10 @@
             "Microsoft.NETCore.UniversalWindowsPlatform": {
               "target": "Package",
               "version": "[6.2.14, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             }
           },
           "imports": [

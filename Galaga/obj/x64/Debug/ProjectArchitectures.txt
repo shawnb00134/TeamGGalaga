@@ -1,1 +1,1 @@
-C:\Users\sb00134\2024_Fall\PC1\Assignment-05\TeamGGalaga\Galaga\Galaga.csproj;x64
+C:\WestGA\Fall24\ProgramConstruction\PC1_HW5_Score\Galaga\Galaga.csproj;x64
