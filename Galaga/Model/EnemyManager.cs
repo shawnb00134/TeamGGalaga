@@ -80,10 +80,11 @@ namespace Galaga.Model
         ///     Creates the special/bonus enemy ship
         /// </summary>
         /// <returns></returns>
-        public void CreateSpecialShip()
+        public EnemyShip CreateSpecialShip()
         {
             this.bonusShip = this.shipFactory.CreateSpecialShip(this.canvas);
             this.bonusShip.AddBonusShipToCanvas();
+            return this.bonusShip;
         }
 
         /// <summary>
@@ -126,25 +127,30 @@ namespace Galaga.Model
         {
             this.checkBounceCounter();
 
-            this.checkBonusShipPosition(bonusShip);
-            if (this.movingRightBonusShip)
-            {
-                this.bonusShip.MoveRight();
+            this.checkBonusShipPosition();
 
-                if (this.bonusShip.X + this.bonusShip.Width >= this.canvas.Width)
+            if (this.bonusShip != null)
+            {
+                if (this.movingRightBonusShip)
                 {
-                    this.movingRightBonusShip = false;
+                    this.bonusShip.MoveRight();
+
+                    if (this.bonusShip.X + this.bonusShip.Width >= this.canvas.Width)
+                    {
+                        this.movingRightBonusShip = false;
+                    }
+                }
+                else
+                {
+                    this.bonusShip.MoveLeft();
+
+                    if (this.bonusShip.X <= 0)
+                    {
+                        this.movingRightBonusShip = true;
+                    }
                 }
             }
-            else
-            {
-                this.bonusShip.MoveLeft();
-
-                if (this.bonusShip.X <= 0)
-                {
-                    this.movingRightBonusShip = true;
-                }
-            }
+            
         }
 
         private void checkBounceCounter()
@@ -160,27 +166,22 @@ namespace Galaga.Model
             this.bonusShipBounce = 3;
         }
 
-        private void checkBonusShipPosition(EnemyShip bonusShip)
+        private void checkBonusShipPosition()
         {
-            const double tolerance = 0.01;
-
-            if (Math.Abs(bonusShip.X - (this.canvas.Width - bonusShip.Width)) < tolerance)
+            if (this.bonusShip != null)
             {
-                this.bonusShipBounce--;
-            }
-            else if (Math.Abs(bonusShip.X) < tolerance)
-            {
-                this.bonusShipBounce--;
-            }
+                if (this.bonusShip.X == 0)
+                {
+                    this.bonusShipBounce--;
+                    this.movingRightBonusShip = true;
+                }
 
-            //if (bonusShip.X == this.canvas.Width - bonusShip.Width)
-            //{
-            //    this.bonusShipBounce--;
-            //}
-            //else if (bonusShip.X == 0)
-            //{
-            //    this.bonusShipBounce--;
-            //}
+                if (Convert.ToInt32(this.bonusShip.X) == Convert.ToInt32(this.canvas.Width - this.bonusShip.Width))
+                {
+                    this.bonusShipBounce--;
+                    this.movingRightBonusShip = false;
+                }
+            }
         }
 
         /// <summary>
@@ -201,7 +202,7 @@ namespace Galaga.Model
         ///     Plays the explosion.
         /// </summary>
         /// <param name="ship">The ship.</param>
-        public void playExplosion(EnemyShip ship)
+        public void playExplosion(GameObject ship)
         {
             var explosion = new Explosion(ship, this.canvas);
             _ = explosion.playExplosion();

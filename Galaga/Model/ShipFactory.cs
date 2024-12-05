@@ -11,7 +11,7 @@ namespace Galaga.Model
     {
         #region Data members
 
-        private const int SpecialEnemySpeed = 0;
+        private const int SpecialEnemySpeed = 5;
 
         #endregion
 

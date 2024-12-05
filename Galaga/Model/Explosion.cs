@@ -30,7 +30,7 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="ship">The ship.</param>
         /// <param name="canvas">The canvas.</param>
-        public Explosion(EnemyShip ship, Canvas canvas)
+        public Explosion(GameObject ship, Canvas canvas)
         {
             this.canvas = canvas;
             this.xCoordinate = ship.X;

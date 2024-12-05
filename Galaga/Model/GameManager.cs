@@ -16,7 +16,7 @@ namespace Galaga.Model
         #region Data members
 
         private const int TickTimer = 50;
-        private const int TickCounterReset = 40;
+        //private const int TickCounterReset = 40;
         private const int LevelCap = 3;
 
         private readonly Canvas canvas;
@@ -24,12 +24,14 @@ namespace Galaga.Model
         private readonly PlayerManager playerManager;
         private readonly MissileManager missileManager;
         private readonly SoundManager soundManager;
+        private Random random;
 
         private readonly DispatcherTimer timer;
         private int tickCounter;
 
         private int score;
         private int currentLevel;
+        private bool specialShipHasSpawned;
 
         private IList<EnemyShip> enemyShips;
         private readonly IList<GameObject> listOfShips;
@@ -59,11 +61,13 @@ namespace Galaga.Model
             this.missiles = new List<GameObject>();
             this.enemyManager = new EnemyManager(this.canvas);
             this.physics = new Physics();
+            this.random = new Random();
             this.canvas = canvas;
 
             this.tickCounter = 0;
             this.score = 0;
             this.currentLevel = 1;
+            this.specialShipHasSpawned = false;
 
             this.timer = new DispatcherTimer();
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, TickTimer);
@@ -98,15 +102,23 @@ namespace Galaga.Model
             this.moveMissiles();
             this.tickCounter++;
 
-            if (this.tickCounter >= TickCounterReset)
-            {
-                this.tickCounter = 0;
-            }
-
             this.missileManager.UpdateDelayTick();
             this.enemyManager.SwapSpritesAnimation(this.enemyShips);
             this.checkForMissileOutOfBounds();
             this.checkForCollisions();
+
+            if (this.getRandomNumber() % 101 == 1 && this.specialShipHasSpawned == false)
+            {
+                this.enemyShips.Add(this.enemyManager.CreateSpecialShip());
+                this.listOfShips.Add(this.enemyShips.Last());
+                this.soundManager.playBonusShipCreation();
+                this.specialShipHasSpawned = true;
+            }
+        }
+
+        private int getRandomNumber()
+        {
+            return this.random.Next(0, 1000001);
         }
 
         private void initializeGame()
@@ -129,7 +141,6 @@ namespace Galaga.Model
             {
                 this.listOfShips.Add(enemyShip);
             }
-            this.enemyManager.CreateSpecialShip();
         }
 
         /// <summary>
@@ -194,9 +205,7 @@ namespace Galaga.Model
                 switch (obj)
                 {
                     case Player _:
-                        this.playerManager.CheckPlayerLives(obj, this.listOfShips);
-                        this.updatePlayerLives();
-                        this.soundManager.playPlayerDestroyed();
+                        this.destroyPlayerLife(obj);
                         break;
                     case EnemyShip enemyShip:
                         this.removeEnemyShip(enemyShip);
@@ -212,11 +221,19 @@ namespace Galaga.Model
             }
         }
 
+        private void destroyPlayerLife(GameObject ship)
+        {
+            this.playerManager.CheckPlayerLives(ship, this.listOfShips);
+            this.enemyManager.playExplosion(ship);
+            this.updatePlayerLives();
+            this.soundManager.playPlayerDestroyed();
+        }
+
         private void removeEnemyShip(EnemyShip enemyShip)
         {
             if (enemyShip.Sprite is EnemySpecialSprite)
             {
-                //this.playerManager.AddPlayerLife();
+                this.playerManager.AddPlayerLife();
                 this.destroySpecialEnemy();
             }
 

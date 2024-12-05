@@ -63,7 +63,7 @@
                 Explosion class for the destruction of ships
             </summary>
         </member>
-        <member name="M:Galaga.Model.Explosion.#ctor(Galaga.Model.EnemyShip,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.Explosion.#ctor(Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.Explosion" /> class.
             </summary>
@@ -266,7 +266,7 @@
                 Swaps the sprites every tick.
             </summary>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.playExplosion(Galaga.Model.EnemyShip)">
+        <member name="M:Galaga.Model.EnemyManager.playExplosion(Galaga.Model.GameObject)">
             <summary>
                 Plays the explosion.
             </summary>
