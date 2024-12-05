@@ -129,9 +129,6 @@ namespace Galaga.Model
             {
                 this.listOfShips.Add(enemyShip);
             }
-            //var specialShip = this.enemyManager.CreateSpecialShip();
-            //this.enemyShips.Add(specialShip);
-            //this.listOfShips.Add(specialShip);
             this.enemyManager.CreateSpecialShip();
         }
 
@@ -166,7 +163,6 @@ namespace Galaga.Model
 
         private void enemyFireMissiles()
         {
-            //this.missiles.Add(this.missileManager.FireEnemyMissiles(this.enemyShips, this.canvas));
             this.missiles.Add(this.missileManager.FireEnemyMissiles(this.enemyShips, this.playerManager.GetPlayer(), this.canvas));
         }
 
@@ -203,10 +199,7 @@ namespace Galaga.Model
                         this.soundManager.playPlayerDestroyed();
                         break;
                     case EnemyShip enemyShip:
-                        //this.updateScore(enemyShip.ScoreValue);
-                        //this.enemyShips.Remove(enemyShip);
                         this.removeEnemyShip(enemyShip);
-                        //this.listOfShips.Remove(enemyShip);
                         break;
                     case Missile _:
                         this.missileManager.checkForPlayerMissile(obj);
