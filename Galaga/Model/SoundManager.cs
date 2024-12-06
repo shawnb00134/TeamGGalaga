@@ -22,7 +22,7 @@ namespace Galaga.Model
         /// </summary>
         public SoundManager()
         {
-            this.mediaPlayer = new MediaPlayer();
+            mediaPlayer = new MediaPlayer();
         }
 
         #endregion
@@ -34,8 +34,8 @@ namespace Galaga.Model
         /// </summary>
         public void playPlayerFiring()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipFiring02.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipFiring02.wav"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -43,8 +43,8 @@ namespace Galaga.Model
         /// </summary>
         public void playPlayerDestroyed()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipDestroyed02.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipDestroyed02.wav"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -52,8 +52,8 @@ namespace Galaga.Model
         /// </summary>
         public void playEnemyFiring()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipFiring02.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipFiring02.wav"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -61,8 +61,8 @@ namespace Galaga.Model
         /// </summary>
         public void playEnemyDestroyed()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipDestroyed02.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipDestroyed02.wav"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -70,8 +70,8 @@ namespace Galaga.Model
         /// </summary>
         public void playBonusShipCreation()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/bonusShip.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/bonusShip.wav"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -79,8 +79,8 @@ namespace Galaga.Model
         /// </summary>
         public void playPowerUp()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/powerUp.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/powerUp.wav"));
+            mediaPlayer.Play();
         }
 
         /// <summary>
@@ -88,8 +88,8 @@ namespace Galaga.Model
         /// </summary>
         public void playNukeExplosion()
         {
-            this.mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/nukeExplosion.wav"));
-            this.mediaPlayer.Play();
+            mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/nukeExplosion.wav"));
+            mediaPlayer.Play();
         }
 
         #endregion

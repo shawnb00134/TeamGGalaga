@@ -28,7 +28,7 @@ namespace Galaga.Model
         }
 
         /// <summary>
-        ///     Initializes a new instance of the <see cref="Missile"/> class.
+        ///     Initializes a new instance of the <see cref="Missile" /> class.
         /// </summary>
         /// <param name="speedX">The speed x.</param>
         /// <param name="speedY">The speed y.</param>

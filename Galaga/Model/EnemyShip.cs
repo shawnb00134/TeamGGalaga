@@ -17,7 +17,10 @@ namespace Galaga.Model
 
         private readonly Canvas canvas;
 
-        protected BaseSprite[] sprites;
+        /// <summary>
+        ///     An array of Sprites for the enemy ship.
+        /// </summary>
+        protected BaseSprite[] Sprites;
 
         #endregion
 
@@ -56,7 +59,7 @@ namespace Galaga.Model
             this.canvas = canvas;
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
             Sprite = mainSprite;
-            this.sprites = new[] { mainSprite, alternateSprite };
+            Sprites = new[] { mainSprite, alternateSprite };
         }
 
         #endregion
@@ -64,15 +67,15 @@ namespace Galaga.Model
         #region Methods
 
         /// <summary>
-        ///     Adds the enemy sprites to the canvas and sets it initial visibility.
+        ///     Adds the enemy Sprites to the canvas and sets it initial visibility.
         /// </summary>
         public virtual void AddEnemyToCanvas()
         {
-            this.canvas.Children.Add(this.sprites[0]);
-            this.sprites[0].Visibility = Visibility.Visible;
+            canvas.Children.Add(Sprites[0]);
+            Sprites[0].Visibility = Visibility.Visible;
 
-            this.canvas.Children.Add(this.sprites[1]);
-            this.sprites[1].Visibility = Visibility.Collapsed;
+            canvas.Children.Add(Sprites[1]);
+            Sprites[1].Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -80,27 +83,27 @@ namespace Galaga.Model
         /// </summary>
         public virtual void AddBonusShipToCanvas()
         {
-            //this.canvas.Children.Add(this.sprites[0]);
-            //this.sprites[0].Visibility = Visibility.Visible;
-            this.canvas.Children.Add(Sprite);
+            //this.canvas.Children.Add(this.Sprites[0]);
+            //this.Sprites[0].Visibility = Visibility.Visible;
+            canvas.Children.Add(Sprite);
         }
 
         /// <summary>
-        ///     Swaps the sprites.
+        ///     Swaps the Sprites.
         /// </summary>
         public virtual void SwapSprites()
         {
-            if (this.sprites[0].Visibility == Visibility.Visible)
+            if (Sprites[0].Visibility == Visibility.Visible)
             {
-                this.sprites[0].Visibility = Visibility.Collapsed;
-                this.sprites[1].Visibility = Visibility.Visible;
-                Sprite = this.sprites[1];
+                Sprites[0].Visibility = Visibility.Collapsed;
+                Sprites[1].Visibility = Visibility.Visible;
+                Sprite = Sprites[1];
             }
             else
             {
-                this.sprites[0].Visibility = Visibility.Visible;
-                this.sprites[1].Visibility = Visibility.Collapsed;
-                Sprite = this.sprites[0];
+                Sprites[0].Visibility = Visibility.Visible;
+                Sprites[1].Visibility = Visibility.Collapsed;
+                Sprite = Sprites[0];
             }
         }
 

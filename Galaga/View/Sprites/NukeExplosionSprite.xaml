@@ -45,8 +45,6 @@
             </Ellipse.RenderTransformOrigin>
          </Ellipse>
 
-        <Ellipse Fill="black" Width="10" Height="10" Canvas.Top="745" Canvas.Left="745" />
-
         <Canvas.Triggers>
             <EventTrigger RoutedEvent="Canvas.Loaded">
                 <BeginStoryboard>

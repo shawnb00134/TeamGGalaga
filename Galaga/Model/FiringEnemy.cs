@@ -1,6 +1,7 @@
-﻿using Windows.UI.Xaml.Controls;
-using Galaga.View.Sprites;
+﻿using System.Diagnostics;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Galaga.View.Sprites;
 
 namespace Galaga.Model
 {
@@ -14,7 +15,7 @@ namespace Galaga.Model
 
         private const int SpeedXDirection = 3;
         private const int SpeedYDirection = 0;
-        
+
         #endregion
 
         #region Properties
@@ -41,10 +42,7 @@ namespace Galaga.Model
         {
             SetSpeed(speed, SpeedYDirection);
 
-            if (mainSprite == null)
-            {
-                System.Diagnostics.Debug.WriteLine("Single Sprite is null");
-            }
+            if (mainSprite == null) Debug.WriteLine("Single Sprite is null");
 
             Sprite = mainSprite;
         }
@@ -58,25 +56,25 @@ namespace Galaga.Model
         {
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
             Sprite = mainSprite;
-            this.sprites = new[] { mainSprite, alternateSprite };
+            Sprites = new[] { mainSprite, alternateSprite };
         }
 
         /// <summary>
-        ///     Swaps the sprites.
+        ///     Swaps the Sprites.
         /// </summary>
         public override void SwapSprites()
         {
-            if (this.sprites[0].Visibility == Visibility.Visible)
+            if (Sprites[0].Visibility == Visibility.Visible)
             {
-                this.sprites[0].Visibility = Visibility.Collapsed;
-                this.sprites[1].Visibility = Visibility.Visible;
-                Sprite = this.sprites[1];
+                Sprites[0].Visibility = Visibility.Collapsed;
+                Sprites[1].Visibility = Visibility.Visible;
+                Sprite = Sprites[1];
             }
             else
             {
-                this.sprites[0].Visibility = Visibility.Visible;
-                this.sprites[1].Visibility = Visibility.Collapsed;
-                Sprite = this.sprites[0];
+                Sprites[0].Visibility = Visibility.Visible;
+                Sprites[1].Visibility = Visibility.Collapsed;
+                Sprite = Sprites[0];
             }
         }
 

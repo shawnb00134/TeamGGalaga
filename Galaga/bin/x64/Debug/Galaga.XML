@@ -68,6 +68,7 @@
                 Constructor for the Nuke explosion
             </summary>
             <param name="sprite"></param>
+            <param name="missile"></param>
             <param name="canvas"></param>
         </member>
         <member name="M:Galaga.Model.Explosion.#ctor(Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
@@ -101,7 +102,7 @@
         </member>
         <member name="M:Galaga.Model.Missile.#ctor(System.Double,System.Double,Galaga.View.Sprites.BaseSprite)">
             <summary>
-                Initializes a new instance of the <see cref="T:Galaga.Model.Missile"/> class.
+                Initializes a new instance of the <see cref="T:Galaga.Model.Missile" /> class.
             </summary>
             <param name="speedX">The speed x.</param>
             <param name="speedY">The speed y.</param>
@@ -110,6 +111,11 @@
         <member name="T:Galaga.Model.MissileManager">
             <summary>
                 Missile controller
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.Model.MissileManager" /> class.
             </summary>
         </member>
         <member name="P:Galaga.Model.MissileManager.NukeEnabled">
@@ -129,12 +135,7 @@
         </member>
         <member name="P:Galaga.Model.MissileManager.MissileDelayLimit">
             <summary>
-               Sets the delay limit for the missile
-            </summary>
-        </member>
-        <member name="M:Galaga.Model.MissileManager.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:Galaga.Model.MissileManager" /> class.
+                Sets the delay limit for the missile
             </summary>
         </member>
         <member name="M:Galaga.Model.MissileManager.FireMissile(Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
@@ -142,6 +143,7 @@
                 Fires the missile.
             </summary>
             <param name="player">The player.</param>
+            <param name="canvas"></param>
             <returns></returns>
         </member>
         <member name="M:Galaga.Model.MissileManager.MoveMissiles(System.Collections.Generic.IList{Galaga.Model.GameObject},Windows.UI.Xaml.Controls.Canvas)">
@@ -149,6 +151,7 @@
                 Moves the missiles.
             </summary>
             <param name="missiles">The missiles.</param>
+            <param name="canvas"></param>
         </member>
         <member name="M:Galaga.Model.MissileManager.FireEnemyMissiles(System.Collections.Generic.IList{Galaga.Model.EnemyShip},Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
@@ -156,6 +159,7 @@
             </summary>
             <param name="enemyShips">The enemy ships.</param>
             <param name="playerShip"></param>
+            <param name="canvas"></param>
             <returns></returns>
         </member>
         <member name="M:Galaga.Model.MissileManager.CreateEnemyMissile(Galaga.Model.GameObject,Galaga.Model.GameObject)">
@@ -168,7 +172,7 @@
         </member>
         <member name="M:Galaga.Model.MissileManager.checkForPlayerMissile(Galaga.Model.GameObject)">
             <summary>
-                Check to see if missile gameobject is a player missile for decrementing player missile count.
+                Check to see if missile GameObject is a player missile for decrementing player missile count.
             </summary>
             <param name="missile"></param>
         </member>
@@ -194,7 +198,7 @@
         </member>
         <member name="M:Galaga.Model.MissileManager.PowerUpPlayer">
             <summary>
-               Sets the player limits to power up the player
+                Sets the player limits to power up the player
             </summary>
         </member>
         <member name="M:Galaga.Model.MissileManager.ResetPlayerLimits">
@@ -230,7 +234,7 @@
         </member>
         <member name="M:Galaga.Model.NonFiringEnemy.SwapSprites">
             <summary>
-                Swaps the sprites.
+                Swaps the Sprites.
             </summary>
         </member>
         <member name="T:Galaga.Model.FiringEnemy">
@@ -262,7 +266,7 @@
         </member>
         <member name="M:Galaga.Model.FiringEnemy.SwapSprites">
             <summary>
-                Swaps the sprites.
+                Swaps the Sprites.
             </summary>
         </member>
         <member name="T:Galaga.Model.EnemyManager">
@@ -270,7 +274,7 @@
                 EnemyManager class.
             </summary>
         </member>
-        <member name="P:Galaga.Model.EnemyManager.bonusShipBounce">
+        <member name="P:Galaga.Model.EnemyManager.BonusShipBounce">
             <summary>
                 Checks the bounces the special ship has made
             </summary>
@@ -313,7 +317,7 @@
         </member>
         <member name="M:Galaga.Model.EnemyManager.SwapSpritesAnimation(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
             <summary>
-                Swaps the sprites every tick.
+                Swaps the Sprites every tick.
             </summary>
         </member>
         <member name="M:Galaga.Model.EnemyManager.playExplosion(Galaga.Model.GameObject)">
@@ -338,6 +342,11 @@
             </summary>
             <seealso cref="T:Galaga.Model.GameObject" />
         </member>
+        <member name="F:Galaga.Model.EnemyShip.Sprites">
+            <summary>
+                An array of Sprites for the enemy ship.
+            </summary>
+        </member>
         <member name="P:Galaga.Model.EnemyShip.ScoreValue">
             <summary>
                 Gets the score value.
@@ -361,7 +370,7 @@
         </member>
         <member name="M:Galaga.Model.EnemyShip.AddEnemyToCanvas">
             <summary>
-                Adds the enemy sprites to the canvas and sets it initial visibility.
+                Adds the enemy Sprites to the canvas and sets it initial visibility.
             </summary>
         </member>
         <member name="M:Galaga.Model.EnemyShip.AddBonusShipToCanvas">
@@ -371,7 +380,7 @@
         </member>
         <member name="M:Galaga.Model.EnemyShip.SwapSprites">
             <summary>
-                Swaps the sprites.
+                Swaps the Sprites.
             </summary>
         </member>
         <member name="T:Galaga.Model.GameManager">
@@ -401,7 +410,7 @@
         </member>
         <member name="M:Galaga.Model.GameManager.FireNuke">
             <summary>
-               Fires the Nuke for the Wow Factor
+                Fires the Nuke for the Wow Factor
             </summary>
         </member>
         <member name="T:Galaga.Model.GameObject">
@@ -744,7 +753,7 @@
         </member>
         <member name="T:Galaga.View.Sprites.BaseSprite">
             <summary>
-                Defines BaseSprite from which all sprites inherit.
+                Defines BaseSprite from which all Sprites inherit.
             </summary>
             <seealso cref="T:Windows.UI.Xaml.Controls.UserControl" />
             <seealso cref="T:Windows.UI.Xaml.Markup.IComponentConnector" />

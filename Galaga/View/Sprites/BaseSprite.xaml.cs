@@ -5,7 +5,7 @@
 namespace Galaga.View.Sprites
 {
     /// <summary>
-    ///     Defines BaseSprite from which all sprites inherit.
+    ///     Defines BaseSprite from which all Sprites inherit.
     /// </summary>
     /// <seealso cref="Windows.UI.Xaml.Controls.UserControl" />
     /// <seealso cref="Windows.UI.Xaml.Markup.IComponentConnector" />

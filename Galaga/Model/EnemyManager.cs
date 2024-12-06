@@ -14,11 +14,11 @@ namespace Galaga.Model
 
         private bool movingRight = true;
         private bool movingRightBonusShip = true;
-        
+
         /// <summary>
         ///     Checks the bounces the special ship has made
         /// </summary>
-        public int bonusShipBounce { get; private set; }
+        public int BonusShipBounce { get; private set; }
 
         private EnemyShip bonusShip;
 
@@ -37,9 +37,9 @@ namespace Galaga.Model
         public EnemyManager(Canvas canvas)
         {
             this.canvas = canvas;
-            this.shipFactory = new ShipFactory();
+            shipFactory = new ShipFactory();
 
-            this.bonusShipBounce = 4;
+            BonusShipBounce = 4;
         }
 
         #endregion
@@ -55,8 +55,8 @@ namespace Galaga.Model
             var enemyShips = new List<EnemyShip>();
 
             const double rowSpacing = 100;
-            var canvasWidth = this.canvas.Width;
-            var startY = this.canvas.Height / 2;
+            var canvasWidth = canvas.Width;
+            var startY = canvas.Height / 2;
             int[] enemiesPerRow = { 2, 3, 4, 5 };
 
             for (var rowIndex = 0; rowIndex < enemiesPerRow.Length; rowIndex++)
@@ -67,7 +67,7 @@ namespace Galaga.Model
                 EnemyShip enemyShip;
                 for (var i = 0; i < enemyCount; i++)
                 {
-                    enemyShip = this.shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, this.canvas);
+                    enemyShip = shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, canvas);
                     enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 
@@ -86,9 +86,9 @@ namespace Galaga.Model
         /// <returns></returns>
         public EnemyShip CreateSpecialShip()
         {
-            this.bonusShip = this.shipFactory.CreateSpecialShip(this.canvas);
-            this.bonusShip.AddBonusShipToCanvas();
-            return this.bonusShip;
+            bonusShip = shipFactory.CreateSpecialShip(canvas);
+            bonusShip.AddBonusShipToCanvas();
+            return bonusShip;
         }
 
         /// <summary>
@@ -99,29 +99,21 @@ namespace Galaga.Model
         public void MoveEnemyShips(IList<EnemyShip> enemyShips, int tickCounter)
         {
             foreach (var ship in enemyShips)
-            {
                 if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite))
                 {
-                    if (this.movingRight)
+                    if (movingRight)
                     {
                         ship.MoveRight();
 
-                        if (ship.X + ship.Width >= this.canvas.Width)
-                        {
-                            this.movingRight = false;
-                        }
+                        if (ship.X + ship.Width >= canvas.Width) movingRight = false;
                     }
                     else
                     {
                         ship.MoveLeft();
 
-                        if (ship.X <= 0)
-                        {
-                            this.movingRight = true;
-                        }
+                        if (ship.X <= 0) movingRight = true;
                     }
                 }
-            }
         }
 
         /// <summary>
@@ -129,32 +121,25 @@ namespace Galaga.Model
         /// </summary>
         public void MoveBonusShip()
         {
-            this.checkBounceCounter();
+            checkBounceCounter();
 
-            this.checkBonusShipPosition();
+            checkBonusShipPosition();
 
-            if (this.bonusShip != null)
+            if (bonusShip != null)
             {
-                if (this.movingRightBonusShip)
+                if (movingRightBonusShip)
                 {
-                    this.bonusShip.MoveRight();
+                    bonusShip.MoveRight();
 
-                    if (this.bonusShip.X + this.bonusShip.Width >= this.canvas.Width)
-                    {
-                        this.movingRightBonusShip = false;
-                    }
+                    if (bonusShip.X + bonusShip.Width >= canvas.Width) movingRightBonusShip = false;
                 }
                 else
                 {
-                    this.bonusShip.MoveLeft();
+                    bonusShip.MoveLeft();
 
-                    if (this.bonusShip.X <= 0)
-                    {
-                        this.movingRightBonusShip = true;
-                    }
+                    if (bonusShip.X <= 0) movingRightBonusShip = true;
                 }
             }
-            
         }
 
         /// <summary>
@@ -163,49 +148,46 @@ namespace Galaga.Model
         /// <returns></returns>
         public bool checkBounceCounter()
         {
-            if (this.bonusShipBounce == 0)
+            if (BonusShipBounce == 0)
             {
-                this.resetBonusShipBoundCounter();
+                resetBonusShipBoundCounter();
                 return true;
             }
+
             return false;
         }
 
         private void resetBonusShipBoundCounter()
         {
-            this.bonusShipBounce = 4;
+            BonusShipBounce = 4;
         }
 
         private void checkBonusShipPosition()
         {
-            if (this.bonusShip != null)
+            if (bonusShip != null)
             {
-                if (this.bonusShip.X == 0)
+                if (bonusShip.X == 0)
                 {
-                    this.bonusShipBounce--;
-                    this.movingRightBonusShip = true;
+                    BonusShipBounce--;
+                    movingRightBonusShip = true;
                 }
 
-                if (Convert.ToInt32(this.bonusShip.X) == Convert.ToInt32(this.canvas.Width - this.bonusShip.Width))
+                if (Convert.ToInt32(bonusShip.X) == Convert.ToInt32(canvas.Width - bonusShip.Width))
                 {
-                    this.bonusShipBounce--;
-                    this.movingRightBonusShip = false;
+                    BonusShipBounce--;
+                    movingRightBonusShip = false;
                 }
             }
         }
 
         /// <summary>
-        ///     Swaps the sprites every tick.
+        ///     Swaps the Sprites every tick.
         /// </summary>
         public void SwapSpritesAnimation(IList<EnemyShip> enemyShips)
         {
             foreach (var enemyShip in enemyShips)
-            {
                 if (enemyShip.Sprite.GetType() != typeof(EnemySpecialSprite))
-                {
                     enemyShip.SwapSprites();
-                }
-            }
         }
 
         /// <summary>
@@ -214,7 +196,7 @@ namespace Galaga.Model
         /// <param name="ship">The ship.</param>
         public void playExplosion(GameObject ship)
         {
-            var explosion = new Explosion(ship, this.canvas);
+            var explosion = new Explosion(ship, canvas);
             _ = explosion.playExplosion();
         }
 

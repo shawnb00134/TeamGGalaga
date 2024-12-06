@@ -24,11 +24,11 @@ namespace Galaga.Model
         /// </value>
         public double X
         {
-            get => this.location.X;
+            get => location.X;
             set
             {
-                this.location.X = value;
-                this.render();
+                location.X = value;
+                render();
             }
         }
 
@@ -40,11 +40,11 @@ namespace Galaga.Model
         /// </value>
         public double Y
         {
-            get => this.location.Y;
+            get => location.Y;
             set
             {
-                this.location.Y = value;
-                this.render();
+                location.Y = value;
+                render();
             }
         }
 
@@ -70,7 +70,7 @@ namespace Galaga.Model
         /// <value>
         ///     The width.
         /// </value>
-        public double Width => this.Sprite.Width;
+        public double Width => Sprite.Width;
 
         /// <summary>
         ///     Gets the height of the game object.
@@ -78,7 +78,7 @@ namespace Galaga.Model
         /// <value>
         ///     The height.
         /// </value>
-        public double Height => this.Sprite.Height;
+        public double Height => Sprite.Height;
 
         /// <summary>
         ///     Gets or sets the sprite associated with the game object.
@@ -99,7 +99,7 @@ namespace Galaga.Model
         /// </summary>
         public void MoveRight()
         {
-            this.X += this.SpeedX;
+            X += SpeedX;
         }
 
         /// <summary>
@@ -109,7 +109,7 @@ namespace Galaga.Model
         /// </summary>
         public void MoveLeft()
         {
-            this.X -= this.SpeedX;
+            X -= SpeedX;
         }
 
         /// <summary>
@@ -119,7 +119,7 @@ namespace Galaga.Model
         /// </summary>
         public void MoveUp()
         {
-            this.Y -= this.SpeedY;
+            Y -= SpeedY;
         }
 
         /// <summary>
@@ -129,14 +129,14 @@ namespace Galaga.Model
         /// </summary>
         public void MoveDown()
         {
-            this.Y += this.SpeedY;
+            Y += SpeedY;
         }
 
         private void render()
         {
-            var render = this.Sprite as ISpriteRenderer;
+            var render = Sprite as ISpriteRenderer;
 
-            render?.RenderAt(this.X, this.Y);
+            render?.RenderAt(X, Y);
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace Galaga.Model
             //    throw new ArgumentOutOfRangeException(nameof(speedY));
             //}
 
-            this.SpeedX = speedX;
-            this.SpeedY = speedY;
+            SpeedX = speedX;
+            SpeedY = speedY;
         }
 
         #endregion

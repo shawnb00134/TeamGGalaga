@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View;
 using Galaga.View.Sprites;
-using System.Threading.Tasks;
 
 namespace Galaga.Model
 {
@@ -17,15 +17,15 @@ namespace Galaga.Model
         #region Data members
 
         private const int TickTimer = 50;
-        //private const int TickCounterReset = 40;
-        private const int LevelCap = 3;
+        private const int ShipRemovalDelay = 4500;
+        private const int LevelCap = 1;
 
         private readonly Canvas canvas;
         private readonly GameCanvas gameCanvas;
         private readonly PlayerManager playerManager;
         private readonly MissileManager missileManager;
         private readonly SoundManager soundManager;
-        private Random random;
+        private readonly Random random;
 
         private readonly DispatcherTimer timer;
         private int tickCounter;
@@ -55,97 +55,88 @@ namespace Galaga.Model
         {
             this.canvas = canvas ?? throw new ArgumentNullException(nameof(canvas));
             this.gameCanvas = gameCanvas ?? throw new ArgumentNullException(nameof(gameCanvas));
-            this.soundManager = new SoundManager();
+            soundManager = new SoundManager();
 
-            this.playerManager = new PlayerManager(this.canvas);
-            this.missileManager = new MissileManager();
-            this.enemyShips = new List<EnemyShip>();
-            this.listOfShips = new List<GameObject>();
-            this.missiles = new List<GameObject>();
-            this.enemyManager = new EnemyManager(this.canvas);
-            this.physics = new Physics();
-            this.random = new Random();
+            playerManager = new PlayerManager(this.canvas);
+            missileManager = new MissileManager();
+            enemyShips = new List<EnemyShip>();
+            listOfShips = new List<GameObject>();
+            missiles = new List<GameObject>();
+            enemyManager = new EnemyManager(this.canvas);
+            physics = new Physics();
+            random = new Random();
             this.canvas = canvas;
 
-            this.tickCounter = 0;
-            this.score = 0;
-            this.currentLevel = 1;
-            this.specialShipHasSpawned = false;
+            tickCounter = 0;
+            score = 0;
+            currentLevel = 1;
+            specialShipHasSpawned = false;
 
-            this.timer = new DispatcherTimer();
-            this.timer.Interval = new TimeSpan(0, 0, 0, 0, TickTimer);
-            this.timer.Tick += this.timer_Tick;
+            timer = new DispatcherTimer();
+            timer.Interval = new TimeSpan(0, 0, 0, 0, TickTimer);
+            timer.Tick += timer_Tick;
 
-            this.initializeGame();
-            this.timer.Start();
-            this.updateScore(this.score);
+            initializeGame();
+            timer.Start();
+            updateScore(score);
 
             InitializeHighScoreUI();
         }
 
         #endregion
-
+        
         #region Methods
 
         private void timer_Tick(object sender, object e)
         {
-            if (this.gameCanvas.IsMovingLeft())
+            if (gameCanvas.IsMovingLeft()) playerManager.MovePlayerLeft();
+
+            if (gameCanvas.IsMovingRight()) playerManager.MovePlayerRight();
+
+            enemyManager.MoveEnemyShips(enemyShips, tickCounter);
+            enemyManager.MoveBonusShip();
+            enemyFireMissiles();
+            moveMissiles();
+            tickCounter++;
+
+            missileManager.UpdateDelayTick();
+            enemyManager.SwapSpritesAnimation(enemyShips);
+            checkForMissileOutOfBounds();
+            checkForCollisions();
+
+            if (getRandomNumber() % 101 == 1 && specialShipHasSpawned == false)
             {
-                this.playerManager.MovePlayerLeft();
+                enemyShips.Add(enemyManager.CreateSpecialShip());
+                listOfShips.Add(enemyShips.Last());
+                soundManager.playBonusShipCreation();
+                specialShipHasSpawned = true;
             }
 
-            if (this.gameCanvas.IsMovingRight())
-            {
-                this.playerManager.MovePlayerRight();
-            }
-
-            this.enemyManager.MoveEnemyShips(this.enemyShips, this.tickCounter);
-            this.enemyManager.MoveBonusShip();
-            this.enemyFireMissiles();
-            this.moveMissiles();
-            this.tickCounter++;
-
-            this.missileManager.UpdateDelayTick();
-            this.enemyManager.SwapSpritesAnimation(this.enemyShips);
-            this.checkForMissileOutOfBounds();
-            this.checkForCollisions();
-
-            if (this.getRandomNumber() % 101 == 1 && this.specialShipHasSpawned == false)
-            {
-                this.enemyShips.Add(this.enemyManager.CreateSpecialShip());
-                this.listOfShips.Add(this.enemyShips.Last());
-                this.soundManager.playBonusShipCreation();
-                this.specialShipHasSpawned = true;
-            }
-
-            this.checkWhenToRemoveSpecialShip();
+            checkWhenToRemoveSpecialShip();
         }
 
         private int getRandomNumber()
         {
-            return this.random.Next(0, 1000001);
+            return random.Next(0, 1000001);
         }
 
         private void initializeGame()
         {
-            this.playerManager.CreateAndPlacePlayer(this.listOfShips);
-            this.initializeLevel();
+            playerManager.CreateAndPlacePlayer(listOfShips);
+            initializeLevel();
         }
 
         private void initializeLevel()
         {
-            this.updatePlayerLives();
-            this.createEnemyShips();
+            updatePlayerLives();
+            createEnemyShips();
         }
 
         private void createEnemyShips()
         {
-            this.enemyShips = this.enemyManager.CreateAndPlaceEnemyShip(this.currentLevel);
+            enemyShips = enemyManager.CreateAndPlaceEnemyShip(currentLevel);
 
-            foreach (var enemyShip in this.enemyShips)
-            {
-                this.listOfShips.Add(enemyShip);
-            }
+            foreach (var enemyShip in enemyShips) listOfShips.Add(enemyShip);
         }
 
         /// <summary>
@@ -153,7 +144,7 @@ namespace Galaga.Model
         /// </summary>
         public void MovePlayerLeft()
         {
-            this.playerManager.MovePlayerLeft();
+            playerManager.MovePlayerLeft();
         }
 
         /// <summary>
@@ -161,7 +152,7 @@ namespace Galaga.Model
         /// </summary>
         public void MovePlayerRight()
         {
-            this.playerManager.MovePlayerRight();
+            playerManager.MovePlayerRight();
         }
 
         /// <summary>
@@ -169,38 +160,34 @@ namespace Galaga.Model
         /// </summary>
         public void FireMissile()
         {
-            this.missiles.Add(this.missileManager.FireMissile(this.playerManager.GetPlayer(), this.canvas));
+            missiles.Add(missileManager.FireMissile(playerManager.GetPlayer(), canvas));
         }
 
         private void moveMissiles()
         {
-            this.missileManager.MoveMissiles(this.missiles, this.canvas);
+            missileManager.MoveMissiles(missiles, canvas);
         }
 
         private void enemyFireMissiles()
         {
-            this.missiles.Add(this.missileManager.FireEnemyMissiles(this.enemyShips, this.playerManager.GetPlayer(), this.canvas));
+            missiles.Add(missileManager.FireEnemyMissiles(enemyShips, playerManager.GetPlayer(), canvas));
         }
 
         private void checkForCollisions()
         {
-            var objectsToRemove = this.physics.CheckCollisions(this.listOfShips, this.missiles);
-            this.removeObjectsFromCanvas(objectsToRemove);
+            var objectsToRemove = physics.CheckCollisions(listOfShips, missiles);
+            removeObjectsFromCanvas(objectsToRemove);
         }
 
         private void checkForMissileOutOfBounds()
         {
             var objectsToRemove = new List<GameObject>();
 
-            foreach (var missile in this.missiles)
-            {
-                if (this.physics.CheckMissileBoundary(missile, this.canvas))
-                {
+            foreach (var missile in missiles)
+                if (physics.CheckMissileBoundary(missile, canvas))
                     objectsToRemove.Add(missile);
-                }
-            }
 
-            this.removeObjectsFromCanvas(objectsToRemove);
+            removeObjectsFromCanvas(objectsToRemove);
         }
 
         private void removeObjectsFromCanvas(IList<GameObject> objectsToRemove)
@@ -210,111 +197,102 @@ namespace Galaga.Model
                 switch (obj)
                 {
                     case Missile _:
-                        this.missileManager.TriggerNuke(obj, this.canvas);
-                        this.missileManager.checkForPlayerMissile(obj);
-                        this.missiles.Remove(obj);
-                        this.canvas.Children.Remove(obj.Sprite);
+                        missileManager.TriggerNuke(obj, canvas);
+                        missileManager.checkForPlayerMissile(obj);
+                        missiles.Remove(obj);
+                        canvas.Children.Remove(obj.Sprite);
                         break;
                     case Player _:
-                        this.destroyPlayerLife(obj);
+                        destroyPlayerLife(obj);
                         break;
                     case EnemyShip enemyShip:
-                        this.removeEnemyShip(enemyShip);
+                        removeEnemyShip(enemyShip);
                         break;
                 }
 
-                this.checkForEndGame();
+                checkForEndGame();
             }
         }
 
         private void checkWhenToRemoveSpecialShip()
         {
-            if (this.enemyManager.checkBounceCounter())
-            {
-                foreach (var enemyShip in this.enemyShips)
-                {
+            if (enemyManager.checkBounceCounter())
+                foreach (var enemyShip in enemyShips)
                     if (enemyShip.Sprite is EnemySpecialSprite)
                     {
-                        this.listOfShips.Remove(enemyShip);
-                        this.enemyShips.Remove(enemyShip);
-                        this.canvas.Children.Remove(enemyShip.Sprite);
+                        listOfShips.Remove(enemyShip);
+                        enemyShips.Remove(enemyShip);
+                        canvas.Children.Remove(enemyShip.Sprite);
                         break;
                     }
-                }
-            }
         }
 
         private void destroyPlayerLife(GameObject ship)
         {
-            this.playerManager.CheckPlayerLives(ship, this.listOfShips);
-            this.enemyManager.playExplosion(ship);
-            this.missileManager.ResetPlayerLimits();
-            this.updatePlayerLives();
-            this.soundManager.playPlayerDestroyed();
+            playerManager.CheckPlayerLives(ship, listOfShips);
+            enemyManager.playExplosion(ship);
+            missileManager.ResetPlayerLimits();
+            updatePlayerLives();
+            soundManager.playPlayerDestroyed();
         }
 
         private void removeEnemyShip(EnemyShip enemyShip)
         {
             if (enemyShip.Sprite is EnemySpecialSprite)
             {
-                this.destroySpecialEnemy();
-                this.updatePlayerLives();
+                destroySpecialEnemy();
+                updatePlayerLives();
             }
 
-            this.enemyShips.Remove(enemyShip);
-            this.listOfShips.Remove(enemyShip);
-            this.canvas.Children.Remove(enemyShip.Sprite);
-            this.enemyManager.playExplosion(enemyShip);
-            this.soundManager.playEnemyDestroyed();
+            enemyShips.Remove(enemyShip);
+            listOfShips.Remove(enemyShip);
+            canvas.Children.Remove(enemyShip.Sprite);
+            enemyManager.playExplosion(enemyShip);
+            soundManager.playEnemyDestroyed();
 
-            this.updateScore(enemyShip.ScoreValue);
+            updateScore(enemyShip.ScoreValue);
         }
 
         private void destroySpecialEnemy()
         {
-            if (this.currentLevel == 1)
+            if (currentLevel == 1) playerManager.AddPlayerLife();
+
+            if (currentLevel == 2)
             {
-                this.playerManager.AddPlayerLife();
+                playerManager.AddPlayerLife();
+                missileManager.PowerUpPlayer();
             }
 
-            if (this.currentLevel == 2)
-            {
-                this.playerManager.AddPlayerLife();
-                this.missileManager.PowerUpPlayer();
-            }
-            if (this.currentLevel == 3)
-            {
-                this.missileManager.EnableNuke();
-            }
+            if (currentLevel == 3) missileManager.EnableNuke();
         }
 
         private void updateScore(int scoreValue)
         {
-            this.score += scoreValue;
-            this.gameCanvas.updateScoreBoard("Score: " + this.score);
+            score += scoreValue;
+            gameCanvas.updateScoreBoard("Score: " + score);
         }
 
         private void checkForEndGame()
         {
-            if (!this.listOfShips.Any(ship => ship is Player))
+            if (!listOfShips.Any(ship => ship is Player))
             {
-                this.timer.Stop();
-                this.gameCanvas.DisplayYouLoseText();
+                timer.Stop();
+                gameCanvas.DisplayYouLoseText();
                 HandleGameOver();
             }
 
-            if (!this.enemyShips.Any())
+            if (!enemyShips.Any())
             {
-                if (this.checkForLevel())
+                if (checkForLevel())
                 {
-                    this.currentLevel++;
-                    this.specialShipHasSpawned = false;
-                    this.initializeLevel();
+                    currentLevel++;
+                    specialShipHasSpawned = false;
+                    initializeLevel();
                 }
                 else
                 {
-                    this.timer.Stop();
-                    this.gameCanvas.DisplayYouWinText();
+                    timer.Stop();
+                    gameCanvas.DisplayYouWinText();
                     HandleGameOver();
                 }
             }
@@ -322,27 +300,27 @@ namespace Galaga.Model
 
         private void HandleGameOver()
         {
-            //var highScores = Score.LoadHighScores();
+            var highScores = Score.LoadHighScores();
 
-            //if (highScores.Count < 10 || score > highScores.Min(s => s.PlayerScore))
-            //{
-            //    nameInputBox.Visibility = Visibility.Visible;
-            //    submitScoreButton.Visibility = Visibility.Visible;
-            //}
-            //else
-            //{
-            //    LoadAndDisplayHighScores();
-            //}
+            if (highScores.Count < 10 || score > highScores.Min(s => s.PlayerScore))
+            {
+                nameInputBox.Visibility = Visibility.Visible;
+                submitScoreButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                LoadAndDisplayHighScores();
+            }
         }
 
         private bool checkForLevel()
         {
-            return this.currentLevel < LevelCap;
+            return currentLevel < LevelCap;
         }
 
         private void updatePlayerLives()
         {
-            this.gameCanvas.updatePlayerLivesBoard("Lives: " + this.playerManager.GetPlayerLivesCount());
+            gameCanvas.updatePlayerLivesBoard("Lives: " + playerManager.GetPlayerLivesCount());
         }
 
         private void InitializeHighScoreUI()
@@ -398,7 +376,7 @@ namespace Galaga.Model
                     return;
                 }
 
-                //Score.AddNewScore(nameInputBox.Text.Trim(), score, currentLevel);
+                Score.AddNewScore(nameInputBox.Text.Trim(), score, currentLevel);
 
                 nameInputBox.Visibility = Visibility.Collapsed;
                 submitScoreButton.Visibility = Visibility.Collapsed;
@@ -418,41 +396,35 @@ namespace Galaga.Model
 
         private void LoadAndDisplayHighScores()
         {
-            //var highScores = Score.LoadHighScores();
-            //highScoreListView.ItemsSource = highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
-            //highScoreListView.Visibility = Visibility.Visible;
+            var highScores = Score.LoadHighScores();
+            highScoreListView.ItemsSource =
+                highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
+            highScoreListView.Visibility = Visibility.Visible;
         }
 
         /// <summary>
-        ///    Fires the Nuke for the Wow Factor
+        ///     Fires the Nuke for the Wow Factor
         /// </summary>
         public async void FireNuke()
         {
-            this.currentLevel = 3;
-            if (this.currentLevel == 3 && this.missileManager.NukeEnabled)
+            missileManager.EnableNuke();
+            if (currentLevel == LevelCap && missileManager.NukeEnabled)
             {
-                this.missiles.Add(this.missileManager.FireNuke(this.playerManager.GetPlayer(), this.canvas));
-                this.missileManager.NukeEnabled = false;
+                missiles.Add(missileManager.FireNuke(playerManager.GetPlayer(), canvas));
+                missileManager.NukeEnabled = false;
 
-                await Task.Delay(4500);
+                await Task.Delay(ShipRemovalDelay);
 
-                System.Diagnostics.Debug.WriteLine("remove all ships");
-                this.removeAllEnemySprites();
+                removeAllEnemySprites();
             }
         }
 
         private void removeAllEnemySprites()
         {
-            List<GameObject> removalList = new List<GameObject>();
-            foreach (var ship in this.enemyShips)
-            {
-                removalList.Add(ship);
-            }
-            foreach (var missile in this.missiles)
-            {
-                removalList.Add(missile);
-            }
-            this.removeObjectsFromCanvas(removalList);
+            var removalList = new List<GameObject>();
+            foreach (var ship in enemyShips) removalList.Add(ship);
+            foreach (var missile in missiles) removalList.Add(missile);
+            removeObjectsFromCanvas(removalList);
         }
 
         #endregion

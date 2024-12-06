@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Windows.UI.Xaml.Controls;
+﻿using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
 
 namespace Galaga.Model
@@ -12,6 +11,11 @@ namespace Galaga.Model
         #region Data members
 
         private const int SpecialEnemySpeed = 5;
+        private const int Level1ScoreValue = 1;
+        private const int Level2ScoreValue = 2;
+        private const int Level3ScoreValue = 3;
+        private const int Level4ScoreValue = 4;
+        private const int SpecialEnemyScoreValue = 0;
 
         #endregion
 
@@ -32,22 +36,22 @@ namespace Galaga.Model
                 case 0:
                     enemyShip = new NonFiringEnemy(new EnemyLevel1Sprite(), new EnemyLevel1SpriteAlternate(),
                         levelMultiplier, canvas);
-                    enemyShip.ScoreValue = 1 * levelMultiplier;
+                    enemyShip.ScoreValue = Level1ScoreValue * levelMultiplier;
                     break;
                 case 1:
                     enemyShip = new NonFiringEnemy(new EnemyLevel2Sprite(), new EnemyLevel2SpriteAlternate(),
                         levelMultiplier, canvas);
-                    enemyShip.ScoreValue = 2 * levelMultiplier;
+                    enemyShip.ScoreValue = Level2ScoreValue * levelMultiplier;
                     break;
                 case 2:
                     enemyShip = new FiringEnemy(new EnemyLevel3Sprite(), new EnemyLevel3SpriteAlternate(),
                         levelMultiplier, canvas);
-                    enemyShip.ScoreValue = 3 * levelMultiplier;
+                    enemyShip.ScoreValue = Level3ScoreValue * levelMultiplier;
                     break;
                 default:
                     enemyShip = new FiringEnemy(new EnemyLevel4Sprite(), new EnemyLevel4SpriteAlternate(),
                         levelMultiplier, canvas);
-                    enemyShip.ScoreValue = 4 * levelMultiplier;
+                    enemyShip.ScoreValue = Level4ScoreValue * levelMultiplier;
                     break;
             }
 
@@ -61,7 +65,7 @@ namespace Galaga.Model
         public EnemyShip CreateSpecialShip(Canvas canvas)
         {
             EnemyShip specialEnemyShip = new FiringEnemy(new EnemySpecialSprite(), SpecialEnemySpeed, canvas);
-            specialEnemyShip.ScoreValue = 0;
+            specialEnemyShip.ScoreValue = SpecialEnemyScoreValue;
 
             specialEnemyShip.X = 0;
             specialEnemyShip.Y = 0;
