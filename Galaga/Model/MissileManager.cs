@@ -12,15 +12,13 @@ namespace Galaga.Model
     {
         #region Data members
 
-        private const int MissileDelayLimit = 10;
+        
         private const int EnemyFireCounter = 30;
-        private const int PlayerMissileLimit = 3;
         private const int PlayerMissileSpeed = -10;
         private const int NukeMissileSpeed = -5;
         private const int EnemyMissileSpeed = 12;
 
         private readonly SoundManager soundManager;
-
         private readonly Random random;
         private int delayTicker;
 
@@ -33,7 +31,20 @@ namespace Galaga.Model
 
         #region Properties
 
-        private int PlayerMissileCount { get; set; }
+        /// <summary>
+        ///     Sets the PlayerMissileCount property
+        /// </summary>
+        public int PlayerMissileCount { get; set; }
+
+        /// <summary>
+        ///     Speed of the player missile limit
+        /// </summary>
+        public int PlayerMissileLimit { get; set; }
+
+        /// <summary>
+        ///    Sets the delay limit for the missile
+        /// </summary>
+        public int MissileDelayLimit { get; set; }
 
         #endregion
 
@@ -45,11 +56,13 @@ namespace Galaga.Model
         public MissileManager()
         {
             this.soundManager = new SoundManager();
-
             this.random = new Random();
+
             this.PlayerMissileCount = 0;
             this.delayTicker = 10;
             this.NukeEnabled = false;
+            this.PlayerMissileLimit = 3;
+            this.MissileDelayLimit = 10;
         }
 
         #endregion
@@ -68,7 +81,6 @@ namespace Galaga.Model
                 this.PlayerMissileCount++;
                 this.delayTicker = 0;
 
-                //var missile = new PlayerMissile();
                 var missile = new Missile(PlayerMissileSpeed, new PlayerMissileSprite());
                 missile.X = player.X + player.Width / 2.0 - missile.Width / 2.0;
                 missile.Y = player.Y - missile.Height;
@@ -229,6 +241,24 @@ namespace Galaga.Model
         {
             Missile missile = new Missile(NukeMissileSpeed, new NukeBombSprite());
             return missile;
+        }
+
+        /// <summary>
+        ///    Sets the player limits to power up the player
+        /// </summary>
+        public void PowerUpPlayer()
+        {
+            this.PlayerMissileLimit = 6;
+            this.MissileDelayLimit = 4;
+        }
+
+        /// <summary>
+        ///     Resets the player's limits
+        /// </summary>
+        public void ResetPlayerLimits()
+        {
+            this.PlayerMissileLimit = 3;
+            this.MissileDelayLimit = 10;
         }
 
         #endregion

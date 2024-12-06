@@ -110,6 +110,21 @@
                 Public access to the NukeEnabled property
             </summary>
         </member>
+        <member name="P:Galaga.Model.MissileManager.PlayerMissileCount">
+            <summary>
+                Sets the PlayerMissileCount property
+            </summary>
+        </member>
+        <member name="P:Galaga.Model.MissileManager.PlayerMissileLimit">
+            <summary>
+                Speed of the player missile limit
+            </summary>
+        </member>
+        <member name="P:Galaga.Model.MissileManager.MissileDelayLimit">
+            <summary>
+               Sets the delay limit for the missile
+            </summary>
+        </member>
         <member name="M:Galaga.Model.MissileManager.#ctor">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.MissileManager" /> class.
@@ -168,6 +183,16 @@
         <member name="M:Galaga.Model.MissileManager.FireNuke">
             <summary>
                 Launches the nuke.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.PowerUpPlayer">
+            <summary>
+               Sets the player limits to power up the player
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.ResetPlayerLimits">
+            <summary>
+                Resets the player's limits
             </summary>
         </member>
         <member name="T:Galaga.Model.NonFiringEnemy">
@@ -231,6 +256,11 @@
                 EnemyManager class.
             </summary>
         </member>
+        <member name="P:Galaga.Model.EnemyManager.bonusShipBounce">
+            <summary>
+                Checks the bounces the special ship has made
+            </summary>
+        </member>
         <member name="M:Galaga.Model.EnemyManager.#ctor(Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.EnemyManager" /> class.
@@ -260,6 +290,12 @@
             <summary>
                 Moves the bonus ship.
             </summary>
+        </member>
+        <member name="M:Galaga.Model.EnemyManager.checkBounceCounter">
+            <summary>
+                Lets the GameManager know when to remove the bonus ship from play.
+            </summary>
+            <returns></returns>
         </member>
         <member name="M:Galaga.Model.EnemyManager.SwapSpritesAnimation(System.Collections.Generic.IList{Galaga.Model.EnemyShip})">
             <summary>

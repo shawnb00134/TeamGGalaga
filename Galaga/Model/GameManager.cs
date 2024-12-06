@@ -5,6 +5,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View;
 using Galaga.View.Sprites;
+using System.Threading.Tasks;
 
 namespace Galaga.Model
 {
@@ -114,6 +115,8 @@ namespace Galaga.Model
                 this.soundManager.playBonusShipCreation();
                 this.specialShipHasSpawned = true;
             }
+
+            this.checkWhenToRemoveSpecialShip();
         }
 
         private int getRandomNumber()
@@ -204,16 +207,16 @@ namespace Galaga.Model
             {
                 switch (obj)
                 {
+                    case Missile _:
+                        this.missileManager.checkForPlayerMissile(obj);
+                        this.missiles.Remove(obj);
+                        this.canvas.Children.Remove(obj.Sprite);
+                        break;
                     case Player _:
                         this.destroyPlayerLife(obj);
                         break;
                     case EnemyShip enemyShip:
                         this.removeEnemyShip(enemyShip);
-                        break;
-                    case Missile _:
-                        this.missileManager.checkForPlayerMissile(obj);
-                        this.missiles.Remove(obj);
-                        this.canvas.Children.Remove(obj.Sprite);
                         break;
                 }
 
@@ -221,10 +224,28 @@ namespace Galaga.Model
             }
         }
 
+        private void checkWhenToRemoveSpecialShip()
+        {
+            if (this.enemyManager.checkBounceCounter())
+            {
+                foreach (var enemyShip in this.enemyShips)
+                {
+                    if (enemyShip.Sprite is EnemySpecialSprite)
+                    {
+                        this.listOfShips.Remove(enemyShip);
+                        this.enemyShips.Remove(enemyShip);
+                        this.canvas.Children.Remove(enemyShip.Sprite);
+                        break;
+                    }
+                }
+            }
+        }
+
         private void destroyPlayerLife(GameObject ship)
         {
             this.playerManager.CheckPlayerLives(ship, this.listOfShips);
             this.enemyManager.playExplosion(ship);
+            this.missileManager.ResetPlayerLimits();
             this.updatePlayerLives();
             this.soundManager.playPlayerDestroyed();
         }
@@ -233,8 +254,8 @@ namespace Galaga.Model
         {
             if (enemyShip.Sprite is EnemySpecialSprite)
             {
-                this.playerManager.AddPlayerLife();
                 this.destroySpecialEnemy();
+                this.updatePlayerLives();
             }
 
             this.enemyShips.Remove(enemyShip);
@@ -257,7 +278,7 @@ namespace Galaga.Model
             if (this.currentLevel == 2)
             {
                 this.playerManager.AddPlayerLife();
-                // Power Up
+                this.missileManager.PowerUpPlayer();
             }
             if (this.currentLevel == 3)
             {
@@ -292,6 +313,7 @@ namespace Galaga.Model
                 if (this.checkForLevel())
                 {
                     this.currentLevel++;
+                    this.specialShipHasSpawned = false;
                     this.initializeLevel();
                 }
                 else

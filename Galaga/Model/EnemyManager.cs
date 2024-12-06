@@ -14,7 +14,11 @@ namespace Galaga.Model
 
         private bool movingRight = true;
         private bool movingRightBonusShip = true;
-        private int bonusShipBounce;
+        
+        /// <summary>
+        ///     Checks the bounces the special ship has made
+        /// </summary>
+        public int bonusShipBounce { get; private set; }
 
         private EnemyShip bonusShip;
 
@@ -35,7 +39,7 @@ namespace Galaga.Model
             this.canvas = canvas;
             this.shipFactory = new ShipFactory();
 
-            this.bonusShipBounce = 3;
+            this.bonusShipBounce = 4;
         }
 
         #endregion
@@ -153,17 +157,23 @@ namespace Galaga.Model
             
         }
 
-        private void checkBounceCounter()
+        /// <summary>
+        ///     Lets the GameManager know when to remove the bonus ship from play.
+        /// </summary>
+        /// <returns></returns>
+        public bool checkBounceCounter()
         {
             if (this.bonusShipBounce == 0)
             {
                 this.resetBonusShipBoundCounter();
+                return true;
             }
+            return false;
         }
 
         private void resetBonusShipBoundCounter()
         {
-            this.bonusShipBounce = 3;
+            this.bonusShipBounce = 4;
         }
 
         private void checkBonusShipPosition()
