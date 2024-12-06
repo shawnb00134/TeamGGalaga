@@ -26,6 +26,17 @@ namespace Galaga.Model
         #region Constructors
 
         /// <summary>
+        ///     Constructor for the Nuke explosion
+        /// </summary>
+        /// <param name="sprite"></param>
+        /// <param name="canvas"></param>
+        public Explosion(BaseSprite sprite, Canvas canvas)
+        {
+            this.canvas = canvas;
+            sprite = sprite;
+        }
+
+        /// <summary>
         ///     Initializes a new instance of the <see cref="Explosion" /> class.
         /// </summary>
         /// <param name="ship">The ship.</param>
@@ -74,7 +85,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the Sprite for the nuclear explosion.
         /// </summary>
-        public void playNuclearExplosion(IList<EnemyShip> enemyShips)
+        public void playNuclearExplosion(GameObject missile)
         {
             BaseSprite sprite = new NukeExplosionSprite();
 

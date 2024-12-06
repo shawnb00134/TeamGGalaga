@@ -10390,30 +10390,18 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\DeadMan\\.nuget\\packages\\": {},
-=======
-    "C:\\Users\\nates\\.nuget\\packages\\": {},
->>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
       "projectName": "Galaga",
       "projectPath": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\Galaga.csproj",
       "packagesPath": "C:\\Users\\DeadMan\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\DeadMan\\Desktop\\School\\10_Fall_2024\\ProgramConstruction1\\Assignments\\Assignment-05\\TeamGGalaga\\Galaga\\obj\\",
-=======
-      "projectUniqueName": "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5\\Galaga\\Galaga.csproj",
-      "projectName": "Galaga",
-      "projectPath": "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5\\Galaga\\Galaga.csproj",
-      "packagesPath": "C:\\Users\\nates\\.nuget\\packages\\",
-      "outputPath": "C:\\WestGA\\Fall24\\ProgramConstruction\\PC1_HW5\\Galaga\\obj\\",
->>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
@@ -10421,11 +10409,7 @@
         "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\"
       ],
       "configFilePaths": [
-<<<<<<< HEAD
         "C:\\Users\\DeadMan\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-        "C:\\Users\\nates\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

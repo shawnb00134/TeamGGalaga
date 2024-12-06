@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
+using System.Reflection;
 
 namespace Galaga.Model
 {
@@ -22,14 +23,14 @@ namespace Galaga.Model
         private readonly Random random;
         private int delayTicker;
 
-        /// <summary>
-        ///     Public access to the NukeEnabled property
-        /// </summary>
-        public bool NukeEnabled { get; private set; }
-
         #endregion
 
         #region Properties
+
+        /// <summary>
+        ///     Public access to the NukeEnabled property
+        /// </summary>
+        public bool NukeEnabled { get; set; }
 
         /// <summary>
         ///     Sets the PlayerMissileCount property
@@ -60,7 +61,7 @@ namespace Galaga.Model
 
             this.PlayerMissileCount = 0;
             this.delayTicker = 10;
-            this.NukeEnabled = false;
+            this.NukeEnabled = true;
             this.PlayerMissileLimit = 3;
             this.MissileDelayLimit = 10;
         }
@@ -104,21 +105,26 @@ namespace Galaga.Model
             {
                 if (missile != null)
                 {
-                    //TODO: Fix this, it casuses missiles to go invisible
-                    //const double tolerance = 1.0;
+                    if (missile.Sprite is NukeBombSprite && this.checkIfNukeIsAtMark(missile, canvas))
+                    {
+                        canvas.Children.Remove(missile.Sprite);
+                        this.triggerNuke(missile, canvas);
+                    }
 
-                    //if (missile.Sprite is NukeBombSprite &&
-                    //    Math.Abs(missile.Y - (canvas.Height / 2 + missile.Height / 2)) < tolerance)
-                    //{
-                    //    canvas.Children.Remove(missile.Sprite);
-                    //}
-                    //{
-                    //    canvas.Children.Remove(missile.Sprite);
-                    //}
                     missile.MoveDown();
                     missile.MoveRight();
                 }
             }
+        }
+
+        private bool checkIfNukeIsAtMark(GameObject missile, Canvas canvas)
+        {
+            if (Convert.ToInt32(missile.Y) == Convert.ToInt32((canvas.Height / 2) + (missile.Height / 2)))
+            {
+                return true;
+            }
+
+            return false;
         }
 
         /// <summary>
@@ -237,9 +243,15 @@ namespace Galaga.Model
         /// <summary>
         ///     Launches the nuke.
         /// </summary>
-        public GameObject FireNuke()
+        public GameObject FireNuke(GameObject player, Canvas canvas)
         {
             Missile missile = new Missile(NukeMissileSpeed, new NukeBombSprite());
+
+            missile.X = player.X + player.Width / 2.0 - missile.Width / 2.0;
+            missile.Y = player.Y - missile.Height;
+
+            canvas.Children.Add(missile.Sprite);
+
             return missile;
         }
 
@@ -259,6 +271,12 @@ namespace Galaga.Model
         {
             this.PlayerMissileLimit = 3;
             this.MissileDelayLimit = 10;
+        }
+
+        private void triggerNuke(GameObject missile, Canvas canvas)
+        {
+            var explosion = new Explosion(new NukeExplosionSprite(), canvas);
+            explosion.playNuclearExplosion(missile);
         }
 
         #endregion

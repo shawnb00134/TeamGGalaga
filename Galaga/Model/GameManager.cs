@@ -321,17 +321,17 @@ namespace Galaga.Model
 
         private void HandleGameOver()
         {
-            var highScores = Score.LoadHighScores();
+            //var highScores = Score.LoadHighScores();
 
-            if (highScores.Count < 10 || score > highScores.Min(s => s.PlayerScore))
-            {
-                nameInputBox.Visibility = Visibility.Visible;
-                submitScoreButton.Visibility = Visibility.Visible;
-            }
-            else
-            {
-                LoadAndDisplayHighScores();
-            }
+            //if (highScores.Count < 10 || score > highScores.Min(s => s.PlayerScore))
+            //{
+            //    nameInputBox.Visibility = Visibility.Visible;
+            //    submitScoreButton.Visibility = Visibility.Visible;
+            //}
+            //else
+            //{
+            //    LoadAndDisplayHighScores();
+            //}
         }
 
         private bool checkForLevel()
@@ -397,7 +397,7 @@ namespace Galaga.Model
                     return;
                 }
 
-                Score.AddNewScore(nameInputBox.Text.Trim(), score, currentLevel);
+                //Score.AddNewScore(nameInputBox.Text.Trim(), score, currentLevel);
 
                 nameInputBox.Visibility = Visibility.Collapsed;
                 submitScoreButton.Visibility = Visibility.Collapsed;
@@ -417,9 +417,9 @@ namespace Galaga.Model
 
         private void LoadAndDisplayHighScores()
         {
-            var highScores = Score.LoadHighScores();
-            highScoreListView.ItemsSource = highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
-            highScoreListView.Visibility = Visibility.Visible;
+            //var highScores = Score.LoadHighScores();
+            //highScoreListView.ItemsSource = highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
+            //highScoreListView.Visibility = Visibility.Visible;
         }
 
         /// <summary>
@@ -427,10 +427,10 @@ namespace Galaga.Model
         /// </summary>
         public void FireNuke()
         {
-            if (this.currentLevel == LevelCap && this.missileManager.NukeEnabled)
+            if (this.currentLevel == 1 && this.missileManager.NukeEnabled)
             {
-                this.missiles.Add(this.missileManager.FireNuke());
-
+                this.missiles.Add(this.missileManager.FireNuke(this.playerManager.GetPlayer(), this.canvas));
+                this.missileManager.NukeEnabled = false;
             }
         }
 
