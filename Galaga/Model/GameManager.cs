@@ -6,6 +6,8 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View;
 using Galaga.View.Sprites;
+using Windows.UI.Xaml.Shapes;
+using Windows.UI.Xaml.Media;
 
 namespace Galaga.Model
 {
@@ -43,6 +45,10 @@ namespace Galaga.Model
         private TextBox nameInputBox;
         private Button submitScoreButton;
         private ListView highScoreListView;
+        private TextBlock scoreboardLabel;
+        private ComboBox sortingOptions;
+        private Rectangle overlayBackground;
+        private Grid popupContainer;
 
         #endregion
 
@@ -300,6 +306,8 @@ namespace Galaga.Model
 
         private void HandleGameOver()
         {
+            LoadAndDisplayHighScores();
+
             var highScores = Score.LoadHighScores();
 
             if (highScores.Count < 10 || score > highScores.Min(s => s.PlayerScore))
@@ -309,7 +317,8 @@ namespace Galaga.Model
             }
             else
             {
-                LoadAndDisplayHighScores();
+                nameInputBox.Visibility = Visibility.Collapsed;
+                submitScoreButton.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -325,12 +334,76 @@ namespace Galaga.Model
 
         private void InitializeHighScoreUI()
         {
+            overlayBackground = new Rectangle
+            {
+                Fill = new SolidColorBrush(Windows.UI.Color.FromArgb(150, 0, 0, 0)),
+                Width = canvas.Width,
+                Height = canvas.Height,
+                Visibility = Visibility.Collapsed
+            };
+            Canvas.SetZIndex(overlayBackground, 0);
+            canvas.Children.Add(overlayBackground);
+
+            popupContainer = new Grid
+            {
+                Width = 500,
+                Height = 400,
+                Background = new SolidColorBrush(Windows.UI.Colors.Black),
+                BorderBrush = new SolidColorBrush(Windows.UI.Colors.White),
+                BorderThickness = new Thickness(2),
+                Visibility = Visibility.Collapsed
+            };
+            Canvas.SetLeft(popupContainer, (canvas.Width - popupContainer.Width) / 2);
+            Canvas.SetTop(popupContainer, (canvas.Height - popupContainer.Height) / 2);
+            Canvas.SetZIndex(popupContainer, 1);
+
+            var containerPanel = new StackPanel();
+
+            var scoreboardLabel = new TextBlock
+            {
+                Text = "Scoreboard",
+                FontSize = 24,
+                Foreground = new SolidColorBrush(Windows.UI.Colors.White),
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+            containerPanel.Children.Add(scoreboardLabel);
+
+            sortingOptions = new ComboBox
+            {
+                Width = 300,
+                Visibility = Visibility.Visible,
+                ItemsSource = new List<string>
+                {
+                    "Sort by Score/Name/Level",
+                    "Sort by Name/Score/Level",
+                    "Sort by Level/Score/Name"
+                },
+                SelectedIndex = 0
+            };
+            sortingOptions.SelectionChanged += SortingOptions_SelectionChanged;
+            containerPanel.Children.Add(sortingOptions);
+
+            highScoreListView = new ListView
+            {
+                Width = 400,
+                Height = 300,
+                Visibility = Visibility.Visible
+            };
+            containerPanel.Children.Add(highScoreListView);
+
+            var inputPanel = new StackPanel
+            {
+                Orientation = Orientation.Horizontal,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+
             nameInputBox = new TextBox
             {
                 Width = 200,
                 PlaceholderText = "Enter your name",
                 Visibility = Visibility.Collapsed
             };
+            inputPanel.Children.Add(nameInputBox);
 
             submitScoreButton = new Button
             {
@@ -339,25 +412,12 @@ namespace Galaga.Model
                 Visibility = Visibility.Collapsed
             };
             submitScoreButton.Click += SubmitScoreButton_Click;
+            inputPanel.Children.Add(submitScoreButton);
 
-            highScoreListView = new ListView
-            {
-                Width = 400,
-                Height = 300,
-                Visibility = Visibility.Collapsed
-            };
+            containerPanel.Children.Add(inputPanel);
 
-            Canvas.SetLeft(nameInputBox, 440);
-            Canvas.SetTop(nameInputBox, 400);
-            canvas.Children.Add(nameInputBox);
-
-            Canvas.SetLeft(submitScoreButton, 660);
-            Canvas.SetTop(submitScoreButton, 400);
-            canvas.Children.Add(submitScoreButton);
-
-            Canvas.SetLeft(highScoreListView, 440);
-            Canvas.SetTop(highScoreListView, 100);
-            canvas.Children.Add(highScoreListView);
+            popupContainer.Children.Add(containerPanel);
+            canvas.Children.Add(popupContainer);
         }
 
         private void SubmitScoreButton_Click(object sender, RoutedEventArgs e)
@@ -378,9 +438,10 @@ namespace Galaga.Model
 
                 Score.AddNewScore(nameInputBox.Text.Trim(), score, currentLevel);
 
+                LoadAndDisplayHighScores();
+
                 nameInputBox.Visibility = Visibility.Collapsed;
                 submitScoreButton.Visibility = Visibility.Collapsed;
-                LoadAndDisplayHighScores();
             }
             catch (Exception ex)
             {
@@ -394,12 +455,46 @@ namespace Galaga.Model
             }
         }
 
-        private void LoadAndDisplayHighScores()
+        private void LoadAndDisplayHighScores(string sortBy = "Sort by Score/Name/Level")
         {
             var highScores = Score.LoadHighScores();
-            highScoreListView.ItemsSource =
-                highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
-            highScoreListView.Visibility = Visibility.Visible;
+
+            switch (sortBy)
+            {
+                case "Sort by Score/Name/Level":
+                    highScores = highScores
+                        .OrderByDescending(s => s.PlayerScore)
+                        .ThenBy(s => s.PlayerName)
+                        .ThenByDescending(s => s.LevelCompleted)
+                        .ToList();
+                    break;
+                case "Sort by Name/Score/Level":
+                    highScores = highScores
+                        .OrderBy(s => s.PlayerName)
+                        .ThenByDescending(s => s.PlayerScore)
+                        .ThenByDescending(s => s.LevelCompleted)
+                        .ToList();
+                    break;
+                case "Sort by Level/Score/Name":
+                    highScores = highScores
+                        .OrderByDescending(s => s.LevelCompleted)
+                        .ThenByDescending(s => s.PlayerScore)
+                        .ThenBy(s => s.PlayerName)
+                        .ToList();
+                    break;
+            }
+
+            highScoreListView.ItemsSource = highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
+            overlayBackground.Visibility = Visibility.Visible;
+            popupContainer.Visibility = Visibility.Visible;
+        }
+
+        private void SortingOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sortingOptions.SelectedItem is string selectedSort)
+            {
+                LoadAndDisplayHighScores(selectedSort);
+            }
         }
 
         /// <summary>
