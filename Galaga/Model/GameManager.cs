@@ -40,7 +40,9 @@ namespace Galaga.Model
         private readonly Physics physics;
         private readonly EnemyManager enemyManager;
 
-        private readonly Score scoreManager;
+        private TextBox nameInputBox;
+        private Button submitScoreButton;
+        private ListView highScoreListView;
 
         #endregion
 
@@ -74,11 +76,11 @@ namespace Galaga.Model
             this.timer.Interval = new TimeSpan(0, 0, 0, 0, TickTimer);
             this.timer.Tick += this.timer_Tick;
 
-            this.scoreManager = new Score();
-
             this.initializeGame();
             this.timer.Start();
-            this.updateScoreUi();
+            this.updateScore(this.score);
+
+            InitializeHighScoreUI();
         }
 
         #endregion
@@ -264,8 +266,7 @@ namespace Galaga.Model
             this.enemyManager.playExplosion(enemyShip);
             this.soundManager.playEnemyDestroyed();
 
-            this.scoreManager.AddPoints(enemyShip.ScoreValue);
-            this.updateScoreUi();
+            this.updateScore(enemyShip.ScoreValue);
         }
 
         private void destroySpecialEnemy()
@@ -286,17 +287,10 @@ namespace Galaga.Model
             }
         }
 
-        // Keeping this here temporarily just in case.
-
-        //private void updateScore(int scoreValue)
-        //{
-        //    this.score += scoreValue;
-        //    this.gameCanvas.updateScoreBoard("Score: " + this.score);
-        //}
-
-        private void updateScoreUi()
+        private void updateScore(int scoreValue)
         {
-            this.gameCanvas.updateScoreBoard("Score: " + this.scoreManager.CurrentScore);
+            this.score += scoreValue;
+            this.gameCanvas.updateScoreBoard("Score: " + this.score);
         }
 
         private void checkForEndGame()
@@ -305,7 +299,7 @@ namespace Galaga.Model
             {
                 this.timer.Stop();
                 this.gameCanvas.DisplayYouLoseText();
-                this.promptForPlayerName();
+                HandleGameOver();
             }
 
             if (!this.enemyShips.Any())
@@ -320,8 +314,23 @@ namespace Galaga.Model
                 {
                     this.timer.Stop();
                     this.gameCanvas.DisplayYouWinText();
-                    this.promptForPlayerName();
+                    HandleGameOver();
                 }
+            }
+        }
+
+        private void HandleGameOver()
+        {
+            var highScores = Score.LoadHighScores();
+
+            if (highScores.Count < 10 || score > highScores.Min(s => s.PlayerScore))
+            {
+                nameInputBox.Visibility = Visibility.Visible;
+                submitScoreButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                LoadAndDisplayHighScores();
             }
         }
 
@@ -335,33 +344,82 @@ namespace Galaga.Model
             this.gameCanvas.updatePlayerLivesBoard("Lives: " + this.playerManager.GetPlayerLivesCount());
         }
 
-        private void promptForPlayerName()
+        private void InitializeHighScoreUI()
         {
-            TextBox playerNameInput = new TextBox
+            nameInputBox = new TextBox
             {
+                Width = 200,
                 PlaceholderText = "Enter your name",
-                Width = 200
-            };
-            Button submitButton = new Button
-            {
-                Content = "Submit"
+                Visibility = Visibility.Collapsed
             };
 
-            submitButton.Click += (sender, args) =>
+            submitScoreButton = new Button
             {
-                if (!string.IsNullOrWhiteSpace(playerNameInput.Text))
+                Content = "Submit",
+                Width = 100,
+                Visibility = Visibility.Collapsed
+            };
+            submitScoreButton.Click += SubmitScoreButton_Click;
+
+            highScoreListView = new ListView
+            {
+                Width = 400,
+                Height = 300,
+                Visibility = Visibility.Collapsed
+            };
+
+            Canvas.SetLeft(nameInputBox, 440);
+            Canvas.SetTop(nameInputBox, 400);
+            canvas.Children.Add(nameInputBox);
+
+            Canvas.SetLeft(submitScoreButton, 660);
+            Canvas.SetTop(submitScoreButton, 400);
+            canvas.Children.Add(submitScoreButton);
+
+            Canvas.SetLeft(highScoreListView, 440);
+            Canvas.SetTop(highScoreListView, 100);
+            canvas.Children.Add(highScoreListView);
+        }
+
+        private void SubmitScoreButton_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(nameInputBox.Text))
                 {
-                    this.scoreManager.UpdateHighScores(playerNameInput.Text, this.currentLevel);
+                    var dialog = new ContentDialog
+                    {
+                        Title = "Invalid Name",
+                        Content = "Please enter a valid name.",
+                        CloseButtonText = "OK"
+                    };
+                    _ = dialog.ShowAsync();
+                    return;
                 }
-            };
 
-            Canvas.SetLeft(playerNameInput, 500);
-            Canvas.SetTop(playerNameInput, 300);
-            this.canvas.Children.Add(playerNameInput);
+                Score.AddNewScore(nameInputBox.Text.Trim(), score, currentLevel);
 
-            Canvas.SetLeft(submitButton, 500);
-            Canvas.SetTop(submitButton, 350);
-            this.canvas.Children.Add(submitButton);
+                nameInputBox.Visibility = Visibility.Collapsed;
+                submitScoreButton.Visibility = Visibility.Collapsed;
+                LoadAndDisplayHighScores();
+            }
+            catch (Exception ex)
+            {
+                var errorDialog = new ContentDialog
+                {
+                    Title = "Error",
+                    Content = $"An unexpected error occurred:\n{ex.Message}",
+                    CloseButtonText = "OK"
+                };
+                _ = errorDialog.ShowAsync();
+            }
+        }
+
+        private void LoadAndDisplayHighScores()
+        {
+            var highScores = Score.LoadHighScores();
+            highScoreListView.ItemsSource = highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
+            highScoreListView.Visibility = Visibility.Visible;
         }
 
         /// <summary>

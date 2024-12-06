@@ -1,8 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+<<<<<<< HEAD
     <Machine>DESKTOP-6NSOC40</Machine>
     <WindowsUser>DeadMan</WindowsUser>
+=======
+    <Machine>NATEPC</Machine>
+    <WindowsUser>nates</WindowsUser>
+>>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetOsVersion>10.0</TargetOsVersion>
     <TargetOsDescription>Windows 10.0</TargetOsDescription>
@@ -10,7 +15,11 @@
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>0bbc9089-a1c6-4461-99a6-6fa757e06b62</PackageIdentityName>
     <PackageIdentityPublisher>CN=dyoder</PackageIdentityPublisher>
+<<<<<<< HEAD
     <IntermediateOutputPath>C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\obj\x64\Debug\</IntermediateOutputPath>
+=======
+    <IntermediateOutputPath>C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\</IntermediateOutputPath>
+>>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,8 +27,13 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+<<<<<<< HEAD
     <LayoutDir>C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>FB99793C31DC5E2BB420D839BF898BA99FEBB8A22C14C6D214E03B9127E57F0D</RegisteredManifestChecksum>
+=======
+    <LayoutDir>C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\AppX</LayoutDir>
+    <RegisteredManifestChecksum>8ACAF5AEDCF88F1B8E551061B70E1C4ABDA7376ECA98A1B4146F3270139896FA</RegisteredManifestChecksum>
+>>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
     <RegisteredPackageMoniker>0bbc9089-a1c6-4461-99a6-6fa757e06b62_1.0.0.0_x64__vpktpzvxd0r0j</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>0bbc9089-a1c6-4461-99a6-6fa757e06b62_vpktpzvxd0r0j!App</RegisteredUserModeAppID>
     <RegisteredPackageID>0bbc9089-a1c6-4461-99a6-6fa757e06b62</RegisteredPackageID>
@@ -27,6 +41,7 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <AppXManifest Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
@@ -39,6 +54,20 @@
       <Modified>2024-12-06T00:26:40.229</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\.nuget\packages\newtonsoft.json\13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+=======
+    <AppXManifest Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\Core\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:35:32.357</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\Galaga.exe">
+      <PackagePath>entrypoint\Galaga.exe</PackagePath>
+      <Modified>2024-12-05T23:35:31.933</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\nates\.nuget\packages\newtonsoft.json\13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
+>>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
       <Modified>2023-03-08T07:09:56.000</Modified>
     </AppxPackagedFile>
@@ -50,6 +79,7 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2020-12-02T08:52:00.000</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\Properties\Default.rd.xml">
       <PackagePath>Properties\Default.rd.xml</PackagePath>
       <Modified>2024-12-05T21:49:38.942</Modified>
@@ -199,11 +229,163 @@
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\PlayerSprite.xbf">
       <PackagePath>View\Sprites\PlayerSprite.xbf</PackagePath>
       <Modified>2024-12-06T00:26:40.152</Modified>
+=======
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\LockScreenLogo.scale-200.png">
+      <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\SplashScreen.scale-200.png">
+      <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\Square150x150Logo.scale-200.png">
+      <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\Square44x44Logo.scale-200.png">
+      <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+      <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\StoreLogo.png">
+      <PackagePath>Assets\StoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Assets\Wide310x150Logo.scale-200.png">
+      <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2024-12-05T23:17:23.220</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\bonusShip.wav">
+      <PackagePath>Sounds\bonusShip.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\EnemyShipDestroyed02.wav">
+      <PackagePath>Sounds\EnemyShipDestroyed02.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\EnemyShipFiring02.wav">
+      <PackagePath>Sounds\EnemyShipFiring02.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\nukeExplosion.wav">
+      <PackagePath>Sounds\nukeExplosion.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\PlayerShipDestroyed02.wav">
+      <PackagePath>Sounds\PlayerShipDestroyed02.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\PlayerShipFiring02.wav">
+      <PackagePath>Sounds\PlayerShipFiring02.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\Sounds\powerUp.wav">
+      <PackagePath>Sounds\powerUp.wav</PackagePath>
+      <Modified>2024-12-05T23:17:23.236</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\Galaga.xr.xml">
+      <PackagePath>Galaga.xr.xml</PackagePath>
+      <Modified>2024-12-05T23:17:23.315</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\GameCanvas.xbf">
+      <PackagePath>View\GameCanvas.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\BaseSprite.xbf">
+      <PackagePath>View\Sprites\BaseSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel1Sprite.xbf">
+      <PackagePath>View\Sprites\EnemyLevel1Sprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel1SpriteAlternate.xbf">
+      <PackagePath>View\Sprites\EnemyLevel1SpriteAlternate.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel2Sprite.xbf">
+      <PackagePath>View\Sprites\EnemyLevel2Sprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel2SpriteAlternate.xbf">
+      <PackagePath>View\Sprites\EnemyLevel2SpriteAlternate.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel4SpriteAlternate.xbf">
+      <PackagePath>View\Sprites\EnemyLevel4SpriteAlternate.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel4Sprite.xbf">
+      <PackagePath>View\Sprites\EnemyLevel4Sprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel3Sprite.xbf">
+      <PackagePath>View\Sprites\EnemyLevel3Sprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel3SpriteAlternate.xbf">
+      <PackagePath>View\Sprites\EnemyLevel3SpriteAlternate.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemyMissileSprite.xbf">
+      <PackagePath>View\Sprites\EnemyMissileSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\EnemySpecialSprite.xbf">
+      <PackagePath>View\Sprites\EnemySpecialSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite1.xbf">
+      <PackagePath>View\Sprites\ExplosionSprite1.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite2.xbf">
+      <PackagePath>View\Sprites\ExplosionSprite2.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite3.xbf">
+      <PackagePath>View\Sprites\ExplosionSprite3.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\NukeBombSprite.xbf">
+      <PackagePath>View\Sprites\NukeBombSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\NukeExplosionSprite.xbf">
+      <PackagePath>View\Sprites\NukeExplosionSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\PlayerMissileSprite.xbf">
+      <PackagePath>View\Sprites\PlayerMissileSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\PlayerSprite.xbf">
+      <PackagePath>View\Sprites\PlayerSprite.xbf</PackagePath>
+      <Modified>2024-12-05T23:35:31.838</Modified>
+>>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2020-12-02T06:52:06.000</Modified>
     </AppxPackagedFile>
+<<<<<<< HEAD
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
       <Modified>2024-12-05T21:51:00.441</Modified>
@@ -211,6 +393,15 @@
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Core\Galaga.exe">
       <PackagePath>Galaga.exe</PackagePath>
       <Modified>2024-12-06T00:26:40.543</Modified>
+=======
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2024-12-05T23:31:29.469</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\Core\Galaga.exe">
+      <PackagePath>Galaga.exe</PackagePath>
+      <Modified>2024-12-05T23:35:32.357</Modified>
+>>>>>>> d736f8638e2527975227c53c92d9b7d34c5a4524
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>
