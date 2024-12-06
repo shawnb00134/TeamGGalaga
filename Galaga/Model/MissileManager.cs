@@ -105,11 +105,12 @@ namespace Galaga.Model
             {
                 if (missile != null)
                 {
-                    if (missile.Sprite is NukeBombSprite && this.checkIfNukeIsAtMark(missile, canvas))
-                    {
-                        canvas.Children.Remove(missile.Sprite);
-                        this.triggerNuke(missile, canvas);
-                    }
+                    //if (missile.Sprite is NukeBombSprite && this.checkIfNukeIsAtMark(missile, canvas))
+                    //{
+                    //    System.Diagnostics.Debug.WriteLine("trigger");
+                    //    canvas.Children.Remove(missile.Sprite);
+                    //    this.triggerNuke(missile, canvas);
+                    //}
 
                     missile.MoveDown();
                     missile.MoveRight();
@@ -117,15 +118,16 @@ namespace Galaga.Model
             }
         }
 
-        private bool checkIfNukeIsAtMark(GameObject missile, Canvas canvas)
-        {
-            if (Convert.ToInt32(missile.Y) == Convert.ToInt32((canvas.Height / 2) + (missile.Height / 2)))
-            {
-                return true;
-            }
+        //private bool checkIfNukeIsAtMark(GameObject missile, Canvas canvas)
+        //{
+        //    if (Convert.ToInt32(missile.Y) == Convert.ToInt32((canvas.Height / 2) + (missile.Height / 2)))
+        //    {
+        //        System.Diagnostics.Debug.WriteLine("Nuke at mark");
+        //        return true;
+        //    }
 
-            return false;
-        }
+        //    return false;
+        //}
 
         /// <summary>
         ///     Fires the enemy missiles.
@@ -273,10 +275,13 @@ namespace Galaga.Model
             this.MissileDelayLimit = 10;
         }
 
-        private void triggerNuke(GameObject missile, Canvas canvas)
+        public void TriggerNuke(GameObject missile, Canvas canvas)
         {
-            var explosion = new Explosion(new NukeExplosionSprite(), canvas);
-            explosion.playNuclearExplosion(missile);
+            if (missile.Sprite is NukeBombSprite)
+            {
+                var explosion = new Explosion(new NukeExplosionSprite(), missile, canvas);
+                explosion.playNuclearExplosion();
+            }
         }
 
         #endregion

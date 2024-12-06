@@ -6,24 +6,44 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="50"
-    d:DesignWidth="50"
-    Height="50"
-    Width="50">
+    d:DesignHeight="1000"
+    d:DesignWidth="1000"
+    Height="1000"
+    Width="1000">
 
     <Canvas>
         <Ellipse x:ConnectionId='2' x:Name="expandingEllipse"
-                 Width="10"
-                 Height="10"
+                 Width="200"
+                 Height="200"
                  Fill="Orange"
                  Stroke="Red"
                  StrokeThickness="2"
-                 Canvas.Left="20"
-                 Canvas.Top="20">
+                 Canvas.Left="400"
+                 Canvas.Top="400">
             <Ellipse.RenderTransform>
-                <ScaleTransform x:ConnectionId='3' x:Name="ellipseScaleTransform" CenterX="25" CenterY="25" />
+                <ScaleTransform x:ConnectionId='5' x:Name="ellipseScaleTransform" />
             </Ellipse.RenderTransform>
+            <Ellipse.RenderTransformOrigin>
+                0.5,0.5
+            </Ellipse.RenderTransformOrigin>
         </Ellipse>
+
+        <Ellipse x:ConnectionId='3' x:Name="slowerEllipse"
+             Width="100"
+             Height="100"
+             Fill="Yellow"
+             Stroke="DarkOrange"
+             StrokeThickness="2"
+             Opacity="0.7"
+             Canvas.Left="450"
+             Canvas.Top="450">
+            <Ellipse.RenderTransform>
+                <ScaleTransform x:ConnectionId='4' x:Name="slowerEllipseScaleTransform" CenterX="0.5" CenterY="0.5" />
+            </Ellipse.RenderTransform>
+            <Ellipse.RenderTransformOrigin>0.5,0.5</Ellipse.RenderTransformOrigin>
+         </Ellipse>
+
+        
 
         <Canvas.Triggers>
             <EventTrigger RoutedEvent="Canvas.Loaded">
@@ -33,7 +53,7 @@
                                          Storyboard.TargetProperty="ScaleX"
                                          From="1"
                                          To="5"
-                                         Duration="0:0:2"
+                                         Duration="0:0:1"
                                          AutoReverse="False"
                                          RepeatBehavior="1x" />
 
@@ -41,9 +61,25 @@
                                          Storyboard.TargetProperty="ScaleY"
                                          From="1"
                                          To="5"
-                                         Duration="0:0:2"
+                                         Duration="0:0:1"
                                          AutoReverse="False"
                                          RepeatBehavior="1x" />
+
+                        <DoubleAnimation Storyboard.TargetName="slowerEllipseScaleTransform"
+                                     Storyboard.TargetProperty="ScaleX"
+                                     From="1"
+                                     To="5"
+                                     Duration="0:0:2"
+                                     AutoReverse="False"
+                                     RepeatBehavior="1x" />
+                        <DoubleAnimation Storyboard.TargetName="slowerEllipseScaleTransform"
+                                     Storyboard.TargetProperty="ScaleY"
+                                     From="1"
+                                     To="5"
+                                     Duration="0:0:2"
+                                     AutoReverse="False"
+                                     RepeatBehavior="1x" />
+
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

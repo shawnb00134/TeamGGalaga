@@ -63,7 +63,7 @@
                 Explosion class for the destruction of ships
             </summary>
         </member>
-        <member name="M:Galaga.Model.Explosion.#ctor(Galaga.View.Sprites.BaseSprite,Windows.UI.Xaml.Controls.Canvas)">
+        <member name="M:Galaga.Model.Explosion.#ctor(Galaga.View.Sprites.BaseSprite,Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
                 Constructor for the Nuke explosion
             </summary>
@@ -74,7 +74,7 @@
             <summary>
                 Initializes a new instance of the <see cref="T:Galaga.Model.Explosion" /> class.
             </summary>
-            <param name="ship">The ship.</param>
+            <param name="objectDestroyed">The ship.</param>
             <param name="canvas">The canvas.</param>
         </member>
         <member name="M:Galaga.Model.Explosion.playExplosion">
@@ -82,7 +82,7 @@
                 Plays the explosion.
             </summary>
         </member>
-        <member name="M:Galaga.Model.Explosion.playNuclearExplosion(Galaga.Model.GameObject)">
+        <member name="M:Galaga.Model.Explosion.playNuclearExplosion">
             <summary>
                 Plays the Sprite for the nuclear explosion.
             </summary>

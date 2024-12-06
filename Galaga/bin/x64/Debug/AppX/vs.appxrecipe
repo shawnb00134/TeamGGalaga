@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2024-12-06T01:35:05.469</Modified>
+      <Modified>2024-12-06T17:46:43.285</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Galaga.exe">
       <PackagePath>entrypoint\Galaga.exe</PackagePath>
-      <Modified>2024-12-06T01:35:05.146</Modified>
+      <Modified>2024-12-06T17:46:42.969</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\.nuget\packages\newtonsoft.json\13.0.3\lib\netstandard2.0\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
@@ -118,87 +118,87 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Galaga.xr.xml">
       <PackagePath>Galaga.xr.xml</PackagePath>
-      <Modified>2024-12-05T21:49:39.033</Modified>
+      <Modified>2024-12-06T16:34:35.728</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.066</Modified>
+      <Modified>2024-12-06T17:46:42.889</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\GameCanvas.xbf">
       <PackagePath>View\GameCanvas.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.066</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\BaseSprite.xbf">
       <PackagePath>View\Sprites\BaseSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel1Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel1Sprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel1SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel1SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel2Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel2Sprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel2SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel2SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel4SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel4SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel4Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel4Sprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel3Sprite.xbf">
       <PackagePath>View\Sprites\EnemyLevel3Sprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyLevel3SpriteAlternate.xbf">
       <PackagePath>View\Sprites\EnemyLevel3SpriteAlternate.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.890</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemyMissileSprite.xbf">
       <PackagePath>View\Sprites\EnemyMissileSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.067</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\EnemySpecialSprite.xbf">
       <PackagePath>View\Sprites\EnemySpecialSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite1.xbf">
       <PackagePath>View\Sprites\ExplosionSprite1.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite2.xbf">
       <PackagePath>View\Sprites\ExplosionSprite2.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\ExplosionSprite3.xbf">
       <PackagePath>View\Sprites\ExplosionSprite3.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\NukeBombSprite.xbf">
       <PackagePath>View\Sprites\NukeBombSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\NukeExplosionSprite.xbf">
       <PackagePath>View\Sprites\NukeExplosionSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\PlayerMissileSprite.xbf">
       <PackagePath>View\Sprites\PlayerMissileSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\Sprites\PlayerSprite.xbf">
       <PackagePath>View\Sprites\PlayerSprite.xbf</PackagePath>
-      <Modified>2024-12-06T01:35:05.068</Modified>
+      <Modified>2024-12-06T17:46:42.891</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -210,7 +210,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\Core\Galaga.exe">
       <PackagePath>Galaga.exe</PackagePath>
-      <Modified>2024-12-06T01:35:05.466</Modified>
+      <Modified>2024-12-06T17:46:43.283</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

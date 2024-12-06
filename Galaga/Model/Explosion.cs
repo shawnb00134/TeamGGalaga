@@ -4,13 +4,14 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Galaga.View.Sprites;
 using System.Collections.Generic;
+using System.Reflection;
 
 namespace Galaga.Model
 {
     /// <summary>
     ///     Explosion class for the destruction of ships
     /// </summary>
-    public class Explosion
+    public class Explosion : GameObject
     {
         #region Data members
 
@@ -18,8 +19,8 @@ namespace Galaga.Model
 
         private readonly Canvas canvas;
         private readonly BaseSprite[] sprites;
-        private readonly double xCoordinate;
-        private readonly double yCoordinate;
+        private double xCoordinate;
+        private double yCoordinate;
 
         #endregion
 
@@ -30,22 +31,29 @@ namespace Galaga.Model
         /// </summary>
         /// <param name="sprite"></param>
         /// <param name="canvas"></param>
-        public Explosion(BaseSprite sprite, Canvas canvas)
+        public Explosion(BaseSprite sprite, GameObject missile, Canvas canvas)
         {
             this.canvas = canvas;
-            sprite = sprite;
+
+            //TODO: Issue here?
+            this.xCoordinate = missile.X + (sprite.Width / 2);
+            this.yCoordinate = missile.Y + (sprite.Height / 2);
+            Sprite = sprite;
+
+            System.Diagnostics.Debug.WriteLine("Set: " +this.xCoordinate + " : " + this.yCoordinate);
         }
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="Explosion" /> class.
         /// </summary>
-        /// <param name="ship">The ship.</param>
+        /// <param name="objectDestroyed">The ship.</param>
         /// <param name="canvas">The canvas.</param>
-        public Explosion(GameObject ship, Canvas canvas)
+        public Explosion(GameObject objectDestroyed, Canvas canvas)
         {
             this.canvas = canvas;
-            this.xCoordinate = ship.X;
-            this.yCoordinate = ship.Y;
+            this.xCoordinate = objectDestroyed.X;
+            this.yCoordinate = objectDestroyed.Y;
+
             this.sprites = new BaseSprite[] { new ExplosionSprite1(), new ExplosionSprite2(), new ExplosionSprite3() };
         }
 
@@ -85,13 +93,16 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the Sprite for the nuclear explosion.
         /// </summary>
-        public void playNuclearExplosion(GameObject missile)
+        public async void playNuclearExplosion()
         {
-            BaseSprite sprite = new NukeExplosionSprite();
+            this.canvas.Children.Add(Sprite);
+            Sprite.Visibility = Visibility.Visible;
 
-            this.canvas.Children.Add(sprite);
-            sprite.RenderAt(this.xCoordinate, (this.canvas.Height / 2) + (sprite.Height / 2));
-            sprite.Visibility = Visibility.Visible;
+            System.Diagnostics.Debug.WriteLine("Boom: " + this.xCoordinate + " : " + this.yCoordinate);
+
+            await Task.Delay(2000);
+
+            this.canvas.Children.Remove(Sprite);
         }
 
         #endregion

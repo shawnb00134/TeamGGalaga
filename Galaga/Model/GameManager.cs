@@ -210,6 +210,7 @@ namespace Galaga.Model
                 switch (obj)
                 {
                     case Missile _:
+                        this.missileManager.TriggerNuke(obj, this.canvas);
                         this.missileManager.checkForPlayerMissile(obj);
                         this.missiles.Remove(obj);
                         this.canvas.Children.Remove(obj.Sprite);
@@ -425,13 +426,29 @@ namespace Galaga.Model
         /// <summary>
         ///    Fires the Nuke for the Wow Factor
         /// </summary>
-        public void FireNuke()
+        public async void FireNuke()
         {
-            if (this.currentLevel == 1 && this.missileManager.NukeEnabled)
+            this.currentLevel = 3;
+            if (this.currentLevel == 3 && this.missileManager.NukeEnabled)
             {
                 this.missiles.Add(this.missileManager.FireNuke(this.playerManager.GetPlayer(), this.canvas));
                 this.missileManager.NukeEnabled = false;
+
+                await Task.Delay(50000);
+
+                System.Diagnostics.Debug.WriteLine("remove all ships");
+                this.removeAllEnemyShips();
             }
+        }
+
+        private void removeAllEnemyShips()
+        {
+            List<GameObject> removalList = new List<GameObject>();
+            foreach (var ship in this.enemyShips)
+            {
+                removalList.Add(ship);
+            }
+            this.removeObjectsFromCanvas(removalList);
         }
 
         #endregion

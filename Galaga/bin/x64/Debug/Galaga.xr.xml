@@ -70,6 +70,8 @@
       <RootProperty Name="Stroke" />
       <RootProperty Name="StrokeThickness" />
       <RootProperty Name="RenderTransform" />
+      <RootProperty Name="RenderTransformOrigin" />
+      <RootProperty Name="Opacity" />
     </RootType>
     <RootType FullName="Galaga.View.Sprites.EnemyMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.EnemySpecialSprite" />
