@@ -93,12 +93,12 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the Sprite for the nuclear explosion.
         /// </summary>
-        public async void playNuclearExplosion()
+        public async void playNuclearExplosion(GameObject missile)
         {
             this.canvas.Children.Add(Sprite);
             Sprite.Visibility = Visibility.Visible;
 
-            System.Diagnostics.Debug.WriteLine("Boom: " + this.xCoordinate + " : " + this.yCoordinate);
+            System.Diagnostics.Debug.WriteLine("Boom: " + missile.X + " : " + missile.Y);
 
             await Task.Delay(2000);
 

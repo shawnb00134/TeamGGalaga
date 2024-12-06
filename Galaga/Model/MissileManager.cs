@@ -280,7 +280,7 @@ namespace Galaga.Model
             if (missile.Sprite is NukeBombSprite)
             {
                 var explosion = new Explosion(new NukeExplosionSprite(), missile, canvas);
-                explosion.playNuclearExplosion();
+                explosion.playNuclearExplosion(missile);
             }
         }
 

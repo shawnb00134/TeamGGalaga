@@ -82,7 +82,7 @@
                 Plays the explosion.
             </summary>
         </member>
-        <member name="M:Galaga.Model.Explosion.playNuclearExplosion">
+        <member name="M:Galaga.Model.Explosion.playNuclearExplosion(Galaga.Model.GameObject)">
             <summary>
                 Plays the Sprite for the nuclear explosion.
             </summary>
