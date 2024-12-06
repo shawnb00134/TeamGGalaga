@@ -20,7 +20,7 @@ namespace Galaga.Model
 
         private const int TickTimer = 50;
         private const int ShipRemovalDelay = 4500;
-        private const int LevelCap = 1;
+        private const int LevelCap = 3;
 
         private readonly Canvas canvas;
         private readonly GameCanvas gameCanvas;
@@ -136,6 +136,7 @@ namespace Galaga.Model
         {
             updatePlayerLives();
             createEnemyShips();
+            this.specialShipHasSpawned = false;
         }
 
         private void createEnemyShips()
