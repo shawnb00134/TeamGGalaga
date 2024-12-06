@@ -82,7 +82,7 @@
                 Plays the explosion.
             </summary>
         </member>
-        <member name="M:Galaga.Model.Explosion.playNuclearExplosion(Galaga.Model.GameObject)">
+        <member name="M:Galaga.Model.Explosion.playNuclearExplosion">
             <summary>
                 Plays the Sprite for the nuclear explosion.
             </summary>
@@ -201,6 +201,13 @@
             <summary>
                 Resets the player's limits
             </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.TriggerNuke(Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
+            <summary>
+                Triggers the nuclear explosion.
+            </summary>
+            <param name="missile"></param>
+            <param name="canvas"></param>
         </member>
         <member name="T:Galaga.Model.NonFiringEnemy">
             <summary>

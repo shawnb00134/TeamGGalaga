@@ -36,9 +36,10 @@ namespace Galaga.Model
             this.canvas = canvas;
 
             //TODO: Issue here?
-            this.xCoordinate = missile.X + (sprite.Width / 2);
-            this.yCoordinate = missile.Y + (sprite.Height / 2);
             Sprite = sprite;
+            this.xCoordinate = missile.X - (Sprite.Width / 2);
+            this.yCoordinate = missile.Y - (Sprite.Height / 2);
+            
 
             System.Diagnostics.Debug.WriteLine("Set: " +this.xCoordinate + " : " + this.yCoordinate);
         }
@@ -93,14 +94,13 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the Sprite for the nuclear explosion.
         /// </summary>
-        public async void playNuclearExplosion(GameObject missile)
+        public async void playNuclearExplosion()
         {
             this.canvas.Children.Add(Sprite);
             Sprite.Visibility = Visibility.Visible;
+            Sprite.RenderAt(this.xCoordinate, this.yCoordinate);
 
-            System.Diagnostics.Debug.WriteLine("Boom: " + missile.X + " : " + missile.Y);
-
-            await Task.Delay(2000);
+            await Task.Delay(1000);
 
             this.canvas.Children.Remove(Sprite);
         }

@@ -434,19 +434,23 @@ namespace Galaga.Model
                 this.missiles.Add(this.missileManager.FireNuke(this.playerManager.GetPlayer(), this.canvas));
                 this.missileManager.NukeEnabled = false;
 
-                await Task.Delay(50000);
+                await Task.Delay(4500);
 
                 System.Diagnostics.Debug.WriteLine("remove all ships");
-                this.removeAllEnemyShips();
+                this.removeAllEnemySprites();
             }
         }
 
-        private void removeAllEnemyShips()
+        private void removeAllEnemySprites()
         {
             List<GameObject> removalList = new List<GameObject>();
             foreach (var ship in this.enemyShips)
             {
                 removalList.Add(ship);
+            }
+            foreach (var missile in this.missiles)
+            {
+                removalList.Add(missile);
             }
             this.removeObjectsFromCanvas(removalList);
         }

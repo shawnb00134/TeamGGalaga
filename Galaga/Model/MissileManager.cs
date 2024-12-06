@@ -275,12 +275,17 @@ namespace Galaga.Model
             this.MissileDelayLimit = 10;
         }
 
+        /// <summary>
+        ///     Triggers the nuclear explosion.
+        /// </summary>
+        /// <param name="missile"></param>
+        /// <param name="canvas"></param>
         public void TriggerNuke(GameObject missile, Canvas canvas)
         {
             if (missile.Sprite is NukeBombSprite)
             {
                 var explosion = new Explosion(new NukeExplosionSprite(), missile, canvas);
-                explosion.playNuclearExplosion(missile);
+                explosion.playNuclearExplosion();
             }
         }
 

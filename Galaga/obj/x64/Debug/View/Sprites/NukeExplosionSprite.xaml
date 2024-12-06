@@ -6,20 +6,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="1000"
-    d:DesignWidth="1000"
-    Height="1000"
-    Width="1000">
+    d:DesignHeight="1500"
+    d:DesignWidth="1500"
+    Height="1500"
+    Width="1500">
 
     <Canvas>
         <Ellipse x:ConnectionId='2' x:Name="expandingEllipse"
-                 Width="200"
-                 Height="200"
+                 Width="300"
+                 Height="300"
                  Fill="Orange"
                  Stroke="Red"
                  StrokeThickness="2"
-                 Canvas.Left="400"
-                 Canvas.Top="400">
+                 Canvas.Left="600"
+                 Canvas.Top="600">
             <Ellipse.RenderTransform>
                 <ScaleTransform x:ConnectionId='5' x:Name="ellipseScaleTransform" />
             </Ellipse.RenderTransform>
@@ -29,21 +29,23 @@
         </Ellipse>
 
         <Ellipse x:ConnectionId='3' x:Name="slowerEllipse"
-             Width="100"
-             Height="100"
+             Width="200"
+             Height="200"
              Fill="Yellow"
              Stroke="DarkOrange"
              StrokeThickness="2"
              Opacity="0.7"
-             Canvas.Left="450"
-             Canvas.Top="450">
+             Canvas.Left="650"
+             Canvas.Top="650">
             <Ellipse.RenderTransform>
                 <ScaleTransform x:ConnectionId='4' x:Name="slowerEllipseScaleTransform" CenterX="0.5" CenterY="0.5" />
             </Ellipse.RenderTransform>
-            <Ellipse.RenderTransformOrigin>0.5,0.5</Ellipse.RenderTransformOrigin>
+            <Ellipse.RenderTransformOrigin>
+                0.5,0.5
+            </Ellipse.RenderTransformOrigin>
          </Ellipse>
 
-        
+        <Ellipse Fill="black" Width="10" Height="10" Canvas.Top="745" Canvas.Left="745" />
 
         <Canvas.Triggers>
             <EventTrigger RoutedEvent="Canvas.Loaded">
@@ -53,7 +55,7 @@
                                          Storyboard.TargetProperty="ScaleX"
                                          From="1"
                                          To="5"
-                                         Duration="0:0:1"
+                                         Duration="0:0:0.5"
                                          AutoReverse="False"
                                          RepeatBehavior="1x" />
 
@@ -61,7 +63,7 @@
                                          Storyboard.TargetProperty="ScaleY"
                                          From="1"
                                          To="5"
-                                         Duration="0:0:1"
+                                         Duration="0:0:0.5"
                                          AutoReverse="False"
                                          RepeatBehavior="1x" />
 
@@ -69,14 +71,14 @@
                                      Storyboard.TargetProperty="ScaleX"
                                      From="1"
                                      To="5"
-                                     Duration="0:0:2"
+                                     Duration="0:0:1"
                                      AutoReverse="False"
                                      RepeatBehavior="1x" />
                         <DoubleAnimation Storyboard.TargetName="slowerEllipseScaleTransform"
                                      Storyboard.TargetProperty="ScaleY"
                                      From="1"
                                      To="5"
-                                     Duration="0:0:2"
+                                     Duration="0:0:1"
                                      AutoReverse="False"
                                      RepeatBehavior="1x" />
 
