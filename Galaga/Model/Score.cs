@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -67,6 +68,18 @@ namespace Galaga.Model
                                    .ToList();
 
             SaveHighScores(highScores);
+        }
+
+        public static void ResetHighScores()
+        {
+            try
+            {
+                File.WriteAllText(ScoreFilePath, string.Empty);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error resetting high scores: " + ex.Message);
+            }
         }
     }
 }

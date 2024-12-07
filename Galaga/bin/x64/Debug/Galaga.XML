@@ -1280,6 +1280,21 @@
             GetBindingConnector(int connectionId, object target)
             </summary>
         </member>
+        <member name="M:Galaga.View.StartScreen.InitializeComponent">
+            <summary>
+            InitializeComponent()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.StartScreen.Connect(System.Int32,System.Object)">
+            <summary>
+            Connect()
+            </summary>
+        </member>
+        <member name="M:Galaga.View.StartScreen.GetBindingConnector(System.Int32,System.Object)">
+            <summary>
+            GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
         <member name="T:Galaga.Program">
             <summary>
             Program class

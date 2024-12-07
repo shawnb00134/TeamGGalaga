@@ -138,6 +138,12 @@ namespace Galaga.View
             this.playerLivesBoard.Text = playerLivesText;
         }
 
+        private void ReturnToStartScreen()
+        {
+            Frame.Navigate(typeof(StartScreen));
+        }
+
+
         #endregion
     }
 }

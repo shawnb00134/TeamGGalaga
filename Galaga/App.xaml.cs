@@ -50,14 +50,12 @@ namespace Galaga
                 Window.Current.Content = rootFrame;
             }
 
-            if (e.PrelaunchActivated == false)
+            if (!e.PrelaunchActivated)
             {
                 if (rootFrame.Content == null)
                 {
-                    // When the navigation stack isn't restored navigate to the first page,
-                    // configuring the new page by passing required information as a navigation
-                    // parameter
-                    rootFrame.Navigate(typeof(GameCanvas), e.Arguments);
+                    // Navigate to StartScreen as the initial page
+                    rootFrame.Navigate(typeof(StartScreen), e.Arguments);
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();

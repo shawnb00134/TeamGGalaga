@@ -456,7 +456,7 @@ namespace Galaga.Model
             }
         }
 
-        private void LoadAndDisplayHighScores(string sortBy = "Sort by Score/Name/Level")
+        public void LoadAndDisplayHighScores(string sortBy = "Sort by Score/Name/Level")
         {
             var highScores = Score.LoadHighScores();
 

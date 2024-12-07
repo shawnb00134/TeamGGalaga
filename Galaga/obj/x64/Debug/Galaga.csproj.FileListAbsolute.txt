@@ -792,3 +792,8 @@ C:\WestGA\Fall24\ProgramConstruction\PC1_HW5_DEC6_MERGE\Galaga\obj\x64\Debug\qua
 C:\WestGA\Fall24\ProgramConstruction\PC1_HW5_DEC6_MERGE\Galaga\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\WestGA\Fall24\ProgramConstruction\PC1_HW5_DEC6_MERGE\Galaga\obj\x64\Debug\ProjectArchitectures.txt
 C:\WestGA\Fall24\ProgramConstruction\PC1_HW5_DEC6_MERGE\Galaga\obj\x64\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_637424959200000000.json
+C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\StartScreen.xbf
+C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.g.i.cs
+C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.g.cs
+C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.xaml
+C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.xbf

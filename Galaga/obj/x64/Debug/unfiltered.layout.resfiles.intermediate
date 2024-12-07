@@ -27,6 +27,7 @@ View\Sprites\NukeBombSprite.xbf
 View\Sprites\NukeExplosionSprite.xbf
 View\Sprites\PlayerMissileSprite.xbf
 View\Sprites\PlayerSprite.xbf
+View\StartScreen.xbf
 Properties\Default.rd.xml
 Sounds\bonusShip.wav
 Sounds\EnemyShipDestroyed02.wav

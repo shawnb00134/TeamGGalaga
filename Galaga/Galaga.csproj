@@ -122,6 +122,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Model\Explosion.cs" />
+    <Compile Include="Model\HighScoreManager.cs" />
     <Compile Include="Model\Missile.cs" />
     <Compile Include="Model\MissileManager.cs" />
     <Compile Include="Model\NonFiringEnemy.cs" />
@@ -196,6 +197,9 @@
     </Compile>
     <Compile Include="View\Sprites\PlayerSprite.xaml.cs">
       <DependentUpon>PlayerSprite.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\StartScreen.xaml.cs">
+      <DependentUpon>StartScreen.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -300,6 +304,10 @@
     <Page Include="View\Sprites\PlayerSprite.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\StartScreen.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>

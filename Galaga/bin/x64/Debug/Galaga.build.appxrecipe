@@ -151,6 +151,9 @@
     <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\Sprites\PlayerSprite.xbf">
       <PackagePath>View\Sprites\PlayerSprite.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\bin\x64\Debug\View\StartScreen.xbf">
+      <PackagePath>View\StartScreen.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.19041.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
     </AppxPackagedFile>

@@ -27,6 +27,9 @@
       <RootProperty Name="Foreground" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="Visibility" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="FontWeight" />
+      <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="Galaga.View.GameCanvas" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl" />
@@ -112,5 +115,21 @@
     <RootType FullName="Galaga.View.Sprites.NukeExplosionSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerMissileSprite" />
     <RootType FullName="Galaga.View.Sprites.PlayerSprite" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Grid">
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.StackPanel">
+      <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Spacing" />
+      <RootProperty Name="Children" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Content" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="Height" />
+      <RootEvent Name="Click" />
+    </RootType>
+    <RootType FullName="Galaga.View.StartScreen" />
   </Roots.RootTypes>
 </Roots>
