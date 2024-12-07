@@ -304,6 +304,19 @@
             <param name="enemyShips">The enemy ships.</param>
             <param name="tickCounter">The tick counter.</param>
         </member>
+        <member name="M:Galaga.Model.EnemyManager.MoveShip(Galaga.Model.EnemyShip,System.Boolean,System.Int32)">
+            <summary>
+            Moves an individual ship based on direction and speed.
+            </summary>
+            <summary>
+            Moves an individual ship based on direction and speed.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.EnemyManager.GetRowIndex(System.Double)">
+            <summary>
+            Determines the row index of a ship based on its Y position.
+            </summary>
+        </member>
         <member name="M:Galaga.Model.EnemyManager.MoveBonusShip">
             <summary>
                 Moves the bonus ship.

@@ -13,7 +13,7 @@ namespace Galaga.Model
         #region Data members
 
         private const int EnemyFireCounter = 30;
-        private const int PlayerMissileSpeed = -10;
+        private const int PlayerMissileSpeed = -40;
         private const int NukeMissileSpeed = -5;
         private const int EnemyMissileSpeed = 12;
 

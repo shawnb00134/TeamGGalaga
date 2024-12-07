@@ -26,6 +26,10 @@ namespace Galaga.Model
 
         private readonly ShipFactory shipFactory;
 
+        private readonly Dictionary<int, int> rowDirections = new Dictionary<int, int>();
+        private readonly Dictionary<int, int> rowSpeeds = new Dictionary<int, int>();
+        private const int DefaultSpeedX = 3;
+
         #endregion
 
         #region Constructors
@@ -59,15 +63,37 @@ namespace Galaga.Model
             var startY = canvas.Height / 2;
             int[] enemiesPerRow = { 2, 3, 4, 5 };
 
+            for (int row = 0; row < enemiesPerRow.Length; row++)
+            {
+                rowDirections[row] = 1;
+                rowSpeeds[row] = DefaultSpeedX * levelMultiplier;
+            }
+
+            if (levelMultiplier >= 2)
+            {
+                rowDirections[0] = 1;
+                rowDirections[1] = 1;
+                rowDirections[2] = -1;
+                rowDirections[3] = -1;
+            }
+
+            if (levelMultiplier >= 3)
+            {
+                rowDirections[1] = -1;
+                rowDirections[3] = -1;
+
+                rowSpeeds[1] *= 2;
+                rowSpeeds[3] *= 2;
+            }
+
             for (var rowIndex = 0; rowIndex < enemiesPerRow.Length; rowIndex++)
             {
                 var enemyCount = enemiesPerRow[rowIndex];
                 var spacing = canvasWidth / (enemyCount + 1);
 
-                EnemyShip enemyShip;
                 for (var i = 0; i < enemyCount; i++)
                 {
-                    enemyShip = shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, canvas);
+                    var enemyShip = shipFactory.CreateEnemyShip(rowIndex, levelMultiplier, canvas);
                     enemyShip.AddEnemyToCanvas();
                     enemyShips.Add(enemyShip);
 
@@ -98,22 +124,64 @@ namespace Galaga.Model
         /// <param name="tickCounter">The tick counter.</param>
         public void MoveEnemyShips(IList<EnemyShip> enemyShips, int tickCounter)
         {
-            foreach (var ship in enemyShips)
-                if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite))
+            bool shouldChangeDirection = false;
+
+            for (int rowIndex = 0; rowIndex < rowDirections.Count; rowIndex++)
+            {
+                var direction = rowDirections[rowIndex];
+                var speed = rowSpeeds[rowIndex];
+
+                foreach (var ship in enemyShips)
                 {
-                    if (movingRight)
+                    if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite) && ship.Y == canvas.Height / 2 - rowIndex * 100)
                     {
-                        ship.MoveRight();
+                        ship.X += direction * speed;
 
-                        if (ship.X + ship.Width >= canvas.Width) movingRight = false;
-                    }
-                    else
-                    {
-                        ship.MoveLeft();
-
-                        if (ship.X <= 0) movingRight = true;
+                        if ((direction == 1 && ship.X + ship.Width >= canvas.Width) ||
+                            (direction == -1 && ship.X <= 0))
+                        {
+                            shouldChangeDirection = true;
+                        }
                     }
                 }
+            }
+
+            if (shouldChangeDirection)
+            {
+                for (int rowIndex = 0; rowIndex < rowDirections.Count; rowIndex++)
+                {
+                    rowDirections[rowIndex] *= -1;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Moves an individual ship based on direction and speed.
+        /// </summary>
+        /// <summary>
+        /// Moves an individual ship based on direction and speed.
+        /// </summary>
+        private void MoveShip(EnemyShip ship, bool moveRight, int speedMultiplier = 1)
+        {
+            if (moveRight)
+            {
+                ship.X += ship.SpeedX * speedMultiplier;
+            }
+            else
+            {
+                ship.X -= ship.SpeedX * speedMultiplier;
+            }
+            Canvas.SetLeft(ship.Sprite, ship.X);
+        }
+
+        /// <summary>
+        /// Determines the row index of a ship based on its Y position.
+        /// </summary>
+        private int GetRowIndex(double yPosition)
+        {
+            const double rowSpacing = 100;
+            var startY = canvas.Height / 2;
+            return (int)((startY - yPosition) / rowSpacing);
         }
 
         /// <summary>
