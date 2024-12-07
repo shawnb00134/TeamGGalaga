@@ -10,9 +10,9 @@
     <Grid>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="20">
             <TextBlock Text="Galaga" FontSize="36" FontWeight="Bold" Foreground="White" HorizontalAlignment="Center" />
-            <Button x:ConnectionId='2' x:Name="StartGameButton" Content="Start Game" Width="200" Height="50"                               />
-            <Button x:ConnectionId='3' x:Name="ViewHighScoresButton" Content="View High Scores" Width="200" Height="50"                                    />
-            <Button x:ConnectionId='4' x:Name="ResetHighScoresButton" Content="Reset High Scores" Width="200" Height="50"                                     />
+            <Button x:ConnectionId='2' x:Name="startGameButton" Content="Start Game" Width="200" Height="50"                               />
+            <Button x:ConnectionId='3' x:Name="viewHighScoresButton" Content="View High Scores" Width="200" Height="50"                                    />
+            <Button x:ConnectionId='4' x:Name="resetHighScoresButton" Content="Reset High Scores" Width="200" Height="50"                                     />
         </StackPanel>
     </Grid>
 </Page>

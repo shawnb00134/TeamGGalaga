@@ -57,7 +57,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the explosion.
         /// </summary>
-        public async Task playExplosion()
+        public async Task PlayExplosion()
         {
             canvas.Children.Add(sprites[0]);
             sprites[0].RenderAt(xCoordinate, yCoordinate);
@@ -83,7 +83,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the Sprite for the nuclear explosion.
         /// </summary>
-        public async void playNuclearExplosion()
+        public async void PlayNuclearExplosion()
         {
             canvas.Children.Add(Sprite);
             Sprite.Visibility = Visibility.Visible;

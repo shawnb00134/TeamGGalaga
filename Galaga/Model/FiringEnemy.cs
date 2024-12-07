@@ -11,13 +11,6 @@ namespace Galaga.Model
     /// <seealso cref="Galaga.Model.EnemyShip" />
     public class FiringEnemy : EnemyShip
     {
-        #region Data members
-
-        private const int SpeedXDirection = 3;
-        private const int SpeedYDirection = 0;
-
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -27,6 +20,13 @@ namespace Galaga.Model
         ///     The score value.
         /// </value>
         public override int ScoreValue { get; set; }
+
+        #endregion
+
+        #region Data members
+
+        private const int SpeedXDirection = 3;
+        private const int SpeedYDirection = 0;
 
         #endregion
 

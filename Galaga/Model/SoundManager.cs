@@ -32,7 +32,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the sound of the player firing.
         /// </summary>
-        public void playPlayerFiring()
+        public void PlayPlayerFiring()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipFiring02.wav"));
             mediaPlayer.Play();
@@ -41,7 +41,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the sound of the player being destroyed.
         /// </summary>
-        public void playPlayerDestroyed()
+        public void PlayPlayerDestroyed()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/PlayerShipDestroyed02.wav"));
             mediaPlayer.Play();
@@ -50,7 +50,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the sound of the enemy firing.
         /// </summary>
-        public void playEnemyFiring()
+        public void PlayEnemyFiring()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipFiring02.wav"));
             mediaPlayer.Play();
@@ -59,7 +59,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the sound of the enemy being destroyed.
         /// </summary>
-        public void playEnemyDestroyed()
+        public void PlayEnemyDestroyed()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/EnemyShipDestroyed02.wav"));
             mediaPlayer.Play();
@@ -68,7 +68,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the bonus ship creation.
         /// </summary>
-        public void playBonusShipCreation()
+        public void PlayBonusShipCreation()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/bonusShip.wav"));
             mediaPlayer.Play();
@@ -77,7 +77,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the power up.
         /// </summary>
-        public void playPowerUp()
+        public void PlayPowerUp()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/powerUp.wav"));
             mediaPlayer.Play();
@@ -86,7 +86,7 @@ namespace Galaga.Model
         /// <summary>
         ///     Plays the nuke explosion.
         /// </summary>
-        public void playNukeExplosion()
+        public void PlayNukeExplosion()
         {
             mediaPlayer.Source = MediaSource.CreateFromUri(new Uri("ms-appx:///Sounds/nukeExplosion.wav"));
             mediaPlayer.Play();

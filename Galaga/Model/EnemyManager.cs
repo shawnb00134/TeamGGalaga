@@ -12,7 +12,6 @@ namespace Galaga.Model
     {
         #region Data members
 
-        private bool movingRight = true;
         private bool movingRightBonusShip = true;
 
         /// <summary>
@@ -63,7 +62,7 @@ namespace Galaga.Model
             var startY = canvas.Height / 2;
             int[] enemiesPerRow = { 2, 3, 4, 5 };
 
-            for (int row = 0; row < enemiesPerRow.Length; row++)
+            for (var row = 0; row < enemiesPerRow.Length; row++)
             {
                 rowDirections[row] = 1;
                 rowSpeeds[row] = DefaultSpeedX * levelMultiplier;
@@ -124,60 +123,49 @@ namespace Galaga.Model
         /// <param name="tickCounter">The tick counter.</param>
         public void MoveEnemyShips(IList<EnemyShip> enemyShips, int tickCounter)
         {
-            bool shouldChangeDirection = false;
+            var shouldChangeDirection = false;
 
-            for (int rowIndex = 0; rowIndex < rowDirections.Count; rowIndex++)
+            for (var rowIndex = 0; rowIndex < rowDirections.Count; rowIndex++)
             {
                 var direction = rowDirections[rowIndex];
                 var speed = rowSpeeds[rowIndex];
 
                 foreach (var ship in enemyShips)
-                {
-                    if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite) && ship.Y == canvas.Height / 2 - rowIndex * 100)
+                    if (ship.Sprite != null && ship.Sprite.GetType() != typeof(EnemySpecialSprite) &&
+                        ship.Y == canvas.Height / 2 - rowIndex * 100)
                     {
                         ship.X += direction * speed;
 
                         if ((direction == 1 && ship.X + ship.Width >= canvas.Width) ||
                             (direction == -1 && ship.X <= 0))
-                        {
                             shouldChangeDirection = true;
-                        }
                     }
-                }
             }
 
             if (shouldChangeDirection)
-            {
-                for (int rowIndex = 0; rowIndex < rowDirections.Count; rowIndex++)
-                {
+                for (var rowIndex = 0; rowIndex < rowDirections.Count; rowIndex++)
                     rowDirections[rowIndex] *= -1;
-                }
-            }
         }
 
         /// <summary>
-        /// Moves an individual ship based on direction and speed.
+        ///     Moves an individual ship based on direction and speed.
         /// </summary>
         /// <summary>
-        /// Moves an individual ship based on direction and speed.
+        ///     Moves an individual ship based on direction and speed.
         /// </summary>
-        private void MoveShip(EnemyShip ship, bool moveRight, int speedMultiplier = 1)
+        private void moveShip(EnemyShip ship, bool moveRight, int speedMultiplier = 1)
         {
             if (moveRight)
-            {
                 ship.X += ship.SpeedX * speedMultiplier;
-            }
             else
-            {
                 ship.X -= ship.SpeedX * speedMultiplier;
-            }
             Canvas.SetLeft(ship.Sprite, ship.X);
         }
 
         /// <summary>
-        /// Determines the row index of a ship based on its Y position.
+        ///     Determines the row index of a ship based on its Y position.
         /// </summary>
-        private int GetRowIndex(double yPosition)
+        private int getRowIndex(double yPosition)
         {
             const double rowSpacing = 100;
             var startY = canvas.Height / 2;
@@ -189,9 +177,9 @@ namespace Galaga.Model
         /// </summary>
         public void MoveBonusShip()
         {
-            checkBounceCounter();
+            CheckBounceCounter();
 
-            checkBonusShipPosition();
+            this.checkBonusShipPosition();
 
             if (bonusShip != null)
             {
@@ -214,11 +202,11 @@ namespace Galaga.Model
         ///     Lets the GameManager know when to remove the bonus ship from play.
         /// </summary>
         /// <returns></returns>
-        public bool checkBounceCounter()
+        public bool CheckBounceCounter()
         {
             if (BonusShipBounce == 0)
             {
-                resetBonusShipBoundCounter();
+                this.resetBonusShipBoundCounter();
                 return true;
             }
 
@@ -262,10 +250,10 @@ namespace Galaga.Model
         ///     Plays the explosion.
         /// </summary>
         /// <param name="ship">The ship.</param>
-        public void playExplosion(GameObject ship)
+        public void PlayExplosion(GameObject ship)
         {
             var explosion = new Explosion(ship, canvas);
-            _ = explosion.playExplosion();
+            _ = explosion.PlayExplosion();
         }
 
         #endregion

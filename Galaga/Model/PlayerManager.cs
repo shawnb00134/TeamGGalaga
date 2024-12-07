@@ -88,7 +88,7 @@ namespace Galaga.Model
         /// <returns>List of GameObjects ships</returns>
         public IList<GameObject> CheckPlayerLives(GameObject playerObject, IList<GameObject> listOfShips)
         {
-            player.removePlayerLife();
+            player.RemovePlayerLife();
 
             canvas.Children.Remove(playerObject.Sprite);
             listOfShips.Remove(playerObject);
@@ -121,7 +121,7 @@ namespace Galaga.Model
         /// </summary>
         public void AddPlayerLife()
         {
-            player.addPlayerLife();
+            player.AddPlayerLife();
         }
 
         #endregion

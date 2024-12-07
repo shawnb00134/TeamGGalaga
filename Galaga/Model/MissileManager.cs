@@ -23,25 +23,6 @@ namespace Galaga.Model
 
         #endregion
 
-        #region Constructors
-
-        /// <summary>
-        ///     Initializes a new instance of the <see cref="MissileManager" /> class.
-        /// </summary>
-        public MissileManager()
-        {
-            soundManager = new SoundManager();
-            random = new Random();
-
-            PlayerMissileCount = 0;
-            delayTicker = 10;
-            NukeEnabled = true;
-            PlayerMissileLimit = 3;
-            MissileDelayLimit = 10;
-        }
-
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -66,6 +47,25 @@ namespace Galaga.Model
 
         #endregion
 
+        #region Constructors
+
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="MissileManager" /> class.
+        /// </summary>
+        public MissileManager()
+        {
+            soundManager = new SoundManager();
+            random = new Random();
+
+            PlayerMissileCount = 0;
+            delayTicker = 10;
+            NukeEnabled = false;
+            PlayerMissileLimit = 3;
+            MissileDelayLimit = 10;
+        }
+
+        #endregion
+
         #region Methods
 
         /// <summary>
@@ -86,7 +86,7 @@ namespace Galaga.Model
                 missile.Y = player.Y - missile.Height;
                 canvas.Children.Add(missile.Sprite);
 
-                soundManager.playPlayerFiring();
+                soundManager.PlayPlayerFiring();
 
                 return missile;
             }
@@ -136,7 +136,7 @@ namespace Galaga.Model
                     var missile = CreateEnemyMissile(selectedShip, playerShip);
                     canvas.Children.Add(missile.Sprite);
 
-                    soundManager.playEnemyFiring();
+                    soundManager.PlayEnemyFiring();
 
                     return missile;
                 }
@@ -174,7 +174,7 @@ namespace Galaga.Model
         ///     Check to see if missile GameObject is a player missile for decrementing player missile count.
         /// </summary>
         /// <param name="missile"></param>
-        public void checkForPlayerMissile(GameObject missile)
+        public void CheckForPlayerMissile(GameObject missile)
         {
             if (missile.Sprite.GetType() == typeof(PlayerMissileSprite)) DecrementPlayerMissileCount();
         }
@@ -258,8 +258,8 @@ namespace Galaga.Model
         {
             if (!(missile.Sprite is NukeBombSprite)) return;
             var explosion = new Explosion(new NukeExplosionSprite(), missile, canvas);
-            explosion.playNuclearExplosion();
-            soundManager.playNukeExplosion();
+            explosion.PlayNuclearExplosion();
+            soundManager.PlayNukeExplosion();
         }
 
         #endregion

@@ -124,7 +124,7 @@ namespace Galaga.View
         ///     Updates the score board.
         /// </summary>
         /// <param name="scoreText">The score text.</param>
-        public void updateScoreBoard(string scoreText)
+        public void UpdateScoreBoard(string scoreText)
         {
             this.scoreBoard.Text = scoreText;
         }
@@ -133,12 +133,12 @@ namespace Galaga.View
         ///     Updates the player lives board.
         /// </summary>
         /// <param name="playerLivesText">The player lives text.</param>
-        public void updatePlayerLivesBoard(string playerLivesText)
+        public void UpdatePlayerLivesBoard(string playerLivesText)
         {
             this.playerLivesBoard.Text = playerLivesText;
         }
 
-        private void ReturnToStartScreen()
+        private void returnToStartScreen()
         {
             Frame.Navigate(typeof(StartScreen));
         }

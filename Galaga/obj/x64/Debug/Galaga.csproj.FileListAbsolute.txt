@@ -797,3 +797,8 @@ C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScre
 C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.g.cs
 C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.xaml
 C:\WestGA\Fall24\ProgramConstruction\PC1_HW5\Galaga\obj\x64\Debug\View\StartScreen.xbf
+C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\bin\x64\Debug\View\StartScreen.xbf
+C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\obj\x64\Debug\View\StartScreen.g.i.cs
+C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\obj\x64\Debug\View\StartScreen.g.cs
+C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\obj\x64\Debug\View\StartScreen.xaml
+C:\Users\DeadMan\Desktop\School\10_Fall_2024\ProgramConstruction1\Assignments\Assignment-05\TeamGGalaga\Galaga\obj\x64\Debug\View\StartScreen.xbf

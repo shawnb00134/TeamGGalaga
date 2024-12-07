@@ -78,15 +78,27 @@
             <param name="objectDestroyed">The ship.</param>
             <param name="canvas">The canvas.</param>
         </member>
-        <member name="M:Galaga.Model.Explosion.playExplosion">
+        <member name="M:Galaga.Model.Explosion.PlayExplosion">
             <summary>
                 Plays the explosion.
             </summary>
         </member>
-        <member name="M:Galaga.Model.Explosion.playNuclearExplosion">
+        <member name="M:Galaga.Model.Explosion.PlayNuclearExplosion">
             <summary>
                 Plays the Sprite for the nuclear explosion.
             </summary>
+        </member>
+        <member name="T:Galaga.Model.HighScoreManager">
+            <summary>
+                High School Manager class.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.HighScoreManager.DisplayHighScores(Windows.UI.Xaml.Controls.ListView,System.String)">
+            <summary>
+                High Score Manager class.
+            </summary>
+            <param name="highScoreListView"></param>
+            <param name="sortBy"></param>
         </member>
         <member name="T:Galaga.Model.Missile">
             <summary>
@@ -113,11 +125,6 @@
                 Missile controller
             </summary>
         </member>
-        <member name="M:Galaga.Model.MissileManager.#ctor">
-            <summary>
-                Initializes a new instance of the <see cref="T:Galaga.Model.MissileManager" /> class.
-            </summary>
-        </member>
         <member name="P:Galaga.Model.MissileManager.NukeEnabled">
             <summary>
                 Public access to the NukeEnabled property
@@ -136,6 +143,11 @@
         <member name="P:Galaga.Model.MissileManager.MissileDelayLimit">
             <summary>
                 Sets the delay limit for the missile
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.MissileManager.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.Model.MissileManager" /> class.
             </summary>
         </member>
         <member name="M:Galaga.Model.MissileManager.FireMissile(Galaga.Model.GameObject,Windows.UI.Xaml.Controls.Canvas)">
@@ -170,7 +182,7 @@
             <param name="playerShip"></param>
             <returns></returns>
         </member>
-        <member name="M:Galaga.Model.MissileManager.checkForPlayerMissile(Galaga.Model.GameObject)">
+        <member name="M:Galaga.Model.MissileManager.CheckForPlayerMissile(Galaga.Model.GameObject)">
             <summary>
                 Check to see if missile GameObject is a player missile for decrementing player missile count.
             </summary>
@@ -304,17 +316,17 @@
             <param name="enemyShips">The enemy ships.</param>
             <param name="tickCounter">The tick counter.</param>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.MoveShip(Galaga.Model.EnemyShip,System.Boolean,System.Int32)">
+        <member name="M:Galaga.Model.EnemyManager.moveShip(Galaga.Model.EnemyShip,System.Boolean,System.Int32)">
             <summary>
-            Moves an individual ship based on direction and speed.
+                Moves an individual ship based on direction and speed.
             </summary>
             <summary>
-            Moves an individual ship based on direction and speed.
+                Moves an individual ship based on direction and speed.
             </summary>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.GetRowIndex(System.Double)">
+        <member name="M:Galaga.Model.EnemyManager.getRowIndex(System.Double)">
             <summary>
-            Determines the row index of a ship based on its Y position.
+                Determines the row index of a ship based on its Y position.
             </summary>
         </member>
         <member name="M:Galaga.Model.EnemyManager.MoveBonusShip">
@@ -322,7 +334,7 @@
                 Moves the bonus ship.
             </summary>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.checkBounceCounter">
+        <member name="M:Galaga.Model.EnemyManager.CheckBounceCounter">
             <summary>
                 Lets the GameManager know when to remove the bonus ship from play.
             </summary>
@@ -333,7 +345,7 @@
                 Swaps the Sprites every tick.
             </summary>
         </member>
-        <member name="M:Galaga.Model.EnemyManager.playExplosion(Galaga.Model.GameObject)">
+        <member name="M:Galaga.Model.EnemyManager.PlayExplosion(Galaga.Model.GameObject)">
             <summary>
                 Plays the explosion.
             </summary>
@@ -355,11 +367,6 @@
             </summary>
             <seealso cref="T:Galaga.Model.GameObject" />
         </member>
-        <member name="F:Galaga.Model.EnemyShip.Sprites">
-            <summary>
-                An array of Sprites for the enemy ship.
-            </summary>
-        </member>
         <member name="P:Galaga.Model.EnemyShip.ScoreValue">
             <summary>
                 Gets the score value.
@@ -367,6 +374,11 @@
             <value>
                 The score value.
             </value>
+        </member>
+        <member name="F:Galaga.Model.EnemyShip.Sprites">
+            <summary>
+                An array of Sprites for the enemy ship.
+            </summary>
         </member>
         <member name="M:Galaga.Model.EnemyShip.#ctor(Galaga.View.Sprites.BaseSprite,System.Int32,Windows.UI.Xaml.Controls.Canvas)">
             <summary>
@@ -420,6 +432,12 @@
             <summary>
                 Fires the missile.
             </summary>
+        </member>
+        <member name="M:Galaga.Model.GameManager.LoadAndDisplayHighScores(System.String)">
+            <summary>
+                Loads and displays the high scores.
+            </summary>
+            <param name="sortBy"></param>
         </member>
         <member name="M:Galaga.Model.GameManager.FireNuke">
             <summary>
@@ -562,12 +580,12 @@
                 Initializes a new instance of the <see cref="T:Galaga.Model.Player" /> class.
             </summary>
         </member>
-        <member name="M:Galaga.Model.Player.removePlayerLife">
+        <member name="M:Galaga.Model.Player.RemovePlayerLife">
             <summary>
                 Removes a player life.
             </summary>
         </member>
-        <member name="M:Galaga.Model.Player.addPlayerLife">
+        <member name="M:Galaga.Model.Player.AddPlayerLife">
             <summary>
                 Adds a player life.
             </summary>
@@ -636,6 +654,60 @@
                 Initializes a new instance of the <see cref="T:Galaga.Model.PlayerMissile" /> class.
             </summary>
         </member>
+        <member name="T:Galaga.Model.Score">
+            <summary>
+               Score class.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.Score.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Galaga.Model.Score" /> class.
+            </summary>
+            <param name="playerName"></param>
+            <param name="playerScore"></param>
+            <param name="levelCompleted"></param>
+        </member>
+        <member name="P:Galaga.Model.Score.PlayerName">
+            <summary>
+                Gets or sets the player name.
+            </summary>
+        </member>
+        <member name="P:Galaga.Model.Score.PlayerScore">
+            <summary>
+                Gets or sets the player score.
+            </summary>
+        </member>
+        <member name="P:Galaga.Model.Score.LevelCompleted">
+            <summary>
+                Level completed.
+            </summary>
+        </member>
+        <member name="M:Galaga.Model.Score.LoadHighScores">
+            <summary>
+               Load high scores.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Galaga.Model.Score.SaveHighScores(System.Collections.Generic.List{Galaga.Model.Score})">
+            <summary>
+              Save high scores.
+            </summary>
+            <param name="highScores"></param>
+        </member>
+        <member name="M:Galaga.Model.Score.AddNewScore(System.String,System.Int32,System.Int32)">
+            <summary>
+                Add new score.
+            </summary>
+            <param name="playerName"></param>
+            <param name="playerScore"></param>
+            <param name="levelCompleted"></param>
+        </member>
+        <member name="M:Galaga.Model.Score.ResetHighScores">
+            <summary>
+                Resets the high scores.
+            </summary>
+            <exception cref="T:System.Exception"></exception>
+        </member>
         <member name="T:Galaga.Model.ShipFactory">
             <summary>
                 Factory class for creating ships.
@@ -666,37 +738,37 @@
                 SoundManager constructor.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playPlayerFiring">
+        <member name="M:Galaga.Model.SoundManager.PlayPlayerFiring">
             <summary>
                 Plays the sound of the player firing.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playPlayerDestroyed">
+        <member name="M:Galaga.Model.SoundManager.PlayPlayerDestroyed">
             <summary>
                 Plays the sound of the player being destroyed.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playEnemyFiring">
+        <member name="M:Galaga.Model.SoundManager.PlayEnemyFiring">
             <summary>
                 Plays the sound of the enemy firing.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playEnemyDestroyed">
+        <member name="M:Galaga.Model.SoundManager.PlayEnemyDestroyed">
             <summary>
                 Plays the sound of the enemy being destroyed.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playBonusShipCreation">
+        <member name="M:Galaga.Model.SoundManager.PlayBonusShipCreation">
             <summary>
                 Plays the bonus ship creation.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playPowerUp">
+        <member name="M:Galaga.Model.SoundManager.PlayPowerUp">
             <summary>
                 Plays the power up.
             </summary>
         </member>
-        <member name="M:Galaga.Model.SoundManager.playNukeExplosion">
+        <member name="M:Galaga.Model.SoundManager.PlayNukeExplosion">
             <summary>
                 Plays the nuke explosion.
             </summary>
@@ -737,13 +809,13 @@
                 Displays the "You Lose" text.
             </summary>
         </member>
-        <member name="M:Galaga.View.GameCanvas.updateScoreBoard(System.String)">
+        <member name="M:Galaga.View.GameCanvas.UpdateScoreBoard(System.String)">
             <summary>
                 Updates the score board.
             </summary>
             <param name="scoreText">The score text.</param>
         </member>
-        <member name="M:Galaga.View.GameCanvas.updatePlayerLivesBoard(System.String)">
+        <member name="M:Galaga.View.GameCanvas.UpdatePlayerLivesBoard(System.String)">
             <summary>
                 Updates the player lives board.
             </summary>
@@ -1278,6 +1350,16 @@
         <member name="M:Galaga.View.Sprites.PlayerSprite.GetBindingConnector(System.Int32,System.Object)">
             <summary>
             GetBindingConnector(int connectionId, object target)
+            </summary>
+        </member>
+        <member name="T:Galaga.View.StartScreen">
+            <summary>
+                Start Screen class.
+            </summary>
+        </member>
+        <member name="M:Galaga.View.StartScreen.#ctor">
+            <summary>
+                Initializes a new instance of the <see cref="T:Galaga.View.StartScreen" /> class.
             </summary>
         </member>
         <member name="M:Galaga.View.StartScreen.InitializeComponent">

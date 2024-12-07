@@ -1,14 +1,19 @@
 using Galaga.Model;
 using System;
 using System.Collections.Generic;
-using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 namespace Galaga.View
 {
-    public sealed partial class StartScreen : Page
+    /// <summary>
+    ///     Start Screen class.
+    /// </summary>
+    public sealed partial class StartScreen
     {
+        /// <summary>
+        ///     Initializes a new instance of the <see cref="StartScreen" /> class.
+        /// </summary>
         public StartScreen()
         {
             InitializeComponent();
@@ -24,7 +29,7 @@ namespace Galaga.View
             var highScoresPage = new ContentDialog
             {
                 Title = "High Scores",
-                Content = CreateHighScoreListView(),
+                Content = this.createHighScoreListView(),
                 CloseButtonText = "Back to Start Screen"
             };
             _ = highScoresPage.ShowAsync();
@@ -47,7 +52,7 @@ namespace Galaga.View
                 {
                     Score.ResetHighScores();
 
-                    var highScoreListView = CreateHighScoreListView();
+                    var highScoreListView = this.createHighScoreListView();
                     highScoreListView.ItemsSource = new List<string> { "No scores yet!" };
 
                     await new ContentDialog
@@ -69,7 +74,7 @@ namespace Galaga.View
             }
         }
 
-        private ListView CreateHighScoreListView()
+        private ListView createHighScoreListView()
         {
             var highScoreListView = new ListView
             {

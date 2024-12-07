@@ -2,12 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Shapes;
 using Galaga.View;
 using Galaga.View.Sprites;
-using Windows.UI.Xaml.Shapes;
-using Windows.UI.Xaml.Media;
 
 namespace Galaga.Model
 {
@@ -45,7 +46,6 @@ namespace Galaga.Model
         private TextBox nameInputBox;
         private Button submitScoreButton;
         private ListView highScoreListView;
-        private TextBlock scoreboardLabel;
         private ComboBox sortingOptions;
         private Rectangle overlayBackground;
         private Grid popupContainer;
@@ -86,11 +86,11 @@ namespace Galaga.Model
             timer.Start();
             updateScore(score);
 
-            InitializeHighScoreUI();
+            this.initializeHighScoreUi();
         }
 
         #endregion
-        
+
         #region Methods
 
         private void timer_Tick(object sender, object e)
@@ -114,7 +114,7 @@ namespace Galaga.Model
             {
                 enemyShips.Add(enemyManager.CreateSpecialShip());
                 listOfShips.Add(enemyShips.Last());
-                soundManager.playBonusShipCreation();
+                soundManager.PlayBonusShipCreation();
                 specialShipHasSpawned = true;
             }
 
@@ -136,7 +136,7 @@ namespace Galaga.Model
         {
             updatePlayerLives();
             createEnemyShips();
-            this.specialShipHasSpawned = false;
+            specialShipHasSpawned = false;
         }
 
         private void createEnemyShips()
@@ -205,7 +205,7 @@ namespace Galaga.Model
                 {
                     case Missile _:
                         missileManager.TriggerNuke(obj, canvas);
-                        missileManager.checkForPlayerMissile(obj);
+                        missileManager.CheckForPlayerMissile(obj);
                         missiles.Remove(obj);
                         canvas.Children.Remove(obj.Sprite);
                         break;
@@ -223,7 +223,7 @@ namespace Galaga.Model
 
         private void checkWhenToRemoveSpecialShip()
         {
-            if (enemyManager.checkBounceCounter())
+            if (enemyManager.CheckBounceCounter())
                 foreach (var enemyShip in enemyShips)
                     if (enemyShip.Sprite is EnemySpecialSprite)
                     {
@@ -237,10 +237,10 @@ namespace Galaga.Model
         private void destroyPlayerLife(GameObject ship)
         {
             playerManager.CheckPlayerLives(ship, listOfShips);
-            enemyManager.playExplosion(ship);
+            enemyManager.PlayExplosion(ship);
             missileManager.ResetPlayerLimits();
             updatePlayerLives();
-            soundManager.playPlayerDestroyed();
+            soundManager.PlayPlayerDestroyed();
         }
 
         private void removeEnemyShip(EnemyShip enemyShip)
@@ -254,8 +254,8 @@ namespace Galaga.Model
             enemyShips.Remove(enemyShip);
             listOfShips.Remove(enemyShip);
             canvas.Children.Remove(enemyShip.Sprite);
-            enemyManager.playExplosion(enemyShip);
-            soundManager.playEnemyDestroyed();
+            enemyManager.PlayExplosion(enemyShip);
+            soundManager.PlayEnemyDestroyed();
 
             updateScore(enemyShip.ScoreValue);
         }
@@ -276,7 +276,7 @@ namespace Galaga.Model
         private void updateScore(int scoreValue)
         {
             score += scoreValue;
-            gameCanvas.updateScoreBoard("Score: " + score);
+            gameCanvas.UpdateScoreBoard("Score: " + score);
         }
 
         private void checkForEndGame()
@@ -285,7 +285,7 @@ namespace Galaga.Model
             {
                 timer.Stop();
                 gameCanvas.DisplayYouLoseText();
-                HandleGameOver();
+                this.handleGameOver();
             }
 
             if (!enemyShips.Any())
@@ -300,12 +300,12 @@ namespace Galaga.Model
                 {
                     timer.Stop();
                     gameCanvas.DisplayYouWinText();
-                    HandleGameOver();
+                    this.handleGameOver();
                 }
             }
         }
 
-        private void HandleGameOver()
+        private void handleGameOver()
         {
             LoadAndDisplayHighScores();
 
@@ -330,14 +330,14 @@ namespace Galaga.Model
 
         private void updatePlayerLives()
         {
-            gameCanvas.updatePlayerLivesBoard("Lives: " + playerManager.GetPlayerLivesCount());
+            gameCanvas.UpdatePlayerLivesBoard("Lives: " + playerManager.GetPlayerLivesCount());
         }
 
-        private void InitializeHighScoreUI()
+        private void initializeHighScoreUi()
         {
             overlayBackground = new Rectangle
             {
-                Fill = new SolidColorBrush(Windows.UI.Color.FromArgb(150, 0, 0, 0)),
+                Fill = new SolidColorBrush(Color.FromArgb(150, 0, 0, 0)),
                 Width = canvas.Width,
                 Height = canvas.Height,
                 Visibility = Visibility.Collapsed
@@ -349,8 +349,8 @@ namespace Galaga.Model
             {
                 Width = 500,
                 Height = 400,
-                Background = new SolidColorBrush(Windows.UI.Colors.Black),
-                BorderBrush = new SolidColorBrush(Windows.UI.Colors.White),
+                Background = new SolidColorBrush(Colors.Black),
+                BorderBrush = new SolidColorBrush(Colors.White),
                 BorderThickness = new Thickness(2),
                 Visibility = Visibility.Collapsed
             };
@@ -364,7 +364,7 @@ namespace Galaga.Model
             {
                 Text = "Scoreboard",
                 FontSize = 24,
-                Foreground = new SolidColorBrush(Windows.UI.Colors.White),
+                Foreground = new SolidColorBrush(Colors.White),
                 HorizontalAlignment = HorizontalAlignment.Center
             };
             containerPanel.Children.Add(scoreboardLabel);
@@ -456,6 +456,10 @@ namespace Galaga.Model
             }
         }
 
+        /// <summary>
+        ///     Loads and displays the high scores.
+        /// </summary>
+        /// <param name="sortBy"></param>
         public void LoadAndDisplayHighScores(string sortBy = "Sort by Score/Name/Level")
         {
             var highScores = Score.LoadHighScores();
@@ -485,17 +489,15 @@ namespace Galaga.Model
                     break;
             }
 
-            highScoreListView.ItemsSource = highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
+            highScoreListView.ItemsSource =
+                highScores.Select(s => $"{s.PlayerName} - {s.PlayerScore} - Level {s.LevelCompleted}");
             overlayBackground.Visibility = Visibility.Visible;
             popupContainer.Visibility = Visibility.Visible;
         }
 
         private void SortingOptions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (sortingOptions.SelectedItem is string selectedSort)
-            {
-                LoadAndDisplayHighScores(selectedSort);
-            }
+            if (sortingOptions.SelectedItem is string selectedSort) LoadAndDisplayHighScores(selectedSort);
         }
 
         /// <summary>
@@ -503,7 +505,6 @@ namespace Galaga.Model
         /// </summary>
         public async void FireNuke()
         {
-            missileManager.EnableNuke();
             if (currentLevel == LevelCap && missileManager.NukeEnabled)
             {
                 missiles.Add(missileManager.FireNuke(playerManager.GetPlayer(), canvas));

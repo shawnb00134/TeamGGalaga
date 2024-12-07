@@ -10,6 +10,18 @@ namespace Galaga.Model
     /// <seealso cref="Galaga.Model.GameObject" />
     public abstract class EnemyShip : GameObject
     {
+        #region Properties
+
+        /// <summary>
+        ///     Gets the score value.
+        /// </summary>
+        /// <value>
+        ///     The score value.
+        /// </value>
+        public virtual int ScoreValue { get; set; }
+
+        #endregion
+
         #region Data members
 
         private const int SpeedXDirection = 3;
@@ -21,18 +33,6 @@ namespace Galaga.Model
         ///     An array of Sprites for the enemy ship.
         /// </summary>
         protected BaseSprite[] Sprites;
-
-        #endregion
-
-        #region Properties
-
-        /// <summary>
-        ///     Gets the score value.
-        /// </summary>
-        /// <value>
-        ///     The score value.
-        /// </value>
-        public virtual int ScoreValue { get; set; }
 
         #endregion
 

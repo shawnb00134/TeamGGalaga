@@ -21,13 +21,16 @@ namespace Galaga.Model
             var objectsToRemove = new List<GameObject>();
 
             foreach (var ship in listOfShips)
-            foreach (var missile in missiles)
-                if (missile != null && !(ship is EnemyShip && missile.Sprite is EnemyMissileSprite))
-                    if (isColliding(ship, missile))
-                    {
-                        objectsToRemove.Add(ship);
-                        objectsToRemove.Add(missile);
-                    }
+            {
+                foreach (var missile in missiles)
+                    if (missile != null && !(ship is EnemyShip && missile.Sprite is EnemyMissileSprite))
+                        if (isColliding(ship, missile))
+                        {
+                            objectsToRemove.Add(ship);
+                            objectsToRemove.Add(missile);
+                        }
+            }
+            
 
             return objectsToRemove;
         }

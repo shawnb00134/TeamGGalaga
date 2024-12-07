@@ -7,13 +7,6 @@ namespace Galaga.Model
     /// </summary>
     public class Player : GameObject
     {
-        #region Data members
-
-        private const int SpeedXDirection = 15;
-        private const int SpeedYDirection = 0;
-
-        #endregion
-
         #region Properties
 
         /// <summary>
@@ -23,6 +16,13 @@ namespace Galaga.Model
         ///     The player lives.
         /// </value>
         public int PlayerLives { get; private set; } = 3;
+
+        #endregion
+
+        #region Data members
+
+        private const int SpeedXDirection = 15;
+        private const int SpeedYDirection = 0;
 
         #endregion
 
@@ -44,17 +44,17 @@ namespace Galaga.Model
         /// <summary>
         ///     Removes a player life.
         /// </summary>
-        public void removePlayerLife()
+        public void RemovePlayerLife()
         {
-            this.PlayerLives = this.PlayerLives - 1;
+            PlayerLives = PlayerLives - 1;
         }
 
         /// <summary>
         ///     Adds a player life.
         /// </summary>
-        public void addPlayerLife()
+        public void AddPlayerLife()
         {
-            this.PlayerLives = this.PlayerLives + 1;
+            PlayerLives = PlayerLives + 1;
         }
 
         #endregion
