@@ -26,10 +26,50 @@ namespace Galaga.View
 
         private void ViewHighScoresButton_Click(object sender, RoutedEventArgs e)
         {
+            var highScorePanel = new StackPanel
+            {
+                Orientation = Orientation.Vertical,
+                Width = 450,
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+
+            var sortingOptions = new ComboBox
+            {
+                Width = 400,
+                ItemsSource = new List<string>
+                {
+                    "Sort by Score/Name/Level",
+                    "Sort by Name/Score/Level",
+                    "Sort by Level/Score/Name"
+                },
+                SelectedIndex = 0
+            };
+
+            var highScoreListView = this.createHighScoreListView();
+
+            sortingOptions.SelectionChanged += (s, args) =>
+            {
+                if (sortingOptions.SelectedItem is string sortBy)
+                {
+                    HighScoreManager.DisplayHighScores(highScoreListView, sortBy);
+                }
+            };
+
+            highScorePanel.Children.Add(new TextBlock
+            {
+                Text = "High Scores",
+                FontSize = 24,
+                HorizontalAlignment = HorizontalAlignment.Center,
+                Margin = new Thickness(0, 0, 0, 10)
+            });
+
+            highScorePanel.Children.Add(sortingOptions);
+            highScorePanel.Children.Add(highScoreListView);
+
             var highScoresPage = new ContentDialog
             {
-                Title = "High Scores",
-                Content = this.createHighScoreListView(),
+                Title = "Scoreboard",
+                Content = highScorePanel,
                 CloseButtonText = "Back to Start Screen"
             };
             _ = highScoresPage.ShowAsync();
