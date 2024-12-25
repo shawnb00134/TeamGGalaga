@@ -24,9 +24,9 @@ namespace Galaga.Model
         /// <param name="levelCompleted"></param>
         public Score(string playerName, int playerScore, int levelCompleted)
         {
-            PlayerName = playerName;
-            PlayerScore = playerScore;
-            LevelCompleted = levelCompleted;
+            this.PlayerName = playerName;
+            this.PlayerScore = playerScore;
+            this.LevelCompleted = levelCompleted;
         }
 
         /// <summary>
@@ -61,7 +61,9 @@ namespace Galaga.Model
                     if (parts.Length == 3 &&
                         int.TryParse(parts[1], out var score) &&
                         int.TryParse(parts[2], out var level))
+                    {
                         highScores.Add(new Score(parts[0], score, level));
+                    }
                 }
             }
 

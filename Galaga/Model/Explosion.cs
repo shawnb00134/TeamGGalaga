@@ -32,8 +32,8 @@ namespace Galaga.Model
             this.canvas = canvas;
 
             Sprite = sprite;
-            xCoordinate = missile.X - Sprite.Width / 2;
-            yCoordinate = missile.Y - Sprite.Height / 2;
+            this.xCoordinate = missile.X - Sprite.Width / 2;
+            this.yCoordinate = missile.Y - Sprite.Height / 2;
         }
 
         /// <summary>
@@ -44,10 +44,10 @@ namespace Galaga.Model
         public Explosion(GameObject objectDestroyed, Canvas canvas)
         {
             this.canvas = canvas;
-            xCoordinate = objectDestroyed.X;
-            yCoordinate = objectDestroyed.Y;
+            this.xCoordinate = objectDestroyed.X;
+            this.yCoordinate = objectDestroyed.Y;
 
-            sprites = new BaseSprite[] { new ExplosionSprite1(), new ExplosionSprite2(), new ExplosionSprite3() };
+            this.sprites = new BaseSprite[] { new ExplosionSprite1(), new ExplosionSprite2(), new ExplosionSprite3() };
         }
 
         #endregion
@@ -59,25 +59,28 @@ namespace Galaga.Model
         /// </summary>
         public async Task PlayExplosion()
         {
-            canvas.Children.Add(sprites[0]);
-            sprites[0].RenderAt(xCoordinate, yCoordinate);
-            sprites[0].Visibility = Visibility.Visible;
+            this.canvas.Children.Add(this.sprites[0]);
+            this.sprites[0].RenderAt(this.xCoordinate, this.yCoordinate);
+            this.sprites[0].Visibility = Visibility.Visible;
 
             await Task.Delay(100);
 
-            canvas.Children.Add(sprites[1]);
-            sprites[1].RenderAt(xCoordinate, yCoordinate);
-            sprites[1].Visibility = Visibility.Visible;
+            this.canvas.Children.Add(this.sprites[1]);
+            this.sprites[1].RenderAt(this.xCoordinate, this.yCoordinate);
+            this.sprites[1].Visibility = Visibility.Visible;
 
             await Task.Delay(100);
 
-            canvas.Children.Add(sprites[2]);
-            sprites[2].RenderAt(xCoordinate, yCoordinate);
-            sprites[2].Visibility = Visibility.Visible;
+            this.canvas.Children.Add(this.sprites[2]);
+            this.sprites[2].RenderAt(this.xCoordinate, this.yCoordinate);
+            this.sprites[2].Visibility = Visibility.Visible;
 
             await Task.Delay(100);
 
-            foreach (var sprite in sprites) canvas.Children.Remove(sprite);
+            foreach (var sprite in this.sprites)
+            {
+                this.canvas.Children.Remove(sprite);
+            }
         }
 
         /// <summary>
@@ -85,13 +88,13 @@ namespace Galaga.Model
         /// </summary>
         public async void PlayNuclearExplosion()
         {
-            canvas.Children.Add(Sprite);
+            this.canvas.Children.Add(Sprite);
             Sprite.Visibility = Visibility.Visible;
-            Sprite.RenderAt(xCoordinate, yCoordinate);
+            Sprite.RenderAt(this.xCoordinate, this.yCoordinate);
 
             await Task.Delay(1000);
 
-            canvas.Children.Remove(Sprite);
+            this.canvas.Children.Remove(Sprite);
         }
 
         #endregion

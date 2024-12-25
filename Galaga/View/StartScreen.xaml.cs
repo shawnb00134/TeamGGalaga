@@ -16,7 +16,7 @@ namespace Galaga.View
         /// </summary>
         public StartScreen()
         {
-            InitializeComponent();
+            this.InitializeComponent();
         }
 
         private void StartGameButton_Click(object sender, RoutedEventArgs e)

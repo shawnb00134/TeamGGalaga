@@ -59,7 +59,7 @@ namespace Galaga.Model
             this.canvas = canvas;
             SetSpeed(SpeedXDirection * levelMultiplier, SpeedYDirection);
             Sprite = mainSprite;
-            Sprites = new[] { mainSprite, alternateSprite };
+            this.Sprites = new[] { mainSprite, alternateSprite };
         }
 
         #endregion
@@ -71,11 +71,11 @@ namespace Galaga.Model
         /// </summary>
         public virtual void AddEnemyToCanvas()
         {
-            canvas.Children.Add(Sprites[0]);
-            Sprites[0].Visibility = Visibility.Visible;
+            this.canvas.Children.Add(this.Sprites[0]);
+            this.Sprites[0].Visibility = Visibility.Visible;
 
-            canvas.Children.Add(Sprites[1]);
-            Sprites[1].Visibility = Visibility.Collapsed;
+            this.canvas.Children.Add(this.Sprites[1]);
+            this.Sprites[1].Visibility = Visibility.Collapsed;
         }
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Galaga.Model
         {
             //this.canvas.Children.Add(this.Sprites[0]);
             //this.Sprites[0].Visibility = Visibility.Visible;
-            canvas.Children.Add(Sprite);
+            this.canvas.Children.Add(Sprite);
         }
 
         /// <summary>
@@ -93,17 +93,17 @@ namespace Galaga.Model
         /// </summary>
         public virtual void SwapSprites()
         {
-            if (Sprites[0].Visibility == Visibility.Visible)
+            if (this.Sprites[0].Visibility == Visibility.Visible)
             {
-                Sprites[0].Visibility = Visibility.Collapsed;
-                Sprites[1].Visibility = Visibility.Visible;
-                Sprite = Sprites[1];
+                this.Sprites[0].Visibility = Visibility.Collapsed;
+                this.Sprites[1].Visibility = Visibility.Visible;
+                Sprite = this.Sprites[1];
             }
             else
             {
-                Sprites[0].Visibility = Visibility.Visible;
-                Sprites[1].Visibility = Visibility.Collapsed;
-                Sprite = Sprites[0];
+                this.Sprites[0].Visibility = Visibility.Visible;
+                this.Sprites[1].Visibility = Visibility.Collapsed;
+                Sprite = this.Sprites[0];
             }
         }
 

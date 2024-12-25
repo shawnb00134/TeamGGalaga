@@ -46,7 +46,7 @@ namespace Galaga.Model
         /// </summary>
         public void RemovePlayerLife()
         {
-            PlayerLives = PlayerLives - 1;
+            this.PlayerLives = this.PlayerLives - 1;
         }
 
         /// <summary>
@@ -54,7 +54,7 @@ namespace Galaga.Model
         /// </summary>
         public void AddPlayerLife()
         {
-            PlayerLives = PlayerLives + 1;
+            this.PlayerLives = this.PlayerLives + 1;
         }
 
         #endregion

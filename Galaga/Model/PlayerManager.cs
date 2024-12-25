@@ -29,9 +29,9 @@ namespace Galaga.Model
         public PlayerManager(Canvas canvas)
         {
             this.canvas = canvas;
-            canvasHeight = canvas.Height;
-            canvasWidth = canvas.Width;
-            player = new Player();
+            this.canvasHeight = canvas.Height;
+            this.canvasWidth = canvas.Width;
+            this.player = new Player();
         }
 
         #endregion
@@ -45,18 +45,18 @@ namespace Galaga.Model
         /// <returns></returns>
         public IList<GameObject> CreateAndPlacePlayer(IList<GameObject> shipList)
         {
-            canvas.Children.Add(player.Sprite);
-            shipList.Add(player);
+            this.canvas.Children.Add(this.player.Sprite);
+            shipList.Add(this.player);
 
-            placePlayerNearBottomOfBackgroundCentered();
+            this.placePlayerNearBottomOfBackgroundCentered();
 
             return shipList;
         }
 
         private void placePlayerNearBottomOfBackgroundCentered()
         {
-            player.X = canvasWidth / 2 - player.Width / 2.0;
-            player.Y = canvasHeight - player.Height - PlayerOffsetFromBottom;
+            this.player.X = this.canvasWidth / 2 - this.player.Width / 2.0;
+            this.player.Y = this.canvasHeight - this.player.Height - PlayerOffsetFromBottom;
         }
 
         /// <summary>
@@ -64,9 +64,12 @@ namespace Galaga.Model
         /// </summary>
         public void MovePlayerLeft()
         {
-            if (player.X <= PlayerSpeedBoundary) player.X = PlayerSpeedBoundary;
+            if (this.player.X <= PlayerSpeedBoundary)
+            {
+                this.player.X = PlayerSpeedBoundary;
+            }
 
-            player.MoveLeft();
+            this.player.MoveLeft();
         }
 
         /// <summary>
@@ -74,10 +77,12 @@ namespace Galaga.Model
         /// </summary>
         public void MovePlayerRight()
         {
-            if (player.X >= canvasWidth - player.Width - PlayerSpeedBoundary)
-                player.X = canvasWidth - player.Width - PlayerSpeedBoundary;
+            if (this.player.X >= this.canvasWidth - this.player.Width - PlayerSpeedBoundary)
+            {
+                this.player.X = this.canvasWidth - this.player.Width - PlayerSpeedBoundary;
+            }
 
-            player.MoveRight();
+            this.player.MoveRight();
         }
 
         /// <summary>
@@ -88,12 +93,15 @@ namespace Galaga.Model
         /// <returns>List of GameObjects ships</returns>
         public IList<GameObject> CheckPlayerLives(GameObject playerObject, IList<GameObject> listOfShips)
         {
-            player.RemovePlayerLife();
+            this.player.RemovePlayerLife();
 
-            canvas.Children.Remove(playerObject.Sprite);
+            this.canvas.Children.Remove(playerObject.Sprite);
             listOfShips.Remove(playerObject);
 
-            if (player.PlayerLives > 0) return CreateAndPlacePlayer(listOfShips);
+            if (this.player.PlayerLives > 0)
+            {
+                return this.CreateAndPlacePlayer(listOfShips);
+            }
 
             return null;
         }
@@ -104,7 +112,7 @@ namespace Galaga.Model
         /// <returns></returns>
         public int GetPlayerLivesCount()
         {
-            return player.PlayerLives;
+            return this.player.PlayerLives;
         }
 
         /// <summary>
@@ -113,7 +121,7 @@ namespace Galaga.Model
         /// <returns></returns>
         public GameObject GetPlayer()
         {
-            return player;
+            return this.player;
         }
 
         /// <summary>
@@ -121,7 +129,7 @@ namespace Galaga.Model
         /// </summary>
         public void AddPlayerLife()
         {
-            player.AddPlayerLife();
+            this.player.AddPlayerLife();
         }
 
         #endregion

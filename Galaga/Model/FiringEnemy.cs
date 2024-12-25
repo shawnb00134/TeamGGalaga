@@ -42,7 +42,10 @@ namespace Galaga.Model
         {
             SetSpeed(speed, SpeedYDirection);
 
-            if (mainSprite == null) Debug.WriteLine("Single Sprite is null");
+            if (mainSprite == null)
+            {
+                Debug.WriteLine("Single Sprite is null");
+            }
 
             Sprite = mainSprite;
         }

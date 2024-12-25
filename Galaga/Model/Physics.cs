@@ -23,12 +23,16 @@ namespace Galaga.Model
             foreach (var ship in listOfShips)
             {
                 foreach (var missile in missiles)
+                {
                     if (missile != null && !(ship is EnemyShip && missile.Sprite is EnemyMissileSprite))
-                        if (isColliding(ship, missile))
+                    {
+                        if (this.isColliding(ship, missile))
                         {
                             objectsToRemove.Add(ship);
                             objectsToRemove.Add(missile);
                         }
+                    }
+                }
             }
             
 
@@ -53,9 +57,15 @@ namespace Galaga.Model
         {
             if (missile != null)
             {
-                if (missile.Sprite is EnemyMissileSprite && missile.Y > canvas.Height) return true;
+                if (missile.Sprite is EnemyMissileSprite && missile.Y > canvas.Height)
+                {
+                    return true;
+                }
 
-                if (missile.Sprite.GetType() == typeof(PlayerMissileSprite) && missile.Y < 0) return true;
+                if (missile.Sprite.GetType() == typeof(PlayerMissileSprite) && missile.Y < 0)
+                {
+                    return true;
+                }
             }
 
             return false;

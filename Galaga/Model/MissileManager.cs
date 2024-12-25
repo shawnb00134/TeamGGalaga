@@ -54,14 +54,14 @@ namespace Galaga.Model
         /// </summary>
         public MissileManager()
         {
-            soundManager = new SoundManager();
-            random = new Random();
+            this.soundManager = new SoundManager();
+            this.random = new Random();
 
-            PlayerMissileCount = 0;
-            delayTicker = 10;
-            NukeEnabled = false;
-            PlayerMissileLimit = 3;
-            MissileDelayLimit = 10;
+            this.PlayerMissileCount = 0;
+            this.delayTicker = 10;
+            this.NukeEnabled = false;
+            this.PlayerMissileLimit = 3;
+            this.MissileDelayLimit = 10;
         }
 
         #endregion
@@ -76,17 +76,17 @@ namespace Galaga.Model
         /// <returns></returns>
         public GameObject FireMissile(GameObject player, Canvas canvas)
         {
-            if (PlayerMissileCount < PlayerMissileLimit && delayTicker > MissileDelayLimit)
+            if (this.PlayerMissileCount < this.PlayerMissileLimit && this.delayTicker > this.MissileDelayLimit)
             {
-                PlayerMissileCount++;
-                delayTicker = 0;
+                this.PlayerMissileCount++;
+                this.delayTicker = 0;
 
                 var missile = new Missile(PlayerMissileSpeed, new PlayerMissileSprite());
                 missile.X = player.X + player.Width / 2.0 - missile.Width / 2.0;
                 missile.Y = player.Y - missile.Height;
                 canvas.Children.Add(missile.Sprite);
 
-                soundManager.PlayPlayerFiring();
+                this.soundManager.PlayPlayerFiring();
 
                 return missile;
             }
@@ -102,11 +102,13 @@ namespace Galaga.Model
         public void MoveMissiles(IList<GameObject> missiles, Canvas canvas)
         {
             foreach (var missile in missiles)
+            {
                 if (missile != null)
                 {
                     missile.MoveDown();
                     missile.MoveRight();
                 }
+            }
         }
 
         /// <summary>
@@ -118,25 +120,30 @@ namespace Galaga.Model
         /// <returns></returns>
         public GameObject FireEnemyMissiles(IList<EnemyShip> enemyShips, GameObject playerShip, Canvas canvas)
         {
-            if (random.Next(EnemyFireCounter) == 0)
+            if (this.random.Next(EnemyFireCounter) == 0)
             {
                 FiringEnemy selectedShip = null;
                 var eligibleCount = 0;
 
                 foreach (var ship in enemyShips)
+                {
                     if (ship is FiringEnemy firingEnemy)
                     {
                         eligibleCount++;
 
-                        if (random.Next(eligibleCount) == 0) selectedShip = firingEnemy;
+                        if (this.random.Next(eligibleCount) == 0)
+                        {
+                            selectedShip = firingEnemy;
+                        }
                     }
+                }
 
                 if (selectedShip != null)
                 {
-                    var missile = CreateEnemyMissile(selectedShip, playerShip);
+                    var missile = this.CreateEnemyMissile(selectedShip, playerShip);
                     canvas.Children.Add(missile.Sprite);
 
-                    soundManager.PlayEnemyFiring();
+                    this.soundManager.PlayEnemyFiring();
 
                     return missile;
                 }
@@ -156,7 +163,7 @@ namespace Galaga.Model
             Missile missile;
             if (enemyShip.Sprite is EnemyLevel4Sprite || enemyShip.Sprite is EnemyLevel4SpriteAlternate)
             {
-                var speed = calculateVerticalHorizontalSpeed((EnemyShip)enemyShip, playerShip);
+                var speed = this.calculateVerticalHorizontalSpeed((EnemyShip)enemyShip, playerShip);
                 missile = new Missile(speed[0] * EnemyMissileSpeed, speed[1] * EnemyMissileSpeed,
                     new EnemyMissileSprite());
             }
@@ -176,7 +183,10 @@ namespace Galaga.Model
         /// <param name="missile"></param>
         public void CheckForPlayerMissile(GameObject missile)
         {
-            if (missile.Sprite.GetType() == typeof(PlayerMissileSprite)) DecrementPlayerMissileCount();
+            if (missile.Sprite.GetType() == typeof(PlayerMissileSprite))
+            {
+                this.DecrementPlayerMissileCount();
+            }
         }
 
         /// <summary>
@@ -184,7 +194,7 @@ namespace Galaga.Model
         /// </summary>
         public void DecrementPlayerMissileCount()
         {
-            PlayerMissileCount--;
+            this.PlayerMissileCount--;
         }
 
         /// <summary>
@@ -192,7 +202,7 @@ namespace Galaga.Model
         /// </summary>
         public void UpdateDelayTick()
         {
-            delayTicker++;
+            this.delayTicker++;
         }
 
         private double[] calculateVerticalHorizontalSpeed(EnemyShip enemy, GameObject player)
@@ -213,7 +223,7 @@ namespace Galaga.Model
         /// </summary>
         public void EnableNuke()
         {
-            NukeEnabled = true;
+            this.NukeEnabled = true;
         }
 
         /// <summary>
@@ -236,8 +246,8 @@ namespace Galaga.Model
         /// </summary>
         public void PowerUpPlayer()
         {
-            PlayerMissileLimit = 6;
-            MissileDelayLimit = 4;
+            this.PlayerMissileLimit = 6;
+            this.MissileDelayLimit = 4;
         }
 
         /// <summary>
@@ -245,8 +255,8 @@ namespace Galaga.Model
         /// </summary>
         public void ResetPlayerLimits()
         {
-            PlayerMissileLimit = 3;
-            MissileDelayLimit = 10;
+            this.PlayerMissileLimit = 3;
+            this.MissileDelayLimit = 10;
         }
 
         /// <summary>
@@ -256,10 +266,13 @@ namespace Galaga.Model
         /// <param name="canvas"></param>
         public void TriggerNuke(GameObject missile, Canvas canvas)
         {
-            if (!(missile.Sprite is NukeBombSprite)) return;
+            if (!(missile.Sprite is NukeBombSprite))
+            {
+                return;
+            }
             var explosion = new Explosion(new NukeExplosionSprite(), missile, canvas);
             explosion.PlayNuclearExplosion();
-            soundManager.PlayNukeExplosion();
+            this.soundManager.PlayNukeExplosion();
         }
 
         #endregion
